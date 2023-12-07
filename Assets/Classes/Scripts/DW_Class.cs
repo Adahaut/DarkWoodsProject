@@ -1,6 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+public enum ClassName
+{
+    None,
+    Priest,
+    Paladin,
+    Pyromaniac,
+    Thief
+}
+
+public enum specialSourceType
+{
+    None,
+    HolyWater,
+    Alcohol,
+    Faith
+}
 
 [CreateAssetMenu]
 public class DW_Class : ScriptableObject
@@ -11,6 +29,8 @@ public class DW_Class : ScriptableObject
     public Sprite classIcon;
     public DW_Passif classPassif;
     public DW_Skill classSkill;
+
+    public ClassName classType;
 
     // stats
     public float currentHealth;
@@ -24,11 +44,8 @@ public class DW_Class : ScriptableObject
     // jauges spéciales ( en set qu'une seule )
     public float minPercentDamage;
     public float maxPercentDamage;
-    [Range(0, 100)]
-    public int amountHolyWater;
-    [Range(0, 100)]
-    public int amountAlcohol;
-    [Range(0, 100)]
-    public int amountFaith;
 
+    public specialSourceType specialSourceType;
+    [Range(0, 100)]
+    public int specialSourceAmount;
 }
