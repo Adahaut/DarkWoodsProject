@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f287e81f58c2b9e41a3e96badc0382e8, type: 3}
+  m_Name: So_class_priest
+  m_EditorClassIdentifier: 
+  className: Priest
+  classDescription: The priest is the party's support.Often having holy water near,
+    he can heal allies in the need.
+  classIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
+  classSkill: {fileID: 11400000, guid: 27b91b006ab54734398423978ff9eeb3, type: 2}
+  currentHealth: 35
+  maxHealth: 35
+  currentAttackSpeed: 1
+  minattackDamage: 1
+  maxattackDamage: 6
+  minPercentDamage: 10
+  maxPercentDamage: 60
+  amountHolyWater: 100
+  amountAlcohol: 0
+  amountFaith: 0
