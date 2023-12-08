@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   skillType: 2
-  skillName: 
-  skillDescription: 
+  skillName: Heal
+  skillDescription: Heal 20% of max health of a designated ally.
   percentCost: 20
-  skillCooldown: 5
-  currentSkillCooldown: 5
+  skillCooldown: 25
+  currentSkillCooldown: 25
   isOnCooldown: 0
   emitterVFX: {fileID: 0}
-  restaurationHealth: 25
+  restaurationHealth: 20

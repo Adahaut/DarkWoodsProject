@@ -10,7 +10,13 @@ public class DW_ClassController : MonoBehaviour
     public List<DW_Class> classes;
 
     private int index_class = 0;
+
+    // effects that alterate the controller stats
     private bool is_paladin_aggro = false;
+
+    private bool is_speed_reduced = false;
+    private float speedReducedTimer = 0.0f;
+    private float removed_speed = 0.0f;
 
     private void Update()
     {
@@ -37,6 +43,19 @@ public class DW_ClassController : MonoBehaviour
             }
             if(!is_paladin_aggro)
                 currentClass.shouldBeAggro = true;
+        }
+
+        if(is_speed_reduced)
+        {
+            if(speedReducedTimer <= 0)
+            {
+                // this.speed += removed_speed;
+                removed_speed = 0.0f;
+                speedReducedTimer = 0;
+                is_speed_reduced = false;
+                return;
+            }
+            speedReducedTimer -= Time.deltaTime;
         }
     }
 
@@ -121,6 +140,9 @@ public class DW_ClassController : MonoBehaviour
             if(Vector3.Distance(this.transform.position, enemy.transform.position) < 10) // change the value, this one is for tests
             {
                 enemy.ReduceFov();
+                speedReducedTimer = _abilityToUse.effectDuration;
+                //removed_speed = (_abilityToUse.percentCost / 100) * this.speed
+                // this.speed -= removed_speed;
             }
         }
         _abilityToUse.isOnCooldown = true;

@@ -29,5 +29,6 @@ public class DW_Skill : ScriptableObject
     public GameObject emitterVFX;
 
     // effects
+    public float effectDuration;
     public float restaurationHealth;
 }

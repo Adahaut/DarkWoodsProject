@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 public class DW_ClassHolderRef : MonoBehaviour
 {
-    // what class is this refering to
+    [Header("CLASS AND SKILLS REFERENCES")]
     public DW_Class classRef;
     public DW_Skill classSkill;
     public DW_Passif classPassif;
 
-    // set up all the card informations
+    [Header("UI REFERENCES")]
     public Image classIcon;
     public Image skillIcon;
     public TextMeshProUGUI className;
