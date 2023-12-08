@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1405541832331659678}
   - component: {fileID: 8646812564684315211}
   m_Layer: 0
-  m_Name: L_BrazierPointLight
+  m_Name: Go_light_BrazierPointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
