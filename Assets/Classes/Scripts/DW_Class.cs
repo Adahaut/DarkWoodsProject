@@ -47,5 +47,5 @@ public class DW_Class : ScriptableObject
 
     public specialSourceType specialSourceType;
     [Range(0, 100)]
-    public int specialSourceAmount;
+    public float specialSourceAmount;
 }

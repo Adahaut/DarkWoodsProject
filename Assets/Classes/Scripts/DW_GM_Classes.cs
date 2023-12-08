@@ -17,7 +17,7 @@ public class DW_GM_Classes : MonoBehaviour
     // skill management
     private DW_TeamManager team_manager;
     private DW_Skill skill_to_use;
-    public DW_Class initiator_skill;
+    public DW_ClassHolderRef initiator_skill;
 
     private void Start()
     {
@@ -50,10 +50,9 @@ public class DW_GM_Classes : MonoBehaviour
     public void RememberSkill(DW_ClassHolderRef classHolder)
     {
         DW_Skill skill = classHolder.classSkill;
-        DW_Class classRef = classHolder.classRef;
-        initiator_skill = classRef;
         if(!skill_to_use && skill.skillType == SkillType.Heal)
         {
+            initiator_skill = classHolder;
             skill_to_use = skill; 
         }
     }
@@ -65,19 +64,18 @@ public class DW_GM_Classes : MonoBehaviour
             DW_Class foundClass = classHolder.classRef;
             foreach(DW_Class c in GameObject.FindAnyObjectByType<DW_ClassController>().classes)
             {
-                Debug.Log(c);
-                Debug.Log(initiator_skill.specialSourceAmount);
-                Debug.Log(c.currentHealth);
-                if (c == foundClass && initiator_skill.specialSourceAmount - skill_to_use.percentCost >= 0 && c.currentHealth < c.maxHealth)
+                if (c == foundClass && initiator_skill.classRef.specialSourceAmount - skill_to_use.percentCost >= 0 && c.currentHealth < c.maxHealth)
                 {
-                    c.currentHealth += ((skill_to_use.restaurationHealth/100) * c.maxHealth);
+                    c.currentHealth += Mathf.RoundToInt( ((skill_to_use.restaurationHealth/100) * c.maxHealth));
 
                     if (c.currentHealth > c.maxHealth)
                     {
                         c.currentHealth = c.maxHealth;
                     }
-                    initiator_skill.specialSourceAmount -= skill_to_use.percentCost;
-
+                    initiator_skill.classRef.specialSourceAmount -= skill_to_use.percentCost;
+                    initiator_skill.UpdateSpecialBar();
+                    classHolder.UpdateHealthBar();
+                    classHolder.classRef.classSkill.isOnCooldown = true;
                     break;
                 }
             }

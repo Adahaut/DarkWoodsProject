@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afbd9232864bcf8429d4982f25b3c306, type: 3}
-  m_Name: So_skill_heal
+  m_Name: So_skill_brazier
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  skillType: 2
-  skillName: 
-  skillDescription: 
-  percentCost: 20
-  skillCooldown: 5
-  currentSkillCooldown: 5
+  skillIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  skillType: 1
+  skillName: Brazier
+  skillDescription: Lighten the path and get rid of the enemies.
+  percentCost: 50
+  skillCooldown: 10
+  currentSkillCooldown: 9.998119
   isOnCooldown: 0
-  emitterVFX: {fileID: 0}
-  restaurationHealth: 25
+  emitterVFX: {fileID: 5342021097637140015, guid: 74210cc5d5986b643abd2331450a8a06, type: 3}
+  restaurationHealth: 0

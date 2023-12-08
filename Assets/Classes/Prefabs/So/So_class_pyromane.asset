@@ -18,9 +18,9 @@ MonoBehaviour:
     obscurity.
   classIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
-  classSkill: {fileID: 11400000, guid: 27b91b006ab54734398423978ff9eeb3, type: 2}
+  classSkill: {fileID: 11400000, guid: a52207c32f643ba41893631a151cc63f, type: 2}
   classType: 3
-  currentHealth: 1
+  currentHealth: 35
   maxHealth: 35
   currentAttackSpeed: 1
   minattackDamage: 1
@@ -28,4 +28,4 @@ MonoBehaviour:
   minPercentDamage: 10
   maxPercentDamage: 60
   specialSourceType: 2
-  specialSourceAmount: 93
+  specialSourceAmount: 0

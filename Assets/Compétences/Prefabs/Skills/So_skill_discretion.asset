@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afbd9232864bcf8429d4982f25b3c306, type: 3}
-  m_Name: So_skill_heal
+  m_Name: So_skill_discretion
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  skillType: 2
+  skillIcon: {fileID: 21300000, guid: e76bf13ea4c080f43ba06d111ded1a41, type: 3}
+  skillType: 3
   skillName: 
   skillDescription: 
-  percentCost: 20
-  skillCooldown: 5
-  currentSkillCooldown: 5
+  percentCost: 0
+  skillCooldown: 0
+  currentSkillCooldown: 0
   isOnCooldown: 0
   emitterVFX: {fileID: 0}
-  restaurationHealth: 25
+  restaurationHealth: 0

@@ -1415,6 +1415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Go_MenuSelectionClasses
       objectReference: {fileID: 0}
+    - target: {fileID: 2952420863899840709, guid: 91e4a60b4ac3d0b4c856ad7d9b722ac9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3361636503727640562, guid: 91e4a60b4ac3d0b4c856ad7d9b722ac9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
