@@ -18,7 +18,7 @@ MonoBehaviour:
   skillDescription: Lighten the path and get rid of the enemies.
   percentCost: 50
   skillCooldown: 10
-  currentSkillCooldown: 9.998119
+  currentSkillCooldown: 10
   isOnCooldown: 0
   emitterVFX: {fileID: 5342021097637140015, guid: 74210cc5d5986b643abd2331450a8a06, type: 3}
   restaurationHealth: 0

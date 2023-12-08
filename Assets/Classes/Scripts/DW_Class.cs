@@ -41,6 +41,8 @@ public class DW_Class : ScriptableObject
     public float minattackDamage;
     public float maxattackDamage;
 
+    public bool shouldBeAggro = false;
+
     // jauges spéciales ( en set qu'une seule )
     public float minPercentDamage;
     public float maxPercentDamage;

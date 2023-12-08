@@ -42,6 +42,10 @@ public class DW_ClassHolderRef : MonoBehaviour
         {
             classRef.classSkill.isOnCooldown = false;
             classRef.classSkill.currentSkillCooldown =Mathf.RoundToInt( classRef.classSkill.skillCooldown);
+
+            if(classRef.classSkill.skillType == SkillType.Attention)
+                GameObject.FindObjectOfType<DW_ClassController>().ResetAggro(classRef);
+            return;
         }
 
         classRef.classSkill.currentSkillCooldown -= Time.deltaTime;

@@ -22,10 +22,11 @@ MonoBehaviour:
   classType: 3
   currentHealth: 35
   maxHealth: 35
-  currentAttackSpeed: 1
-  minattackDamage: 1
-  maxattackDamage: 6
-  minPercentDamage: 10
-  maxPercentDamage: 60
+  currentAttackSpeed: 1.25
+  minattackDamage: 6
+  maxattackDamage: 15
+  shouldBeAggro: 0
+  minPercentDamage: 80
+  maxPercentDamage: 200
   specialSourceType: 2
-  specialSourceAmount: 0
+  specialSourceAmount: 50

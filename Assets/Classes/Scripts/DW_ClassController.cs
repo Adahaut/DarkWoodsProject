@@ -10,6 +10,7 @@ public class DW_ClassController : MonoBehaviour
     public List<DW_Class> classes;
 
     private int index_class = 0;
+    private bool is_paladin_aggro = false;
 
     private void Update()
     {
@@ -20,6 +21,10 @@ public class DW_ClassController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            if(!is_paladin_aggro)
+            {
+                currentClass.shouldBeAggro = false;
+            }
             if(index_class + 1 < classes.Count)
             {
                 index_class += 1;
@@ -30,6 +35,8 @@ public class DW_ClassController : MonoBehaviour
                 index_class = 0;
                 currentClass = classes[index_class];
             }
+            if(!is_paladin_aggro)
+                currentClass.shouldBeAggro = true;
         }
     }
 
@@ -66,13 +73,13 @@ public class DW_ClassController : MonoBehaviour
                     SkillBrazier(abilityToUse);
                     break;
                 case SkillType.Heal:
-                    SkillHeal(abilityToUse);
+                    SkillHeal();
                     break;
                 case SkillType.Discretion:
-                    SkillDiscretion();
+                    SkillDiscretion(abilityToUse);
                     break;
                 case SkillType.Attention:
-                    SkillAttention();
+                    SkillAttention(abilityToUse);
                     break;
                 default:
                     break;
@@ -84,16 +91,20 @@ public class DW_ClassController : MonoBehaviour
      * Skill : Attention
      * Purpose : Takes the aggro instead of the team leader.
      */
-    public void SkillAttention()
+    public void SkillAttention(DW_Skill _abilityToUse)
     {
         Debug.Log("Attention");
+
+        _abilityToUse.isOnCooldown = true;
+        currentClass.shouldBeAggro = true;
+        is_paladin_aggro = true;
     }
 
     /*
      * Skill : Heal
      * Purpose : Heal a designated ally for 20% of his max health.
      */
-    public void SkillHeal(DW_Skill _abilityToUse)
+    public void SkillHeal()
     {
         GameObject.FindObjectOfType<DW_GM_Classes>().RememberSkill(FindClassHolderRef(currentClass));
     }
@@ -102,9 +113,17 @@ public class DW_ClassController : MonoBehaviour
      * Skill : Discretion
      * Purpose : Reduce the enemies line of sight
      */
-    public void SkillDiscretion()
+    public void SkillDiscretion(DW_Skill _abilityToUse)
     {
         Debug.Log("Discretion");
+        foreach(DW_TestEnemyClass enemy in GameObject.FindObjectsOfType<DW_TestEnemyClass>()) // change the script, this one is for tests
+        {
+            if(Vector3.Distance(this.transform.position, enemy.transform.position) < 10) // change the value, this one is for tests
+            {
+                enemy.ReduceFov();
+            }
+        }
+        _abilityToUse.isOnCooldown = true;
     }
 
     /* 
@@ -139,5 +158,12 @@ public class DW_ClassController : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void ResetAggro(DW_Class classAggro)
+    {
+        is_paladin_aggro = false;
+        classAggro.shouldBeAggro = false;
+        currentClass.shouldBeAggro = true;
     }
 }

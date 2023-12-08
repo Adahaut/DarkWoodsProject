@@ -17,8 +17,8 @@ MonoBehaviour:
   skillName: 
   skillDescription: 
   percentCost: 0
-  skillCooldown: 0
-  currentSkillCooldown: -0.003351
+  skillCooldown: 10
+  currentSkillCooldown: 10
   isOnCooldown: 0
   emitterVFX: {fileID: 0}
   restaurationHealth: 0
