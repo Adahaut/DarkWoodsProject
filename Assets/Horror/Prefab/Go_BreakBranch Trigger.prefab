@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 5398680967254702210}
   - component: {fileID: 4349551248249267388}
   m_Layer: 0
-  m_Name: BreakBranch Trigger
+  m_Name: Go_BreakBranch Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,14 +378,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08f40cf046b6c640b6dde0cf449cf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
+  audio_sources:
   - {fileID: 327457292712139883}
   - {fileID: 3927261443583365476}
   - {fileID: 1530343571492587494}
   - {fileID: 4609747043606929345}
   audioToPlay: 0
-  playMultipleSound: 1
-  timeBeforeNextSound: 1.2
+  play_multiple_sound: 1
+  play_heart_sound: 0
+  time_before_next_sound: 1.3
 --- !u!1 &5961205757558891992
 GameObject:
   m_ObjectHideFlags: 0

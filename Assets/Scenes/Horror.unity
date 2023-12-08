@@ -757,8 +757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6797a8a43d8e8e14fa537f58bede7bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steps_clips: []
-  steps_audio_source: {fileID: 0}
+  steps_clips:
+  - {fileID: 8300000, guid: a8921abcc5ace6e428ec587de0108a03, type: 3}
+  - {fileID: 8300000, guid: db3040f7e3c751c44b853a82086f3189, type: 3}
+  steps_audio_source: {fileID: 1071748866}
 --- !u!82 &1071748866
 AudioSource:
   m_ObjectHideFlags: 0
@@ -997,7 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   ennemy: {fileID: 5311023784720844931, guid: d5cefbe6182a2fe478cd3afc2629ecc9, type: 3}
-  audio_source: {fileID: 0}
+  audio_source: {fileID: 1734556714}
 --- !u!1001 &1157807677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,10 +1065,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2439782207579588946, guid: f1ef28ee88445eb47a6341e1fc16e368, type: 3}
-      propertyPath: playHeartSound
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3808215128588780860, guid: f1ef28ee88445eb47a6341e1fc16e368, type: 3}
       propertyPath: m_Name
       value: PianoScreamerTrigger
@@ -1301,6 +1299,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7bff4f71d1b6bf4d9a4c0c05f2735f6, type: 3}
+--- !u!82 &1734556714 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3670724046417314534, guid: a7bff4f71d1b6bf4d9a4c0c05f2735f6, type: 3}
+  m_PrefabInstance: {fileID: 1507071887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &94044436988712480
 PrefabInstance:
   m_ObjectHideFlags: 0

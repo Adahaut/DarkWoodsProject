@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8864185466898349776}
   - component: {fileID: 2973329386459391509}
   m_Layer: 0
-  m_Name: BeforeScremer1Trigger
+  m_Name: Go_BeforeScremer1Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,8 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08f40cf046b6c640b6dde0cf449cf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
+  audio_sources:
   - {fileID: 2704057846946946809}
   audioToPlay: 0
-  playMultipleSound: 0
-  timeBeforeNextSound: 0
+  play_multiple_sound: 0
+  play_heart_sound: 0
+  time_before_next_sound: 0

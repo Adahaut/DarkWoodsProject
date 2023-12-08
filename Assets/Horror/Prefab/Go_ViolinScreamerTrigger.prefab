@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6473899735415602849
+--- !u!1 &3808215128588780860
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5205698815837947405}
-  - component: {fileID: 1426579781534157358}
-  - component: {fileID: 8702718799079077016}
-  - component: {fileID: 8453472580363544699}
-  - component: {fileID: 3835739112538105453}
-  - component: {fileID: 495519896446767407}
+  - component: {fileID: 4327500418919518988}
+  - component: {fileID: 923458590169581682}
+  - component: {fileID: 2441629386926902014}
+  - component: {fileID: 3670724046417314534}
+  - component: {fileID: 6172020001563795981}
+  - component: {fileID: 2439782207579588946}
   m_Layer: 0
-  m_Name: WindTrigger
+  m_Name: Go_ViolinScreamerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5205698815837947405
+--- !u!4 &4327500418919518988
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.33, y: -6.69, z: 19.5}
+  m_LocalPosition: {x: -8.24, y: -6.69, z: 6.52}
   m_LocalScale: {x: 1.4172, y: 1.4172, z: 1.4172}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1426579781534157358
+--- !u!33 &923458590169581682
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8702718799079077016
+--- !u!23 &2441629386926902014
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,17 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!82 &8453472580363544699
+--- !u!82 &3670724046417314534
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e57921f0ca5c0ad469af3b4b8d7d66e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b03c0b718329b8c4cb112e5ea28670e2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -182,13 +182,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &3835739112538105453
+--- !u!65 &6172020001563795981
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -203,20 +203,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &495519896446767407
+--- !u!114 &2439782207579588946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473899735415602849}
+  m_GameObject: {fileID: 3808215128588780860}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b08f40cf046b6c640b6dde0cf449cf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 8453472580363544699}
+  audio_sources:
+  - {fileID: 3670724046417314534}
   audioToPlay: 0
-  playMultipleSound: 0
-  timeBeforeNextSound: 0
+  play_multiple_sound: 0
+  play_heart_sound: 0
+  time_before_next_sound: 0
