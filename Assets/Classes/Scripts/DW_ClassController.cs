@@ -112,8 +112,6 @@ public class DW_ClassController : MonoBehaviour
      */
     public void SkillAttention(DW_Skill _abilityToUse)
     {
-        Debug.Log("Attention");
-
         _abilityToUse.isOnCooldown = true;
         currentClass.shouldBeAggro = true;
         is_paladin_aggro = true;
@@ -134,7 +132,6 @@ public class DW_ClassController : MonoBehaviour
      */
     public void SkillDiscretion(DW_Skill _abilityToUse)
     {
-        Debug.Log("Discretion");
         foreach(DW_TestEnemyClass enemy in GameObject.FindObjectsOfType<DW_TestEnemyClass>()) // change the script, this one is for tests
         {
             if(Vector3.Distance(this.transform.position, enemy.transform.position) < 10) // change the value, this one is for tests

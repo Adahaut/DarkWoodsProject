@@ -22,7 +22,6 @@ public class DW_ButtonSelectionMenu : MonoBehaviour
     {
         if (has_been_selected)
         {
-            Debug.Log("Remove from team");
             has_been_selected = false;
             this.transform.Find("backgroundColor").GetComponent<Image>().color = originColor;
             team_manager.RemoveClassFromTeam(typeOfClass);

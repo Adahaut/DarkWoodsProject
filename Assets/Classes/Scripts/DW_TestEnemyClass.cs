@@ -18,11 +18,9 @@ public class DW_TestEnemyClass : MonoBehaviour
         }
         if (cooldownRestauration <= 0)
         {
-            Debug.Log(this.GetComponent<SphereCollider>().radius);
             this.GetComponent<SphereCollider>().radius *= 2;
             cooldownRestauration = 10;
             reduceFov = false;
-            Debug.Log("FOV restaured");
             return;
         }
 
