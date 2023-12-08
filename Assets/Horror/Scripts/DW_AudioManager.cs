@@ -7,19 +7,19 @@ public class DW_AudioManager : MonoBehaviour
     [SerializeField] private AudioSource[] audio_sources;
     public int audioToPlay;
     [SerializeField] private bool play_multiple_sound;
-    [SerializeField] private bool play_heart_sound;
+    [SerializeField] private bool loop_sound;
     [SerializeField] private float time_before_next_sound;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            if(play_heart_sound)
+            if(loop_sound)
             {
-                StartCoroutine("HeartBeat");
+                StartCoroutine("LoopSound");
             }
             
-            if(!play_multiple_sound && !play_heart_sound)
+            if(!play_multiple_sound && !loop_sound)
             {
                 PlayAudio(audioToPlay);
             }
@@ -45,11 +45,11 @@ public class DW_AudioManager : MonoBehaviour
         }
     }
 
-    IEnumerator HeartBeat()
+    IEnumerator LoopSound()
     {
         audio_sources[0].Play();
         audio_sources[0].loop = true;
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(15f);
         audio_sources[0].loop = false;
         audio_sources[0].Stop();
     }

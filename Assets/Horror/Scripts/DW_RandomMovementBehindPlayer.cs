@@ -38,7 +38,6 @@ public class DW_RandomMovementBehindPlayer : MonoBehaviour
         new_pitch = Random.Range(0, 10) * 0.1f;
         new_pitch += 2;
         audio_source.pitch = new_pitch;
-        Debug.Log(new_pitch);
     }
 
     private void MoveToTargetPosition()

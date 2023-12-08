@@ -12,7 +12,6 @@ public class DW_ScreamerInFire : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        StartCoroutine("Screamer");
     }
 
     //if pyromane use capacity -> StartCoroutine("Screamer");
