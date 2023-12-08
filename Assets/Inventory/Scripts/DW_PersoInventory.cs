@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class DW_PersoInventory : MonoBehaviour
 {
     [SerializeField] private List<DW_Slot> slots = new List<DW_Slot>();
+    [SerializeField] private TestClass _class;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,11 +21,27 @@ public class DW_PersoInventory : MonoBehaviour
         
     }
 
+
+    public bool StackByObject(DW_Item item)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].GetStockItem() == item.m_Item)
+            {
+                slots[i].Stock(item);
+                return true;
+            }
+        }
+
+
+        return false;
+    }
+
     public bool Stack(DW_Item item) 
     {
         for(int i = 0; i < slots.Count; i++) 
         {
-            if (slots[i].GetStockItem() == Item.NULL || slots[i].GetStockItem() == item.m_Item)
+            if (slots[i].GetStockItem() == Item.NULL)
             {
                 slots[i].Stock(item);
                 return true;
@@ -38,7 +56,12 @@ public class DW_PersoInventory : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            slots.Add(transform.GetChild(i).GetComponent<DW_Slot>());
+            if(transform.GetChild(i).TryGetComponent<DW_Slot>(out DW_Slot slot))
+            {
+                slots.Add(slot);
+                slot.SetClass(_class);
+            }
+
         }
     }
 

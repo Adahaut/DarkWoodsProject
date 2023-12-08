@@ -18,6 +18,7 @@ public class DW_Slot : MonoBehaviour
 
     public void Stock(DW_Item item)
     {
+        StockLaw(item);
         data.image = item.m_Texture;
         data.item = item.m_Item;
         data.useAction = item.Use;
@@ -27,7 +28,8 @@ public class DW_Slot : MonoBehaviour
 
     public void Use()
     {
-        if(data.useAction != null)
+        Debug.Log("Use");
+        if (data.useAction != null)
         {
             data.useAction();
             data.numberOfItem--;
@@ -40,15 +42,34 @@ public class DW_Slot : MonoBehaviour
         return data.item;
     }
 
+
+    private void StockLaw(DW_Item item)
+    {
+        if(data.item != item.m_Item || (!item.isStackable && !item.ExeptionStack.Contains(data._class)))
+        {
+            int num = data.numberOfItem;
+            for(int i = 0; i < num; i++) 
+            {
+                Drop();
+            }
+            StockReset();
+        }
+    }
+
     private void Verification()
     {
         if(data.numberOfItem<=0)
         {
-            data.image = null;
-            data.item = Item.NULL;
-            data.useAction = null;
-            data.numberOfItem = 0;
+            StockReset();
         }
+    }
+
+    private void StockReset()
+    {
+        data.image = null;
+        data.item = Item.NULL;
+        data.useAction = null;
+        data.numberOfItem = 0;
     }
 
     private void Drop()
@@ -69,4 +90,6 @@ public class DW_Slot : MonoBehaviour
             Drop();
         }
     }
+
+    public void SetClass(TestClass value) => data._class = value; 
 }

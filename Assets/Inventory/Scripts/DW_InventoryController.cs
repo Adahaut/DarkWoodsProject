@@ -34,30 +34,50 @@ public class DW_InventoryController : MonoBehaviour
         {
 
         }
-        //Ray ray = _camera.ScreenPointToRay(mouse_position);
-
-
-        //if(Physics.Raycast(ray, out RaycastHit hit)) 
-        //{
-        //    go.transform.position = hit.point;
-        //}
-
-
-        //Debug.Log("B" + _camera.ScreenToWorldPoint(mouse_position));
-        //Debug.Log("A" + _camera.ScreenToWorldPoint(Input.mousePosition));
         
-        //Debug.DrawRay(ray.origin, ray.direction*2000, Color.green);
     }
 
 
     public void PickUp(DW_Item Item)
     {
-        if (personnageInventory[0].Stack(Item))
+        if (TryStackByObject(Item))
         {
-            Debug.Log("Item Is Stack");
+            Debug.Log("Is Stack By Obj");
+            return;
+        }
+        else if (TryStack(Item))
+        {
+            Debug.Log("Is Stack");
+            return;
         }
         else
-            Debug.Log("Item Isn't Stack");
+            Debug.Log("Isn't Stack");
+    }
+
+    private bool TryStackByObject(DW_Item Item)
+    {
+        for (int i = 0; i < personnageInventory.Count; i++)
+        {
+            if (personnageInventory[i].StackByObject(Item))
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    private bool TryStack(DW_Item Item)
+    {
+        for (int i = 0; i < personnageInventory.Count; i++)
+        {
+            if (personnageInventory[i].Stack(Item))
+            {
+                return true;
+            }
+
+        }
+        return false;
     }
 
     private void FoundInventory()
