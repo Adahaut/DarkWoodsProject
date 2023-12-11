@@ -10,7 +10,7 @@ using static UnityEditor.FilePathAttribute;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 0.5f;
+    public float waitCooldown = 0.5f;
     private Vector3 start_pos, end_pos;
     public Vector3 sizeCells;
     public bool canMove = true;
@@ -23,24 +23,24 @@ public class Player : MonoBehaviour
 
     
     int[,] Grid = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },  // 0 = innaccessibility
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },  // 5 = player
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },  // 6 = spawn
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },  // 2 = path
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,5,2,2,2,2,2,2,0,0,0,2,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = player
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 6 = spawn
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 2 = path
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }};
     
 
@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
     int PlayerX;
     int PlayerY;
+
     private void Start()
     {
         gridList = new List<List<int>>();
@@ -96,6 +97,10 @@ public class Player : MonoBehaviour
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
 
+        // a remettre sur branche originale
+        playerCamera.GetComponent<Animation>().Play();
+
+
         while (time / total_time < 1)
         {
             time += Time.deltaTime;
@@ -103,7 +108,7 @@ public class Player : MonoBehaviour
 
             yield return null;
         }
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(waitCooldown);
         canMove = true;
     }
 
@@ -167,7 +172,7 @@ public class Player : MonoBehaviour
             _transform.rotation = Quaternion.Euler(0, rotation, 0);
             yield return null;
         }
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(waitCooldown);
         canMove = true;
     }
     public void StartPlayerTurn(float total_time, bool direction, bool sameAxis)
