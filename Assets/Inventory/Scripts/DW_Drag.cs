@@ -38,9 +38,11 @@ public class DW_Drag : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction*2000);
         if (Physics.Raycast(ray, out RaycastHit hit, 2000, layer))
         {
-            
+
             if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(1) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
             {
+                Debug.Log("Test");
+                _item = hit.collider.gameObject.GetComponent<DW_ItemCard>().GetItem();
                 current.SetActive(true);
                 _isDragging =true;
             }
@@ -50,6 +52,8 @@ public class DW_Drag : MonoBehaviour
                 if(hit.collider.gameObject.TryGetComponent<DW_Slot>(out DW_Slot slot))
                 {
                     slot.Stock(_item);
+                    DW_ObjectDetection.Instance.RemoveObject(_item.gameObject);
+                    _item.gameObject.SetActive(false);
                     Debug.Log("stock Perfectly");
                 }
             }
@@ -62,7 +66,6 @@ public class DW_Drag : MonoBehaviour
 
 
         if(Input.GetMouseButtonUp(1)) { _isDragging = false;  current.SetActive(false); }
-
     }
 
 }

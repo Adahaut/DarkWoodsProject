@@ -28,7 +28,7 @@ public class DW_InventoryController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            PickUp(go);
+            PickUp(DW_ObjectDetection.Instance.currentObjectSelect) ;
         }
         if(isDroping) 
         {
@@ -42,11 +42,13 @@ public class DW_InventoryController : MonoBehaviour
     {
         if (TryStackByObject(Item))
         {
+            DW_ObjectDetection.Instance.RemoveObject(Item.gameObject);
             Debug.Log("Is Stack By Obj");
             return;
         }
         else if (TryStack(Item))
         {
+            DW_ObjectDetection.Instance.RemoveObject(Item.gameObject);
             Debug.Log("Is Stack");
             return;
         }

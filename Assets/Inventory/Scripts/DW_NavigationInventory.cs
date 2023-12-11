@@ -30,7 +30,7 @@ public class DW_NavigationInventory : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)) 
         {
             current_button.image.color = current_button.colors.normalColor;
-             current_slot_selected++;
+            current_slot_selected++;
             current_slot_selected = current_slot_selected >= inventorySlot.Count ? 0 : current_slot_selected;
             GetProperties();
             current_button.image.color = current_button.colors.selectedColor;

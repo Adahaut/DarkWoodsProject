@@ -24,6 +24,7 @@ public class DW_DropController : MonoBehaviour
             {
                 current_gameobject = Instantiate<GameObject>(m_Object[i]);
                 current_gameobject.transform.position = position;
+                DW_ObjectDetection.Instance.AddObject(current_gameobject);
                 return true;
             }
         }

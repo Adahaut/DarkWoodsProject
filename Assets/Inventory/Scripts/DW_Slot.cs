@@ -45,10 +45,10 @@ public class DW_Slot : MonoBehaviour
 
     private void StockLaw(DW_Item item)
     {
-        if(data.item != item.m_Item || (!item.isStackable && !item.ExeptionStack.Contains(data._class)))
+        if (data.item != item.m_Item /*|| (!item.isStackable && !item.ExeptionStack.Contains(data._class))*/)
         {
             int num = data.numberOfItem;
-            for(int i = 0; i < num; i++) 
+            for (int i = 0; i < num; i++)
             {
                 Drop();
             }
