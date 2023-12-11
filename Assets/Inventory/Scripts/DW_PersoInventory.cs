@@ -68,11 +68,11 @@ public class DW_PersoInventory : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if(transform.GetChild(i).TryGetComponent<DW_Slot>(out DW_Slot slot))
-            {
+            DW_Slot slot = transform.GetChild(i).GetComponentInChildren<DW_Slot>();
+           
                 slots.Add(slot);
                 slot.SetClass(m_class);
-            }
+           
 
         }
     }
