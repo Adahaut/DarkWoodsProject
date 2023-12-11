@@ -14,18 +14,20 @@ public class DW_AudioManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            //loop sound
             if(loop_sound)
             {
-                StartCoroutine("LoopSound");
+                StartCoroutine(LoopSound());
             }
-            
+            //basic sound
             if(!play_multiple_sound && !loop_sound)
             {
                 PlayAudio(audioToPlay);
             }
+            //multiple sounds
             else
             {
-                StartCoroutine("WaitBeforeNextSound");
+                StartCoroutine(WaitBeforeNextSound());
             }
         }
     }
@@ -37,6 +39,7 @@ public class DW_AudioManager : MonoBehaviour
 
     IEnumerator WaitBeforeNextSound()
     {
+        //foreach audio to play, play the audio and wait before playing the next one
         for(int i = 0; i < audio_sources.Length; i++)
         {
             PlayAudio(i);
@@ -47,6 +50,7 @@ public class DW_AudioManager : MonoBehaviour
 
     IEnumerator LoopSound()
     {
+        //Play the sound in a loop for 15 seconds
         audio_sources[0].Play();
         audio_sources[0].loop = true;
         yield return new WaitForSeconds(15f);

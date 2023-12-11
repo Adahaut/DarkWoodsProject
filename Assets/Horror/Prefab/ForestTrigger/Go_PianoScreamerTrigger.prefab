@@ -95,7 +95,7 @@ AudioSource:
   m_GameObject: {fileID: 3808215128588780860}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2950198789271347365, guid: 58f77e0d1cd4d3245a398194846b1b6f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2b3244667ea0c9e41b2c07c05bfbcc21, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -219,5 +219,5 @@ MonoBehaviour:
   - {fileID: 3670724046417314534}
   audioToPlay: 0
   play_multiple_sound: 0
-  play_heart_sound: 0
+  loop_sound: 0
   time_before_next_sound: 0

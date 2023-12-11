@@ -17,6 +17,7 @@ public class DW_BackgroundMusic : MonoBehaviour
 
     private void Update()
     {
+        //steps behind de player active only in the forest
         if(in_hospital)
         {
             steps_behind_the_player.SetActive(false);
@@ -29,7 +30,8 @@ public class DW_BackgroundMusic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        //Switch the music from the forest to the hospital and vice versa
+        if (other.gameObject.tag == "Player")
         {
             in_hospital = !in_hospital;
 

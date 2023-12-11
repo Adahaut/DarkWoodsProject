@@ -12,6 +12,7 @@ public class DW_PlayerSound : MonoBehaviour
         PlayerSteps();
     }
 
+    //choose a random steps sound
     public void PlayerSteps()
     {
         int clipToPlay = Random.Range(0, steps_clips.Length);

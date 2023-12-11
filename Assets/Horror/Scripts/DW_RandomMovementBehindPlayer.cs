@@ -5,7 +5,7 @@ using UnityEngine;
 public class DW_RandomMovementBehindPlayer : MonoBehaviour
 {
     private GameObject player;
-    private float xMin, zMin, xMax, zMax;
+    private float x_Min, z_Min, x_Max, z_Max;
     private Vector3 target_position;
     private float movement_speed = 2f;
     private float new_pitch;
@@ -25,16 +25,17 @@ public class DW_RandomMovementBehindPlayer : MonoBehaviour
 
     private void SetRandomPosition()
     {
-        xMin = player.transform.position.x - 15f;
-        xMax = player.transform.position.x + 15f;
-        zMin = player.transform.position.z - 3f;
-        zMax = player.transform.position.z - 15f;
+        x_Min = player.transform.position.x - 15f;
+        x_Max = player.transform.position.x + 15f;
+        z_Min = player.transform.position.z - 3f;
+        z_Max = player.transform.position.z - 15f;
 
-        float randomX = Random.Range(xMin, xMax);
-        float randomZ = Random.Range(zMin, zMax);
+        float randomX = Random.Range(x_Min, x_Max);
+        float randomZ = Random.Range(z_Min, z_Max);
 
         target_position = new Vector3(randomX, -5f, randomZ);
 
+        //Change the pitch to diversify the enemy's sound
         new_pitch = Random.Range(0, 10) * 0.1f;
         new_pitch += 2;
         audio_source.pitch = new_pitch;
