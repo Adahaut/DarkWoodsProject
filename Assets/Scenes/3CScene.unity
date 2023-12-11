@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1287921081}
   - component: {fileID: 1287921080}
   - component: {fileID: 1287921079}
+  - component: {fileID: 1287921082}
   m_Layer: 0
   m_Name: PlayerHead
   m_TagString: Untagged
@@ -444,14 +445,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287921077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 203606174}
   m_Father: {fileID: 1706755737}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.32400003, y: 0, z: 0}
 --- !u!65 &1287921079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -523,6 +524,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287921077}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &1287921082
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287921077}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: eaf98fd88441df044995680a3bbd442d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: eaf98fd88441df044995680a3bbd442d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1570582794
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +626,7 @@ Transform:
   m_GameObject: {fileID: 1570582794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -305, y: 0, z: -361}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -872,6 +889,7 @@ MonoBehaviour:
   sizeCells: {x: 0, y: 0, z: 10}
   canMove: 1
   targetRotation: 0
+  playerCamera: {fileID: 1287921078}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
         if (ctx.started)
         {
             player.StartPlayerMove(0.5f);
+
         }
     }
     public void OnTurnCameraRight(InputAction.CallbackContext ctx)
@@ -24,15 +25,15 @@ public class Movement : MonoBehaviour
             Vector2 vector2 = ctx.ReadValue<Vector2>();
             if(vector2.x < 0)
             {
-                player.StartPlayerTurn(1.5f, false);
+                player.StartPlayerTurn(1.5f, false , false);
             }
             else if(vector2.x > 0)
             {
-                player.StartPlayerTurn(1.5f, true);
+                player.StartPlayerTurn(1.5f, true, false);
             }
             else if (vector2.y < 0)
             {
-                player.StartPlayerTurnBehind(3f);
+                player.StartPlayerTurn(3f, true, true);
             }           
         }      
     }

@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     public Vector3 sizeCells;
     public bool canMove = true;
 
-    public float targetRotation;
+    public int targetRotation;
+    public Transform playerCamera;
 
     Transform _transform;
 
@@ -29,13 +30,13 @@ public class Player : MonoBehaviour
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,5,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
-                    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
+                    {1,5,2,2,2,2,2,2,0,0,0,2,0,0,0,0,0,0,0,1 },
+                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
+                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
+                    {1,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,1 },
+                    {1,0,0,0,0,0,0,2,2,2,2,2,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
         {
             time += Time.deltaTime;
             _transform.position = Vector3.Lerp(start_pos, end_pos, time / total_time);
+
             yield return null;
         }
         yield return new WaitForSeconds(speed);
@@ -112,33 +114,40 @@ public class Player : MonoBehaviour
             StartCoroutine(PlayerMove(total_time));
         }
     }
-
-    private IEnumerator PlayerTurn(float total_time, bool direction)
+    /*
+     * 
+     */
+    private IEnumerator PlayerTurn(float total_time, bool direction, bool sameAxis)
     {
+        targetRotation = 0;
         canMove = false;
         float time = 0f;
         float rotation;
         float initialRotation = _transform.eulerAngles.y;
-        targetRotation = direction ? initialRotation + 90f : initialRotation -90f;
-
-
-      
-        if (targetRotation == 360 || targetRotation > -5 && targetRotation < 5)
+        if (sameAxis)
         {
+            targetRotation =Mathf.RoundToInt( initialRotation + 180);
+        }
+        else
+            targetRotation = Mathf.RoundToInt( direction ? initialRotation + 90f : initialRotation -90f);
+        Debug.Log(targetRotation);
 
+        if (targetRotation == 360 || targetRotation == 0)
+        {
+            Debug.Log("UP");
             sizeCells = new Vector3(0, 0, 10);
             Rotation = "Up";
 
         }
         // Move player right
-        else if (targetRotation >= 85 && targetRotation < 95 || targetRotation == 450)
+        else if (targetRotation == 90|| targetRotation == 450)
         {
             sizeCells = new Vector3(10, 0, 0);
             Rotation = "Right";
 
         }
         //Move player left
-        else if (targetRotation == 270 || targetRotation <= -85 && targetRotation >= -95)
+        else if (targetRotation == 270|| targetRotation == -90)
         {
             sizeCells = new Vector3(-10, 0, 0);
             Rotation = "Left";
@@ -149,9 +158,6 @@ public class Player : MonoBehaviour
             sizeCells = new Vector3(0, 0, -10);
             Rotation = "Down";
         }
-
-        Debug.Log(CheckArround(gridList));
-        Debug.Log(Rotation);
 
         while (time / total_time < 1)
         {
@@ -164,53 +170,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(speed);
         canMove = true;
     }
-    public void StartPlayerTurn(float total_time, bool direction)
+    public void StartPlayerTurn(float total_time, bool direction, bool sameAxis)
     {
         if (canMove)
         {
-            StartCoroutine(PlayerTurn(total_time, direction));
+            StartCoroutine(PlayerTurn(total_time, direction , sameAxis));
         }
     }
-
-    private IEnumerator PlayerTurnBehind(float total_time)
-    {
-        canMove = false;
-        float time = 0f;
-        float rotation;
-
-        float initialRotation = _transform.eulerAngles.y;
-
-        targetRotation = initialRotation + 180f;
-
-        while (time / total_time < 1)
-        {
-            time += Time.deltaTime;
-            rotation = Mathf.Lerp(initialRotation, targetRotation, time / total_time);
-            _transform.rotation = Quaternion.Euler(0, rotation, 0);
-
-            yield return new WaitForEndOfFrame();
-        }
-        yield return new WaitForSeconds(speed);
-        canMove = true;
-    }
-    public void StartPlayerTurnBehind(float total_time)
-    {
-        if (canMove)
-        {
-            StartCoroutine(PlayerTurnBehind(total_time));
-        }
-    }
-
     private bool CheckArround(List<List<int>> _grid)
     {
-        Debug.Log(_grid[PlayerY][PlayerX - 1]);
-
         switch (Rotation)
         {
           
             case "Left":
                 if (_grid[PlayerY][ PlayerX - 1] == 2)
                 {
+                    Debug.Log(_grid[PlayerY][PlayerX - 1]);
                     PlayerX -= 1;
                     return true;
                 }
@@ -221,6 +196,8 @@ public class Player : MonoBehaviour
             case "Right":
                 if (_grid[PlayerY][PlayerX + 1] == 2)
                 {
+
+                    Debug.Log(_grid[PlayerY][PlayerX + 1]);
                     PlayerX += 1;
                     return true;
                 }
@@ -229,8 +206,10 @@ public class Player : MonoBehaviour
                     return false;
                 }
             case "Up":
-                if (_grid[PlayerY -1 ][PlayerX ] == 2)
+                if (_grid[PlayerY - 1 ][PlayerX ] == 2)
                 {
+
+                    Debug.Log(_grid[PlayerY - 1][PlayerX]);
                     PlayerY -=  1;
                     return true;
                 }
@@ -239,8 +218,11 @@ public class Player : MonoBehaviour
                     return false;
                 }
             case "Down":
-                if (_grid[PlayerY +1 ][PlayerX ] == 2)
+                if (_grid[PlayerY + 1 ][PlayerX ] == 2)
                 {
+
+                    Debug.Log(_grid[PlayerY + 1][PlayerX]);
+                    Debug.Log("Down");
                     PlayerY += 1;
                     return true;
                 }
