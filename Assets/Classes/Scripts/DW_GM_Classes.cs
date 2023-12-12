@@ -10,9 +10,7 @@ public class DW_GM_Classes : MonoBehaviour
     public GameObject preGameEnvironnement;
     public GameObject inGameEnvironnement;
 
-    // set up in game cards
-    public GameObject cardClass;
-    public Transform gridCards;
+    public Transform parentInventory;
 
     // skill management
     private DW_TeamManager team_manager;
@@ -31,16 +29,16 @@ public class DW_GM_Classes : MonoBehaviour
             
             preGameEnvironnement.SetActive(false);
             inGameEnvironnement.SetActive(true);
-            foreach(DW_Class c in team_manager.classes_selected)
+            for(int i = 0; i < team_manager.classes_selected.Count; i++)
             {
-                var t = Instantiate(cardClass, gridCards);
-                t.GetComponent<DW_ClassHolderRef>().classRef = c;
-                t.GetComponent<DW_ClassHolderRef>().classSkill = c.classSkill;
-                t.GetComponent<DW_ClassHolderRef>().classPassif = c.classPassif;
+                GameObject classCard = parentInventory.GetChild(i).gameObject;
+                classCard.GetComponent<DW_ClassHolderRef>().classRef = team_manager.classes_selected[i];
+                classCard.GetComponent<DW_ClassHolderRef>().classSkill = team_manager.classes_selected[i].classSkill;
+                classCard.GetComponent<DW_ClassHolderRef>().classPassif = team_manager.classes_selected[i].classPassif;
 
-                t.GetComponent<DW_ClassHolderRef>().InitalizeCard();
+                classCard.GetComponent<DW_ClassHolderRef>().InitalizeCard();
 
-                GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(c);
+                GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[i]);
             }
             GameObject.FindAnyObjectByType<DW_ClassController>().currentClass = GameObject.FindAnyObjectByType<DW_ClassController>().classes[0];
 

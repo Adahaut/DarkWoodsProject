@@ -26,7 +26,8 @@ public class DW_CheckCollisionInAttack : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<DW_LifeManager>().TakeDamage(life_manager.damage);
+                int baseDmg = Mathf.RoundToInt(this.transform.parent.GetComponent<DW_ClassController>().currentClass.currentDamage);
+                other.gameObject.GetComponent<DW_LifeManager>().TakeDamage(baseDmg);
             }
         }
 

@@ -12,4 +12,5 @@ public class So_ItemData : ScriptableObject
     public Action useAction = null;
     public int numberOfItem = 0;
     public ClassName _class = ClassName.None;
+    public bool consommable = false;
 }

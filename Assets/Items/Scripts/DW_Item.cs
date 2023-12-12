@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,8 @@ public abstract class DW_Item : MonoBehaviour
 
     public string m_title;
     public string m_description;
-    
+
+    public bool isWeapon = false;
     public abstract void Use();
 
     public Item GetItem()

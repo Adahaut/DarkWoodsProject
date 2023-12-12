@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class DW_LifeManager : MonoBehaviour
 {
-    [SerializeField] private int max_life;
-    public int currentLife;
+    [SerializeField] private float max_life;
+    public float currentLife;
     public int damage;
 
+    public void OnChangeLeader(DW_Class current_class)
+    {
+        currentLife = current_class.currentHealth;
+        max_life = current_class.maxHealth;
+
+        float dmg = Random.Range(current_class.minattackDamage, current_class.maxattackDamage);
+        float percentDmg = Random.Range(current_class.minPercentDamage, current_class.maxPercentDamage);
+        damage = Mathf.RoundToInt(percentDmg * dmg);
+    }
     private void Start()
     {
         currentLife = max_life;    
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+        Debug.Log(damage);
         currentLife -= damage;
-
+        // convert in integer;
         if(currentLife <= 0)
         {
             Die();

@@ -63,8 +63,16 @@ public class DW_PersoInventory : MonoBehaviour
         {
             DW_Slot slot = transform.GetChild(i).GetComponentInChildren<DW_Slot>();
            
+            if(slot != null)
+            {
                 slots.Add(slot);
                 slot.SetClass(m_class);
+                Debug.Log("Slot found");
+            }
+            else
+            {
+                Debug.Log("Slot not found");
+            }
         }
     }
 
