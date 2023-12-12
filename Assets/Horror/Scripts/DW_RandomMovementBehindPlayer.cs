@@ -33,7 +33,7 @@ public class DW_RandomMovementBehindPlayer : MonoBehaviour
         float randomX = Random.Range(x_Min, x_Max);
         float randomZ = Random.Range(z_Min, z_Max);
 
-        target_position = new Vector3(randomX, -5f, randomZ);
+        target_position = new Vector3(randomX, player.transform.position.y, randomZ);
 
         //Change the pitch to diversify the enemy's sound
         new_pitch = Random.Range(0, 10) * 0.1f;
