@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class DW_ObjectDetection : MonoBehaviour
 {
-    public Vector2 playerPos = Vector2.zero;
     public static DW_ObjectDetection Instance;
-    [SerializeField] private List<DW_Item> objects = new List<DW_Item>();
-    [SerializeField]private List<DW_Item> current_object_arround = new List<DW_Item>();
-    [SerializeField] private List<DW_Item> view_object_arround = new List<DW_Item>();
-    [SerializeField] private List<GameObject> cards = new List<GameObject>();
+
+    public Vector2 playerPos = Vector2.zero; //Player Position on the grid (not the unity world position)
+
+    [SerializeField] private List<DW_Item> objects = new List<DW_Item>(); // All object in the game
+    [SerializeField]private List<DW_Item> current_object_arround = new List<DW_Item>(); // All object the player can take
+    [SerializeField] private List<DW_Item> view_object_arround = new List<DW_Item>(); // All object in the pop-up
+    [SerializeField] private List<GameObject> cards = new List<GameObject>();// All card in the pop-up
+
     public GameObject cardPrefab;
+
     private Transform m_transform;
+
     [SerializeField] private int current_card_select = 0;
-    [SerializeField] private float distance;
-    [SerializeField] private float offset = -.12f;
+
+    [SerializeField] private float distance; // Distance between the card and the center of the viewport
+    [SerializeField] private float offset = -.12f; // Offset for have the select card in the center of the viewport
+    
     public DW_Item currentObjectSelect;
 
     private void Awake()
@@ -24,17 +31,16 @@ public class DW_ObjectDetection : MonoBehaviour
         if (Instance == null) { Instance = this; }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         IsTheObjectInMyArea();
-        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+
+        PopUpNavigation();
+    }
+
+    private void PopUpNavigation()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
             current_card_select++;
@@ -46,9 +52,9 @@ public class DW_ObjectDetection : MonoBehaviour
             current_card_select--;
             Selection();
         }
-        
     }
 
+    //See if the object is near the player
     private void IsTheObjectInMyArea()
     {
         current_object_arround.Clear();
@@ -62,6 +68,7 @@ public class DW_ObjectDetection : MonoBehaviour
         ShowObject();
     }
 
+    // Make the outline on the select card in the pop-up and put the card in the viewport
     private void Selection()
     {
         if (cards.Count > 0)
@@ -83,6 +90,7 @@ public class DW_ObjectDetection : MonoBehaviour
             currentObjectSelect = null;
     }
 
+    // Put the new card of the object the player can take and delete the card the player can no longer take
     private void ShowObject()
     {
         for(int i =0; i<current_object_arround.Count; i++) 
@@ -121,6 +129,7 @@ public class DW_ObjectDetection : MonoBehaviour
     {
         objects.Add(go.GetComponent<DW_Item>());
     }
+
     public void RemoveObject(GameObject go) 
     {
         objects.Remove(go.GetComponent<DW_Item>());

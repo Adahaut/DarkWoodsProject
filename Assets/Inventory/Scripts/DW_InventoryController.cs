@@ -8,38 +8,43 @@ public class DW_InventoryController : MonoBehaviour
     public static DW_InventoryController Instance;
 
     public Camera _camera;
-    public DW_Item go;
+
     private Transform m_transform;
+
     [SerializeField] private List<DW_PersoInventory> personnageInventory = new List<DW_PersoInventory>();
-    private Vector3 mouse_position = Vector3.zero;
+
     private bool isDroping = false;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (Instance == null) { Instance = this; }
 
-        //_camera = Camera.main;
         m_transform = transform;
         FoundInventory();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
             PickUp(DW_ObjectDetection.Instance.currentObjectSelect) ;
         }
-        if(isDroping) 
-        {
 
-        }
+        //if(isDroping) 
+        //{
+
+        //}
         
     }
 
-
+    //Put the object in the world in the inventory 
     public void PickUp(DW_Item Item)
     {
+        if(Item == null)
+        {
+            Debug.Log("No select object");
+            return;
+        }
         if (TryStackByObject(Item))
         {
             DW_ObjectDetection.Instance.RemoveObject(Item.gameObject);
@@ -56,7 +61,8 @@ public class DW_InventoryController : MonoBehaviour
             Debug.Log("Isn't Stack");
     }
 
-    private bool TryStackByObject(DW_Item Item)
+    //Put the item in the inventory if this object is already in one character inventory
+    private bool TryStackByObject(DW_Item Item) 
     {
         for (int i = 0; i < personnageInventory.Count; i++)
         {
@@ -69,6 +75,7 @@ public class DW_InventoryController : MonoBehaviour
         return false;
     }
 
+    //Put the item in the inventory if at least one character inventory is empty
     private bool TryStack(DW_Item Item)
     {
         for (int i = 0; i < personnageInventory.Count; i++)
@@ -82,18 +89,13 @@ public class DW_InventoryController : MonoBehaviour
         return false;
     }
 
+    // found all inventory character in the game
     private void FoundInventory()
     {
         for(int i = 0; i < m_transform.childCount; i++)
         {
             personnageInventory.Add(m_transform.GetChild(i).GetComponent<DW_PersoInventory>());
         }
-    }
-
-    public void GetMousePos(InputAction.CallbackContext context)
-    {
-        Vector2 pos = context.ReadValue<Vector2>();
-        mouse_position = pos;
     }
 
     public void IsDrop(InputAction.CallbackContext context)

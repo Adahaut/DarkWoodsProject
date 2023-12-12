@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Data 4
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  item: 1
-  numberOfItem: 17
-  _class: 1
+  item: 0
+  numberOfItem: 0
+  _class: 2

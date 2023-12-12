@@ -8,12 +8,15 @@ public class DW_Drag : MonoBehaviour
 {
     Camera _camera;
 
-
     public DW_Item _item;
+
     [SerializeField]private bool _isDragging = false;
+
     [SerializeField] private GameObject Model;
     [SerializeField] private GameObject current;
-    private float distace = 200;
+
+    private float distance = 200;
+
     [SerializeField] private LayerMask layer;
 
     private void Awake()
@@ -35,10 +38,12 @@ public class DW_Drag : MonoBehaviour
     private void Update()
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
         Debug.DrawRay(ray.origin, ray.direction*2000);
+
         if (Physics.Raycast(ray, out RaycastHit hit, 2000, layer))
         {
-
+            // see if the player try to drag a card item in the pop_up
             if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(1) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
             {
                 Debug.Log("Test");
@@ -46,7 +51,7 @@ public class DW_Drag : MonoBehaviour
                 current.SetActive(true);
                 _isDragging =true;
             }
-
+            // see if the player drop the card item on a slot 
             if(hit.collider.CompareTag("UiSlot") &&  _isDragging && Input.GetMouseButtonUp(1))
             {
                 if(hit.collider.gameObject.TryGetComponent<DW_Slot>(out DW_Slot slot))
@@ -59,9 +64,10 @@ public class DW_Drag : MonoBehaviour
             }
         }
 
+        // Show the drag object
         if(_isDragging)
         {
-            current.transform.position = ray.GetPoint(distace);
+            current.transform.position = ray.GetPoint(distance);
         }
 
 

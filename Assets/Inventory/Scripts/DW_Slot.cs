@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 public class DW_Slot : MonoBehaviour
 {
     [SerializeField] private So_ItemData data;
-    private UnityEngine.UI.Image image;
+
+    [SerializeField] private Image image;
+
     private Transform m_transform;
-    // Start is called before the first frame update
+
     void Start()
     {
         m_transform = transform;
-        image = gameObject.transform.GetComponentInChildren<UnityEngine.UI.Image>();
+        image = gameObject.transform.parent.GetComponentInChildren<Image>();
+        StockReset();
     }
 
     public void Stock(DW_Item item)
     {
         StockLaw(item);
+        image.sprite = item.m_Texture;
         data.image = item.m_Texture;
         data.item = item.m_Item;
         data.useAction = item.Use;
@@ -66,6 +69,7 @@ public class DW_Slot : MonoBehaviour
 
     private void StockReset()
     {
+        image.sprite = null;
         data.image = null;
         data.item = Item.NULL;
         data.useAction = null;

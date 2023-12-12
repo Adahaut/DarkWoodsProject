@@ -17,14 +17,13 @@ public class DW_NavigationInventory : MonoBehaviour
     private Button current_button = null;
 
     [SerializeField] private int current_slot_selected = 0;
-    // Start is called before the first frame update
     void Start()
     {
         current_slot_selected = 0;
         GetProperties();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)) 

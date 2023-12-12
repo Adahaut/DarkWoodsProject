@@ -16,6 +16,7 @@ public class DW_DropController : MonoBehaviour
     }
 
 
+    // Drop the item in the world
     public bool Drop(Item item, Vector3 position)
     {
         for(int i = 0;  i < m_Object.Count; i++)
@@ -29,17 +30,5 @@ public class DW_DropController : MonoBehaviour
             }
         }
         return false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
