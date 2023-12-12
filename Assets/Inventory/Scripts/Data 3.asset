@@ -15,3 +15,4 @@ MonoBehaviour:
   image: {fileID: 0}
   item: 0
   numberOfItem: 0
+  _class: 2

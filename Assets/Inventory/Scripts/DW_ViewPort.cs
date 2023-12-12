@@ -16,6 +16,7 @@ public class DW_ViewPort : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter in contact");
+
         if(other.gameObject.CompareTag("UiItem") && !objectInViewPort.Contains(other.gameObject)) 
         {
             objectInViewPort.Add(other.gameObject);

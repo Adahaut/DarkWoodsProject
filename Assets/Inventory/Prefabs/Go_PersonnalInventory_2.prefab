@@ -136,10 +136,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.89433956, g: 0.04556062, b: 0.04556062, a: 1}
-    m_PressedColor: {r: 0.7056604, g: 0.04127444, b: 0.04127444, a: 1}
-    m_SelectedColor: {r: 0.5018867, g: 0.017992094, b: 0.017992094, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.49803922}
+    m_HighlightedColor: {r: 0.89433956, g: 0.04556062, b: 0.04556062, a: 0.49803922}
+    m_PressedColor: {r: 0.7056604, g: 0.04127444, b: 0.04127444, a: 0.49803922}
+    m_SelectedColor: {r: 0.5018867, g: 0.017992094, b: 0.017992094, a: 0.49803922}
     m_DisabledColor: {r: 0.3283019, g: 0.014247027, b: 0.014247027, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 717d7e6019108a946a728cbc9bcb8516, type: 2}
+  image: {fileID: 0}
 --- !u!65 &3508781677975092241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -304,10 +305,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.89433956, g: 0.04556062, b: 0.04556062, a: 1}
-    m_PressedColor: {r: 0.7056604, g: 0.04127444, b: 0.04127444, a: 1}
-    m_SelectedColor: {r: 0.5018867, g: 0.017992094, b: 0.017992094, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.49803922}
+    m_HighlightedColor: {r: 0.89433956, g: 0.04556062, b: 0.04556062, a: 0.49803922}
+    m_PressedColor: {r: 0.7056604, g: 0.04127444, b: 0.04127444, a: 0.49803922}
+    m_SelectedColor: {r: 0.5018867, g: 0.017992094, b: 0.017992094, a: 0.49803922}
     m_DisabledColor: {r: 0.3283019, g: 0.014247027, b: 0.014247027, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 47c3ec6177132ed4e8d26b4914901299, type: 2}
+  image: {fileID: 0}
 --- !u!65 &4893595182594888294
 BoxCollider:
   m_ObjectHideFlags: 0

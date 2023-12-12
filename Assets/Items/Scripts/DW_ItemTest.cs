@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DW_ItemTest : DW_Item
 {
-    // Start is called before the first frame update
     void Start()
     {
         m_Item = Item.Test;
@@ -14,9 +13,5 @@ public class DW_ItemTest : DW_Item
     {
         Debug.Log("Use capacity Test");
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

@@ -9,16 +9,9 @@ public class DW_PersoInventory : MonoBehaviour
     [SerializeField] private List<DW_Slot> slots = new List<DW_Slot>();
     [SerializeField] private TestClass m_class;
 
-    // Start is called before the first frame update
     void Awake()
     {
         FoundSlot();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
@@ -72,8 +65,6 @@ public class DW_PersoInventory : MonoBehaviour
            
                 slots.Add(slot);
                 slot.SetClass(m_class);
-           
-
         }
     }
 
