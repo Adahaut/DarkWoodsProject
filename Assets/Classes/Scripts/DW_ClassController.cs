@@ -25,24 +25,24 @@ public class DW_ClassController : MonoBehaviour
             UseAbility();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        //if (Input.GetMouseButtonDown(1))
         {
-            if(!is_paladin_aggro)
-            {
-                currentClass.shouldBeAggro = false;
-            }
-            if(index_class + 1 < classes.Count)
-            {
-                index_class += 1;
-                currentClass = classes[index_class];
-            }
-            else
-            {
-                index_class = 0;
-                currentClass = classes[index_class];
-            }
-            if(!is_paladin_aggro)
-                currentClass.shouldBeAggro = true;
+            //if(!is_paladin_aggro)
+            //{
+            //    currentClass.shouldBeAggro = false;
+            //}
+            //if(index_class + 1 < classes.Count)
+            //{
+            //    index_class += 1;
+            //    currentClass = classes[index_class];
+            //}
+            //else
+            //{
+            //    index_class = 0;
+            //    currentClass = classes[index_class];
+            //}
+            //if(!is_paladin_aggro)
+            //    currentClass.shouldBeAggro = true;
         }
 
         if(is_speed_reduced)

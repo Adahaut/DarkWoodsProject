@@ -1244,7 +1244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 690.039, y: -203.68112}
+  m_AnchoredPosition: {x: 690.039, y: -203.68115}
   m_SizeDelta: {x: -1380.078, y: -407.361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098655799
@@ -1382,6 +1382,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1) 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2491810181161707393, guid: b95365a0776b50c42ba1aedd74fc3af0, type: 3}
+      propertyPath: m_Item
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491810181161707393, guid: b95365a0776b50c42ba1aedd74fc3af0, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7226782253769530091, guid: b95365a0776b50c42ba1aedd74fc3af0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -95.9
@@ -1499,6 +1507,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8194118164172217428, guid: 917acd68d96be8f42866fa6130dcbb53, type: 3}
+      propertyPath: m_Item
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194118164172217428, guid: 917acd68d96be8f42866fa6130dcbb53, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1822,7 +1838,7 @@ PrefabInstance:
     - target: {fileID: 6016582154928365771, guid: 7fc4ed0ae3d2423498a3bb7a8b4a08ad, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 21300000, guid: 5273d3fe7d1b9d940a89e2fa65ac17cd, type: 3}
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8182301454282778153, guid: 7fc4ed0ae3d2423498a3bb7a8b4a08ad, type: 3}
       propertyPath: m_Name
       value: Cube (1)
@@ -1916,7 +1932,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2200931702289850562}
   m_HandleRect: {fileID: 727656839697149014}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1974,6 +1990,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4386877990965360694, guid: 47e595b5929a73f4eb36c1592ba636e0, type: 3}
+      propertyPath: m_Item
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386877990965360694, guid: 47e595b5929a73f4eb36c1592ba636e0, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2006,6 +2030,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4259621622604900689, guid: 20ad6f441210e844e8059fc5ef283b17, type: 3}
+      propertyPath: m_Item
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259621622604900689, guid: 20ad6f441210e844e8059fc5ef283b17, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5424061556291777882, guid: 20ad6f441210e844e8059fc5ef283b17, type: 3}
       propertyPath: m_LocalPosition.x
       value: -95.9
@@ -2685,6 +2717,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3224642350761438581, guid: bbdf9d7e4d135784c94c8a9ec67fd1a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269396090258669699, guid: bbdf9d7e4d135784c94c8a9ec67fd1a2, type: 3}
+      propertyPath: m_Item
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269396090258669699, guid: bbdf9d7e4d135784c94c8a9ec67fd1a2, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8269396090258669699, guid: bbdf9d7e4d135784c94c8a9ec67fd1a2, type: 3}
+      propertyPath: isStackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269396090258669699, guid: bbdf9d7e4d135784c94c8a9ec67fd1a2, type: 3}
+      propertyPath: ExeptionStack.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

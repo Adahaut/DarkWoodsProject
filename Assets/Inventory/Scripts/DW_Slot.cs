@@ -95,5 +95,5 @@ public class DW_Slot : MonoBehaviour
         }
     }
 
-    public void SetClass(TestClass value) => data._class = value; 
+    public void SetClass(ClassName value) => data._class = value; 
 }

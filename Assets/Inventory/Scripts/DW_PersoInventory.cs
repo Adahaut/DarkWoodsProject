@@ -7,7 +7,7 @@ using static UnityEditor.Progress;
 public class DW_PersoInventory : MonoBehaviour
 {
     [SerializeField] private List<DW_Slot> slots = new List<DW_Slot>();
-    [SerializeField] private TestClass m_class;
+    [SerializeField] private ClassName m_class;
 
     void Awake()
     {
