@@ -35,10 +35,10 @@ public class DW_NavigationInventory : MonoBehaviour
             current_button.image.color = current_button.colors.selectedColor;
 
         }
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            current_button.Press();
-        }
+        //if(Input.GetKeyDown(KeyCode.A))
+        //{
+        //     current_button.Press();
+        //}
     }
 
 

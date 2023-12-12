@@ -6,6 +6,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEditor.FilePathAttribute;
 
 public class Player : MonoBehaviour
@@ -18,21 +19,26 @@ public class Player : MonoBehaviour
     public int targetRotation;
     public Transform playerCamera;
 
+    public Transform doorPivot;
+
+
     Transform _transform;
 
+    public bool doorIsOpen = false;
+    public Transform door;
+    [SerializeField] private So_ItemData data;
 
-    
     int[,] Grid = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = player
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 6 = spawn
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 2 = path
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 4 = door
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,5,2,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
@@ -110,6 +116,7 @@ public class Player : MonoBehaviour
         }
         yield return new WaitForSeconds(waitCooldown);
         canMove = true;
+
     }
 
     public void StartPlayerMove(float total_time)
@@ -118,10 +125,14 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(PlayerMove(total_time));
         }
+        if (canMove && CheckDoorArround(gridList))
+        {
+            StartCoroutine(DoorAnim(total_time));
+            StartCoroutine(PlayerMove(total_time));
+        }
+
     }
-    /*
-     * 
-     */
+
     private IEnumerator PlayerTurn(float total_time, bool direction, bool sameAxis)
     {
         targetRotation = 0;
@@ -129,17 +140,16 @@ public class Player : MonoBehaviour
         float time = 0f;
         float rotation;
         float initialRotation = _transform.eulerAngles.y;
+
         if (sameAxis)
         {
             targetRotation =Mathf.RoundToInt( initialRotation + 180);
         }
         else
             targetRotation = Mathf.RoundToInt( direction ? initialRotation + 90f : initialRotation -90f);
-        Debug.Log(targetRotation);
 
         if (targetRotation == 360 || targetRotation == 0)
         {
-            Debug.Log("UP");
             sizeCells = new Vector3(0, 0, 10);
             Rotation = "Up";
 
@@ -186,12 +196,12 @@ public class Player : MonoBehaviour
     {
         switch (Rotation)
         {
-          
             case "Left":
                 if (_grid[PlayerY][ PlayerX - 1] == 2)
                 {
-                    Debug.Log(_grid[PlayerY][PlayerX - 1]);
+                    Debug.Log(_grid[PlayerY][PlayerX]);
                     PlayerX -= 1;
+                    _grid[PlayerY][PlayerX] = 2;
                     return true;
                 }
                 else
@@ -202,8 +212,9 @@ public class Player : MonoBehaviour
                 if (_grid[PlayerY][PlayerX + 1] == 2)
                 {
 
-                    Debug.Log(_grid[PlayerY][PlayerX + 1]);
+                    Debug.Log(_grid[PlayerY][PlayerX]);
                     PlayerX += 1;
+                    _grid[PlayerY][PlayerX] = 2;
                     return true;
                 }
                 else
@@ -214,8 +225,9 @@ public class Player : MonoBehaviour
                 if (_grid[PlayerY - 1 ][PlayerX ] == 2)
                 {
 
-                    Debug.Log(_grid[PlayerY - 1][PlayerX]);
+                    Debug.Log(_grid[PlayerY][PlayerX]);
                     PlayerY -=  1;
+                    _grid[PlayerY][PlayerX] = 2;
                     return true;
                 }
                 else
@@ -223,12 +235,11 @@ public class Player : MonoBehaviour
                     return false;
                 }
             case "Down":
-                if (_grid[PlayerY + 1 ][PlayerX ] == 2)
+                if (_grid[PlayerY + 1][PlayerX] == 2)
                 {
-
-                    Debug.Log(_grid[PlayerY + 1][PlayerX]);
-                    Debug.Log("Down");
+                    Debug.Log(_grid[PlayerY][PlayerX]);
                     PlayerY += 1;
+                    _grid[PlayerY][PlayerX] = 2;
                     return true;
                 }
                 else
@@ -239,5 +250,95 @@ public class Player : MonoBehaviour
                 break;
         }
         return false;
+    }
+
+
+    private bool CheckDoorArround(List<List<int>> _grid)
+    {
+        Vector3 mouse_pos = Input.mousePosition;
+        bool mouse_button = Input.GetMouseButtonDown(0);
+
+        switch (Rotation)
+        {
+            case "Up":
+                if (_grid[PlayerY - 1][PlayerX] == 4 && data.item == Item.Test)
+                {
+                    Debug.Log(_grid[PlayerY - 1][PlayerX]);
+                    PlayerY -= 1;
+                    _grid[PlayerY][PlayerX] = 2;
+                    doorIsOpen = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            case "Down":
+                if (_grid[PlayerY + 1][PlayerX] == 4 && data.item == Item.Test) 
+                {
+                    Debug.Log(_grid[PlayerY + 1][PlayerX]);
+                    PlayerY += 1;
+                    _grid[PlayerY][PlayerX] = 2;
+                    doorIsOpen =true;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case "Left":
+                if (_grid[PlayerY][PlayerX - 1] == 4 && data.item == Item.Test)
+                {
+                    Debug.Log(_grid[PlayerY][PlayerX - 1]);
+                    PlayerX -= 1;
+                    _grid[PlayerY][PlayerX] = 2;
+                    doorIsOpen = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case "Right":
+                if (_grid[PlayerY][PlayerX + 1] == 4 && data.item == Item.NULL)
+                {
+                    Debug.Log(_grid[PlayerY][PlayerX + 1]);
+                    PlayerX += 1;
+                    _grid[PlayerY][PlayerX] = 2;
+                    doorIsOpen =true;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("Key_Down");
+                    return false;
+                }
+                    default:
+                break;
+        }
+        return false;
+    }
+
+    private IEnumerator DoorAnim(float total_time)
+    {
+        if (doorIsOpen)
+        {
+            float start_pos = 0f;
+            float end_pos = -90f;
+            float time = 0f;
+            float rotation;
+
+            while (time / total_time < 1)
+            {
+                time += Time.deltaTime;
+                rotation = Mathf.Lerp(start_pos, end_pos, time / total_time);
+
+                door.transform.rotation = Quaternion.Euler(0, rotation, 0);
+                yield return null;
+            }
+            yield return new WaitForSeconds(waitCooldown);
+            doorIsOpen=false;
+        }
     }
 }
