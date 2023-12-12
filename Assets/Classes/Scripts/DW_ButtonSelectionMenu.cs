@@ -22,7 +22,6 @@ public class DW_ButtonSelectionMenu : MonoBehaviour
     {
         if (has_been_selected)
         {
-            Debug.Log("Remove from team");
             has_been_selected = false;
             this.transform.Find("backgroundColor").GetComponent<Image>().color = originColor;
             team_manager.RemoveClassFromTeam(typeOfClass);
@@ -31,7 +30,6 @@ public class DW_ButtonSelectionMenu : MonoBehaviour
         {
             if (!team_manager.isTeamFull && !team_manager.classes_selected.Contains(typeOfClass))
             {
-                Debug.Log("Add to team");
                 has_been_selected = true;
                 this.transform.Find("backgroundColor").GetComponent<Image>().color = selectedColor;
                 team_manager.AddClassToTeam(typeOfClass);

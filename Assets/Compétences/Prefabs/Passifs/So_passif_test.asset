@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67f64edea05d40498d3838d8ca479c9, type: 3}
   m_Name: So_passif_test
   m_EditorClassIdentifier: 
+  passifIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
