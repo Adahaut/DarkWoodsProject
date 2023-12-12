@@ -19,7 +19,6 @@ public class DW_TeamManager : MonoBehaviour
     {
         if(!isTeamFull && !classes_selected.Contains(cls))
         {
-            Debug.Log(cls.className);
             classes_selected.Add(cls);
 
             // verifier ici si c'est == 3 
