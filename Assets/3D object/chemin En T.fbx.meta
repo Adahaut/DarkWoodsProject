@@ -3,17 +3,7 @@ guid: 2c43fca2ccfd38d468287ccd33a1f17a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AutoTerrain.001
-    second: {fileID: 2100000, guid: 91cd945e8e028014d9f3e4d488b3e0a6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AutoTerrain.004
-    second: {fileID: 2100000, guid: 6da4d0dd67461154bb37285e5c1747b7, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
