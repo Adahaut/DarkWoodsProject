@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum Item
 {
-    NULL,Test, Test1, Test2, Test3, Test4, Test5, Test6, Test7, Test8, Test9,
+    NULL,Key,Weapon, Consummable
 };
 
 public abstract class DW_Item : MonoBehaviour

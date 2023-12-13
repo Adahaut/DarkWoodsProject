@@ -66,11 +66,6 @@ public class DW_PersoInventory : MonoBehaviour
             {
                 slots.Add(slot);
                 slot.SetClass(m_class);
-                Debug.Log("Slot found");
-            }
-            else
-            {
-                Debug.Log("Slot not found");
             }
         }
     }
