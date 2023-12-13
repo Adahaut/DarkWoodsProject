@@ -6,16 +6,26 @@ using UnityEngine.Assertions.Must;
 
 public class DW_GM_Classes : MonoBehaviour
 {
-    // organisation of the scene panels
-    public GameObject preGameEnvironnement;
-    public GameObject inGameEnvironnement;
+    private static DW_GM_Classes instance;
 
-    public Transform parentInventory;
+    public static DW_GM_Classes Instance => instance;
+    // organisation of the scene panels
+    [SerializeField] private GameObject pre_game_environnement;
+    [SerializeField] private GameObject in_game_environnement;
+
+    [SerializeField] private Transform parent_inventory;
+    [SerializeField] private DW_ClassHolderRef class_holder_ref;
 
     // skill management
-    private DW_TeamManager team_manager;
+    [SerializeField] private DW_TeamManager team_manager;
+
     private DW_Skill skill_to_use;
-    public DW_ClassHolderRef initiator_skill;
+    private DW_ClassHolderRef initiator_skill;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -27,24 +37,24 @@ public class DW_GM_Classes : MonoBehaviour
         if(team_manager.isTeamFull)
         {
             
-            preGameEnvironnement.SetActive(false);
-            inGameEnvironnement.SetActive(true);
+            pre_game_environnement.SetActive(false);
+            in_game_environnement.SetActive(true);
 
-            GameObject classCard = parentInventory.GetChild(0).gameObject;
+            GameObject classCard = parent_inventory.GetChild(0).gameObject;
 
             classCard.GetComponent<DW_ClassHolderRef>().InitalizeCard(team_manager.classes_selected[0]);
 
-            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[0]);
-            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[1]);
-            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[2]);
-            GameObject.FindAnyObjectByType<DW_ClassController>().currentClass = GameObject.FindAnyObjectByType<DW_ClassController>().classes[0];
+            DW_ClassController.Instance.classes.Add(team_manager.classes_selected[0]);
+            DW_ClassController.Instance.classes.Add(team_manager.classes_selected[1]);
+            DW_ClassController.Instance.classes.Add(team_manager.classes_selected[2]);
+            DW_ClassController.Instance.currentClass = team_manager.classes_selected[0];
 
         }
     }
 
     public void UseOtherSkill(DW_ClassHolderRef classHolder)
     {
-        GameObject.FindAnyObjectByType<DW_ClassController>().UseAbility();
+        DW_ClassController.Instance.UseAbility();
     }
 
     public void UseHealSkill(DW_ClassHolderRef classHolder)
@@ -62,7 +72,7 @@ public class DW_GM_Classes : MonoBehaviour
         if(skill_to_use != null && initiator_skill != null)
         {
             DW_Class foundClass = classRef;
-            foreach(DW_Class c in GameObject.FindAnyObjectByType<DW_ClassController>().classes)
+            foreach(DW_Class c in DW_ClassController.Instance.classes)
             {
                 if (c == foundClass && initiator_skill.classRef.specialSourceAmount - skill_to_use.percentCost >= 0 && c.currentHealth < c.maxHealth)
                 {
@@ -74,7 +84,7 @@ public class DW_GM_Classes : MonoBehaviour
                     }
                     initiator_skill.classRef.specialSourceAmount -= skill_to_use.percentCost;
                     initiator_skill.UpdateSpecialBar();
-                    GameObject.FindAnyObjectByType<DW_ClassHolderRef>().UpdateHealthBar();
+                    class_holder_ref.UpdateHealthBar();
                     classRef.classSkill.isOnCooldown = true;
                     break;
                 }
@@ -82,7 +92,7 @@ public class DW_GM_Classes : MonoBehaviour
         }
         else
         {
-            GameObject.FindAnyObjectByType<DW_ClassController>().ChangeClass(classRef);
+            DW_ClassController.Instance.ChangeClass(classRef);
         }
         
         skill_to_use = null;

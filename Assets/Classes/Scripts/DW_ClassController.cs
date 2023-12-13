@@ -6,6 +6,8 @@ using UnityEngine;
 // Use this script to be able to use abilities.
 public class DW_ClassController : MonoBehaviour
 {
+    private static DW_ClassController instance;
+    public static DW_ClassController Instance => instance;
     public DW_Class currentClass;
     public List<DW_Class> classes;
     [SerializeField] private DW_ClassHolderRef cardHolderRef;
@@ -16,6 +18,11 @@ public class DW_ClassController : MonoBehaviour
     private bool is_speed_reduced = false;
     private float speedReducedTimer = 0.0f;
     private float removed_speed = 0.0f;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void ChangeClass(DW_Class classChange)
     {

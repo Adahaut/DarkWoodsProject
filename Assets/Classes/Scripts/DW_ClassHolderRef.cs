@@ -19,8 +19,7 @@ public class DW_ClassHolderRef : MonoBehaviour
 
     public void InitalizeCard(DW_Class class_ref)
     {
-        DW_GM_Classes gm = GameObject.FindAnyObjectByType<DW_GM_Classes>();
-        skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { gm.UseOtherSkill(this); });
+        skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { DW_GM_Classes.Instance.UseOtherSkill(this); });
 
         classIcon.sprite = class_ref.classIcon;
         skillIcon.sprite = class_ref.classSkill.skillIcon;
