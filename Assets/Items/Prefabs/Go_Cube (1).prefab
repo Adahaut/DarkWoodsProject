@@ -119,4 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Item: 1
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 
+  m_Position: {x: 0, y: 0}
+  m_title: 
+  m_description: 

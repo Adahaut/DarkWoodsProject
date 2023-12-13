@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class DW_PersoInventory : MonoBehaviour
 {
     [SerializeField] private List<DW_Slot> slots = new List<DW_Slot>();
-    [SerializeField] private TestClass m_class;
+    [SerializeField] private ClassName m_class;
 
     void Awake()
     {
@@ -63,8 +62,16 @@ public class DW_PersoInventory : MonoBehaviour
         {
             DW_Slot slot = transform.GetChild(i).GetComponentInChildren<DW_Slot>();
            
+            if(slot != null)
+            {
                 slots.Add(slot);
                 slot.SetClass(m_class);
+                Debug.Log("Slot found");
+            }
+            else
+            {
+                Debug.Log("Slot not found");
+            }
         }
     }
 

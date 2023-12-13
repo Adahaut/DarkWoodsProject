@@ -40,18 +40,18 @@ public class DW_ObjectDetection : MonoBehaviour
 
     private void PopUpNavigation()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-            current_card_select++;
-            Selection();
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-            current_card_select--;
-            Selection();
-        }
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
+        //    current_card_select++;
+        //    Selection();
+        //}
+        //if (Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
+        //    current_card_select--;
+        //    Selection();
+        //}
     }
 
     //See if the object is near the player

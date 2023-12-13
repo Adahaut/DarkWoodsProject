@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class DW_Slot : MonoBehaviour
 {
-    [SerializeField] private So_ItemData data;
+    public So_ItemData data;
 
     [SerializeField] private Image image;
-
+    [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
     void Start()
@@ -16,6 +17,18 @@ public class DW_Slot : MonoBehaviour
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
+    }
+
+    public void RefreshSlot()
+    {
+        //if(data != null && image != null)
+        //{
+        //    this.GetComponent<Image>().sprite = data.image;
+        //}
+        //else
+        //{
+        //    this.GetComponent<Image>().sprite = originalSprite;
+        //}
     }
 
     public void Stock(DW_Item item)
@@ -26,8 +39,11 @@ public class DW_Slot : MonoBehaviour
         data.item = item.m_Item;
         data.useAction = item.Use;
         data.numberOfItem++;
+        data.consommable = !item.isWeapon;
 
     }
+
+
 
     public void Use()
     {
@@ -35,7 +51,8 @@ public class DW_Slot : MonoBehaviour
         if (data.useAction != null)
         {
             data.useAction();
-            data.numberOfItem--;
+            if(data.consommable)
+                data.numberOfItem--;
             Verification();
         }
     }
@@ -48,7 +65,7 @@ public class DW_Slot : MonoBehaviour
 
     private void StockLaw(DW_Item item)
     {
-        if (data.item != item.m_Item /*|| (!item.isStackable && !item.ExeptionStack.Contains(data._class))*/)
+        if (data.item != item.m_Item || (!item.isStackable && !item.ExeptionStack.Contains(data._class)))
         {
             int num = data.numberOfItem;
             for (int i = 0; i < num; i++)
@@ -89,11 +106,11 @@ public class DW_Slot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0)) 
+        if(Input.GetMouseButtonDown(2)) 
         {
             Drop();
         }
     }
 
-    public void SetClass(TestClass value) => data._class = value; 
+    public void SetClass(ClassName value) => data._class = value; 
 }

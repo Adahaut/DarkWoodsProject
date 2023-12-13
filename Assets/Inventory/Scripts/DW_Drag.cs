@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class DW_Drag : MonoBehaviour
 {
-    Camera _camera;
+    public Camera _camera;
 
     public DW_Item _item;
 
@@ -21,11 +21,11 @@ public class DW_Drag : MonoBehaviour
 
     private void Awake()
     {
-        _camera = Camera.main;
         if (current == null) { current = Instantiate<GameObject>(Model); current.SetActive(false); }
     }
     private void OnMouseOver()
     {
+        Debug.Log("blabla");
         if(Input.GetMouseButtonDown(1))
         {
             Debug.Log("Here");
