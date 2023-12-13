@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static UnityEditor.PlayerSettings;
 
 public class DW_AiMovement : MonoBehaviour
 {
@@ -13,13 +12,11 @@ public class DW_AiMovement : MonoBehaviour
     void Update()
     {
         Vector2 pos = character.GetPos();
-        Debug.Log("My Position On the Grid ====  " + pos);
         if (Path.Count > 0)
         {
             Move();
         }
 
-        Debug.Log(character.GetPos() + " /// " + player.GetPos());
         if(character.GetPos() != player.GetPos())
             A(character.GetPos(), player.GetPos());
        
@@ -34,10 +31,10 @@ public class DW_AiMovement : MonoBehaviour
         Vector2 pos = character.GetPos();
         string dir = GetDirection(pos);
 
-        Debug.Log("My Position On the Grid ====  " + pos);
 
         if (dir == character.Rotation)
         {
+            Debug.Log(" ai mov");
             character.StartCharacterMove(.5f);
         }
         else
@@ -93,22 +90,26 @@ public class DW_AiMovement : MonoBehaviour
     }
     private string GetDirection(Vector2 positionPlayer)
     {
-        if (positionPlayer == Path[0])
+        if (Path.Count > 0)
         {
-            Path.RemoveAt(0);
+        
+            if (Path[0].y == positionPlayer.y)
+            {
+                if (positionPlayer.x > Path[0].x) { return "Left"; }
+                if (positionPlayer.x < Path[0].x) { return "Right"; }
+            }
+            else if (Path[0].x == positionPlayer.x)
+            {
+                if (positionPlayer.y < Path[0].y) { return "Down"; }
+                if (positionPlayer.y > Path[0].y) { return "Up"; }
+            }
+            if (positionPlayer == Path[0])
+            {
+                Path.RemoveAt(0);
+            }
+        
         }
-        if (Path[0].y == positionPlayer.y)
-        {
-            if(positionPlayer.x > Path[0].x) { return "Left"; }
-            if (positionPlayer.x < Path[0].x) { return "Right"; }
-        }
-        else if (Path[0].x == positionPlayer.x)
-        {
-            if (positionPlayer.y < Path[0].y) { return "Down"; }
-            if (positionPlayer.y > Path[0].y) { return "Up"; }
-        }
-
-        return "Null";
+        return character.Rotation;
     }
 
 

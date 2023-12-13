@@ -25,6 +25,7 @@ public class DW_Character : MonoBehaviour
     private int[,] _grid; 
 
     Transform _transform;
+    public DW_PlayerSound playerSound;
 
 
 
@@ -112,6 +113,7 @@ public class DW_Character : MonoBehaviour
         float time = 0f;
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
+        playerSound.PlayerSteps();
 
         // If gameObject is the player, play cam anim
         if(playerCamera != null) 

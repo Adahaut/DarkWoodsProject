@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     {
         if (ctx.started)
         {
+            Debug.Log("Player mov");
             player.StartCharacterMove(walkSpeed);
 
         }
