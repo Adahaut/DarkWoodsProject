@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class DW_Slot : MonoBehaviour
 {
-    [SerializeField] private So_ItemData data;
+    public So_ItemData data;
 
     [SerializeField] private Image image;
+    [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
     void Start()
@@ -15,6 +17,18 @@ public class DW_Slot : MonoBehaviour
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
+    }
+
+    public void RefreshSlot()
+    {
+        //if(data != null && image != null)
+        //{
+        //    this.GetComponent<Image>().sprite = data.image;
+        //}
+        //else
+        //{
+        //    this.GetComponent<Image>().sprite = originalSprite;
+        //}
     }
 
     public void Stock(DW_Item item)
@@ -28,6 +42,8 @@ public class DW_Slot : MonoBehaviour
         data.consommable = !item.isWeapon;
 
     }
+
+
 
     public void Use()
     {

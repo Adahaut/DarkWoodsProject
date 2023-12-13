@@ -52,4 +52,7 @@ public class DW_Class : ScriptableObject
     public specialSourceType specialSourceType;
     [Range(0, 100)]
     public float specialSourceAmount;
+
+    public So_ItemData slotLeft;
+    public So_ItemData slotRight;
 }

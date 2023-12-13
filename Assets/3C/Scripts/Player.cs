@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Cryptography;
-using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class Player : MonoBehaviour
 {

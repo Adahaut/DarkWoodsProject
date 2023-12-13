@@ -29,25 +29,27 @@ public class DW_GM_Classes : MonoBehaviour
             
             preGameEnvironnement.SetActive(false);
             inGameEnvironnement.SetActive(true);
-            for(int i = 0; i < team_manager.classes_selected.Count; i++)
-            {
-                GameObject classCard = parentInventory.GetChild(i).gameObject;
-                classCard.GetComponent<DW_ClassHolderRef>().classRef = team_manager.classes_selected[i];
-                classCard.GetComponent<DW_ClassHolderRef>().classSkill = team_manager.classes_selected[i].classSkill;
-                classCard.GetComponent<DW_ClassHolderRef>().classPassif = team_manager.classes_selected[i].classPassif;
 
-                classCard.GetComponent<DW_ClassHolderRef>().InitalizeCard();
+            GameObject classCard = parentInventory.GetChild(0).gameObject;
 
-                GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[i]);
-            }
+            classCard.GetComponent<DW_ClassHolderRef>().InitalizeCard(team_manager.classes_selected[0]);
+
+            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[0]);
+            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[1]);
+            GameObject.FindAnyObjectByType<DW_ClassController>().classes.Add(team_manager.classes_selected[2]);
             GameObject.FindAnyObjectByType<DW_ClassController>().currentClass = GameObject.FindAnyObjectByType<DW_ClassController>().classes[0];
 
         }
     }
 
-    public void RememberSkill(DW_ClassHolderRef classHolder)
+    public void UseOtherSkill(DW_ClassHolderRef classHolder)
     {
-        DW_Skill skill = classHolder.classSkill;
+        GameObject.FindAnyObjectByType<DW_ClassController>().UseAbility();
+    }
+
+    public void UseHealSkill(DW_ClassHolderRef classHolder)
+    {
+        DW_Skill skill = classHolder.classRef.classSkill;
         if(!skill_to_use && skill.skillType == SkillType.Heal)
         {
             initiator_skill = classHolder;
@@ -55,11 +57,11 @@ public class DW_GM_Classes : MonoBehaviour
         }
     }
 
-    public void ApplySkill(DW_ClassHolderRef classHolder)
+    public void ApplySkill(DW_Class classRef)
     {
         if(skill_to_use != null && initiator_skill != null)
         {
-            DW_Class foundClass = classHolder.classRef;
+            DW_Class foundClass = classRef;
             foreach(DW_Class c in GameObject.FindAnyObjectByType<DW_ClassController>().classes)
             {
                 if (c == foundClass && initiator_skill.classRef.specialSourceAmount - skill_to_use.percentCost >= 0 && c.currentHealth < c.maxHealth)
@@ -72,11 +74,15 @@ public class DW_GM_Classes : MonoBehaviour
                     }
                     initiator_skill.classRef.specialSourceAmount -= skill_to_use.percentCost;
                     initiator_skill.UpdateSpecialBar();
-                    classHolder.UpdateHealthBar();
-                    classHolder.classRef.classSkill.isOnCooldown = true;
+                    GameObject.FindAnyObjectByType<DW_ClassHolderRef>().UpdateHealthBar();
+                    classRef.classSkill.isOnCooldown = true;
                     break;
                 }
             }
+        }
+        else
+        {
+            GameObject.FindAnyObjectByType<DW_ClassController>().ChangeClass(classRef);
         }
         
         skill_to_use = null;
