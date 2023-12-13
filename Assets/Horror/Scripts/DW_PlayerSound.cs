@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class DW_PlayerSound : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] steps_clips;
+    public bool inHospital = false;
+    [SerializeField] private AudioClip[] forest_steps_clips;
+    [SerializeField] private AudioClip[] hospital_steps_clips;
     [SerializeField] private AudioSource steps_audio_source;
-
-    private void Start()
-    {
-        PlayerSteps();
-    }
 
     //choose a random steps sound
     public void PlayerSteps()
     {
-        int clipToPlay = Random.Range(0, steps_clips.Length);
-        steps_audio_source.clip = steps_clips[clipToPlay];
+        if(!inHospital)
+        {
+            int clipToPlay = Random.Range(0, forest_steps_clips.Length);
+            steps_audio_source.clip = forest_steps_clips[clipToPlay];
+        }
+        else
+        {
+            int clipToPlay = Random.Range(0, hospital_steps_clips.Length);
+            steps_audio_source.clip = hospital_steps_clips[clipToPlay];
+        }        
+    }
+
+    public void PlayStepsSound()
+    {
+        steps_audio_source.Play();
     }
 }

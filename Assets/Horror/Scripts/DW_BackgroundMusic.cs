@@ -6,7 +6,7 @@ public class DW_BackgroundMusic : MonoBehaviour
 {
     [SerializeField] AudioSource audio_source;
     [SerializeField] AudioClip[] music_clips;
-    private bool in_hospital = false;
+    [SerializeField] DW_PlayerSound player_sound;
     [SerializeField] GameObject steps_behind_the_player;
 
     private void Start()
@@ -18,7 +18,7 @@ public class DW_BackgroundMusic : MonoBehaviour
     private void Update()
     {
         //steps behind de player active only in the forest
-        if(in_hospital)
+        if(player_sound.inHospital)
         {
             steps_behind_the_player.SetActive(false);
         }
@@ -33,9 +33,9 @@ public class DW_BackgroundMusic : MonoBehaviour
         //Switch the music from the forest to the hospital and vice versa
         if (other.gameObject.tag == "Player")
         {
-            in_hospital = !in_hospital;
+            player_sound.inHospital = !player_sound.inHospital;
 
-            if(in_hospital)
+            if(player_sound.inHospital)
             {
                 audio_source.clip = music_clips[1];
                 audio_source.Play();
