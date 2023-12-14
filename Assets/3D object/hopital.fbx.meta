@@ -22,6 +22,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 71ef84414df4fdd4c814dd11a150fef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: door
     second: {fileID: 2100000, guid: d5528d1ef295bf44aa6ca7ab4e9920f3, type: 2}
   - first:
@@ -29,6 +34,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: floor entrance
     second: {fileID: 2100000, guid: 63cb8487ccf7f1d478e25341a0a34399, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 71ef84414df4fdd4c814dd11a150fef4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -52,8 +62,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: wall entrance
-    second: {fileID: 2100000, guid: 02b8062275120a842bd2ff2825f24057, type: 2}
+      name: window
+    second: {fileID: 2100000, guid: 71ef84414df4fdd4c814dd11a150fef4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
