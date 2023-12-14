@@ -40,14 +40,19 @@ public class DW_Class : ScriptableObject
     public float currentAttackSpeed;
     public float minattackDamage;
     public float maxattackDamage;
+    public float currentDamage => (Random.Range(minattackDamage, maxattackDamage) * (currentPercentDamage / 100) );
 
     public bool shouldBeAggro = false;
 
     // jauges spéciales ( en set qu'une seule )
     public float minPercentDamage;
     public float maxPercentDamage;
+    public float currentPercentDamage => minPercentDamage;
 
     public specialSourceType specialSourceType;
     [Range(0, 100)]
     public float specialSourceAmount;
+
+    public So_ItemData slotLeft;
+    public So_ItemData slotRight;
 }

@@ -7,28 +7,32 @@ using UnityEngine.UI;
 
 public class DW_ClassHolderRef : MonoBehaviour
 {
-    [Header("CLASS AND SKILLS REFERENCES")]
-    public DW_Class classRef;
-    public DW_Skill classSkill;
-    public DW_Passif classPassif;
-
     [Header("UI REFERENCES")]
     public Image classIcon;
     public Image skillIcon;
     public TextMeshProUGUI className;
     public Image healthBar;
     public Image specialBar;
+    public DW_Slot slotLeft, slotRight;
 
-    public void InitalizeCard()
+    [HideInInspector] public DW_Class classRef;
+
+    public void InitalizeCard(DW_Class class_ref)
     {
-        DW_GM_Classes gm = GameObject.FindAnyObjectByType<DW_GM_Classes>();
-        this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(this); });
-        skillIcon.transform.GetComponent<Button>().onClick.AddListener(() => { gm.RememberSkill(this); });
+        skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { DW_GM_Classes.Instance.UseOtherSkill(this); });
 
-        classIcon.sprite = classRef.classIcon;
-        skillIcon.sprite = classSkill.skillIcon;
-        className.text = classRef.className;
-        healthBar.fillAmount = classRef.currentHealth / classRef.maxHealth;
+        classIcon.sprite = class_ref.classIcon;
+        skillIcon.sprite = class_ref.classSkill.skillIcon;
+        className.text = class_ref.className;
+        healthBar.fillAmount = class_ref.currentHealth / class_ref.maxHealth;
+
+        classRef = class_ref;
+
+        slotLeft.data = class_ref.slotLeft;
+        slotRight.data = class_ref.slotRight;
+
+        slotLeft.RefreshSlot();
+        slotRight.RefreshSlot();
 
         UpdateHealthBar();
         UpdateSpecialBar();

@@ -25,10 +25,10 @@ public class DW_InventoryController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            PickUp(DW_ObjectDetection.Instance.currentObjectSelect) ;
-        }
+        //if(Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    PickUp(DW_ObjectDetection.Instance.currentObjectSelect) ;
+        //}
 
         //if(isDroping) 
         //{

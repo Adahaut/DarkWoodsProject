@@ -6,7 +6,7 @@ public class DW_ItemTest : DW_Item
 {
     void Start()
     {
-        m_Item = Item.Test;
+        m_Item = Item.NULL;
     }
 
     public override void Use()

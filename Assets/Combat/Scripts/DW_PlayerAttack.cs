@@ -10,19 +10,16 @@ public class DW_PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        Attack();
     }
 
     public void Attack()
-    {        
-        if(Input.GetKeyDown(KeyCode.Space)) // si le slot d'inventaire utilisé est une arme
+    {
+        Debug.Log("Attack");
+        if(can_attack)
         {
-            if(can_attack)
-            {
-                attack_collider.enabled = true;
-                can_attack = false;
-                StartCoroutine(WaitBeforeNextAttack());
-            }
+            attack_collider.enabled = true;
+            can_attack = false;
+            StartCoroutine(WaitBeforeNextAttack());
         }
     }
 

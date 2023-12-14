@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class DW_PersoInventory : MonoBehaviour
 {
@@ -63,8 +62,11 @@ public class DW_PersoInventory : MonoBehaviour
         {
             DW_Slot slot = transform.GetChild(i).GetComponentInChildren<DW_Slot>();
            
+            if(slot != null)
+            {
                 slots.Add(slot);
                 slot.SetClass(m_class);
+            }
         }
     }
 

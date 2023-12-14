@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UiSlot
   - UiItem
+  - Enemy
   layers:
   - Default
   - TransparentFX

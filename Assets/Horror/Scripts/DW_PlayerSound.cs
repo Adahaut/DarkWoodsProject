@@ -21,7 +21,9 @@ public class DW_PlayerSound : MonoBehaviour
         {
             int clipToPlay = Random.Range(0, hospital_steps_clips.Length);
             steps_audio_source.clip = hospital_steps_clips[clipToPlay];
-        }        
+        }
+        Debug.Log("Playersteps");
+        PlayStepsSound();
     }
 
     public void PlayStepsSound()

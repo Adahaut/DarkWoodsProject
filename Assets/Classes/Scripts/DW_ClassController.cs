@@ -6,10 +6,11 @@ using UnityEngine;
 // Use this script to be able to use abilities.
 public class DW_ClassController : MonoBehaviour
 {
+    private static DW_ClassController instance;
+    public static DW_ClassController Instance => instance;
     public DW_Class currentClass;
     public List<DW_Class> classes;
-
-    private int index_class = 0;
+    [SerializeField] private DW_ClassHolderRef cardHolderRef;
 
     // effects that alterate the controller stats
     private bool is_paladin_aggro = false;
@@ -18,32 +19,59 @@ public class DW_ClassController : MonoBehaviour
     private float speedReducedTimer = 0.0f;
     private float removed_speed = 0.0f;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void ChangeClass(DW_Class classChange)
+    {
+        if(classChange != currentClass)
+        {
+            if(!is_paladin_aggro)
+            {
+                currentClass.shouldBeAggro = false;
+            }
+
+            currentClass = classChange;
+
+            if(!is_paladin_aggro) 
+            {
+                currentClass.shouldBeAggro = true;
+            }
+
+            this.GetComponent<DW_LifeManager>().OnChangeLeader(currentClass);
+            cardHolderRef.InitalizeCard(classChange);
+        }
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UseAbility();
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    UseAbility();
+        //}
 
-        //if (Input.GetMouseButtonDown(1))
-        {
-            //if(!is_paladin_aggro)
-            //{
-            //    currentClass.shouldBeAggro = false;
-            //}
-            //if(index_class + 1 < classes.Count)
-            //{
-            //    index_class += 1;
-            //    currentClass = classes[index_class];
-            //}
-            //else
-            //{
-            //    index_class = 0;
-            //    currentClass = classes[index_class];
-            //}
-            //if(!is_paladin_aggro)
-            //    currentClass.shouldBeAggro = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    if (!is_paladin_aggro)
+        //    {
+        //        currentClass.shouldBeAggro = false;
+        //    }
+        //    if (index_class + 1 < classes.Count)
+        //    {
+        //        index_class += 1;
+        //        currentClass = classes[index_class];
+        //    }
+        //    else
+        //    {
+        //        index_class = 0;
+        //        currentClass = classes[index_class];
+        //    }
+        //    if (!is_paladin_aggro)
+        //        currentClass.shouldBeAggro = true;
+
+        //    this.GetComponent<DW_LifeManager>().OnChangeLeader(currentClass);
+        //}
 
         if(is_speed_reduced)
         {
@@ -62,7 +90,7 @@ public class DW_ClassController : MonoBehaviour
     /*
      * Use the ability of the current class, if found.
      */
-    private void UseAbility()
+    public void UseAbility()
     {
         DW_Skill abilityToUse = null;
 
@@ -83,7 +111,7 @@ public class DW_ClassController : MonoBehaviour
             default:
                 break;
         }
-
+        if(abilityToUse != null)
         if(currentClass.specialSourceAmount - abilityToUse.percentCost >= 0 && !abilityToUse.isOnCooldown)
         {
             switch (abilityToUse.skillType)
@@ -123,7 +151,7 @@ public class DW_ClassController : MonoBehaviour
      */
     public void SkillHeal()
     {
-        GameObject.FindObjectOfType<DW_GM_Classes>().RememberSkill(FindClassHolderRef(currentClass));
+        GameObject.FindObjectOfType<DW_GM_Classes>().UseHealSkill(FindClassHolderRef(currentClass));
     }
 
     /*
