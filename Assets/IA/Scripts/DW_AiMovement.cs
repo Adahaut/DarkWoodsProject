@@ -92,7 +92,10 @@ public class DW_AiMovement : MonoBehaviour
     {
         if (Path.Count > 0)
         {
-        
+            if (positionPlayer == Path[0])
+            {
+                Path.RemoveAt(0);
+            }
             if (Path[0].y == positionPlayer.y)
             {
                 if (positionPlayer.x > Path[0].x) { return "Left"; }
@@ -103,10 +106,7 @@ public class DW_AiMovement : MonoBehaviour
                 if (positionPlayer.y < Path[0].y) { return "Down"; }
                 if (positionPlayer.y > Path[0].y) { return "Up"; }
             }
-            if (positionPlayer == Path[0])
-            {
-                Path.RemoveAt(0);
-            }
+            
         
         }
         return character.Rotation;
