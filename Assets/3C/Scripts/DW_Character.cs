@@ -54,8 +54,8 @@ public class DW_Character : MonoBehaviour
 
     public string Rotation;
 
-    [SerializeField]int CharacterX;
-    [SerializeField]int CharacterY;
+     [SerializeField] public int CharacterX;
+     [SerializeField] public int CharacterY;
 
     private void Start()
     {
@@ -78,7 +78,7 @@ public class DW_Character : MonoBehaviour
     //}
 
 
-    private void SetFirst()
+    public void SetFirst()
     {
         DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.x, (int)gameObject.transform.position.z));
         CharacterX = Mathf.Abs((int)gameObject.transform.position.x / 10);
@@ -242,7 +242,7 @@ public class DW_Character : MonoBehaviour
             case "Left":
                 if (_grid[CharacterY,CharacterX - 1] == 2)
                 {
-                    Debug.Log(_grid[CharacterY,CharacterX - 1]);
+                   
                     return true;
                 }
                 else
@@ -253,7 +253,7 @@ public class DW_Character : MonoBehaviour
                 if (_grid[CharacterY,CharacterX + 1] == 2)
                 {
 
-                    Debug.Log(_grid[CharacterY,CharacterX + 1]);
+                   
                     return true;
                 }
                 else
@@ -264,7 +264,6 @@ public class DW_Character : MonoBehaviour
                 if (_grid[CharacterY - 1,CharacterX] == 2)
                 {
 
-                    Debug.Log(_grid[CharacterY - 1,CharacterX]);
                     return true;
                 }
                 else
@@ -275,8 +274,6 @@ public class DW_Character : MonoBehaviour
                 if (_grid[CharacterY + 1,CharacterX] == 2)
                 {
 
-                    Debug.Log(_grid[CharacterY + 1,CharacterX]);
-                    Debug.Log("Down");
                     return true;
                 }
                 else
@@ -284,6 +281,7 @@ public class DW_Character : MonoBehaviour
                     return false;
                 }
             default:
+                return false;
                 break;
         }
         return false;
@@ -340,4 +338,5 @@ public class DW_Character : MonoBehaviour
     {
         return GetCharacterPos();
     }
+
 }

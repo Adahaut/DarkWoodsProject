@@ -9,7 +9,6 @@ public class DW_ChangeClassButton : MonoBehaviour
     [SerializeField] private DW_TeamManager team_manager;
     private void OnEnable()
     {
-        Debug.Log("Button updated");
         DW_GM_Classes gm = DW_GM_Classes.Instance;
         this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(team_manager.classes_selected[index_class]); }) ;
         

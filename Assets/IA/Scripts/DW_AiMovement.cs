@@ -10,8 +10,7 @@ public class DW_AiMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        Vector2 pos = character.GetPos();
+    { 
         if (Path.Count > 0)
         {
             Move();
@@ -19,7 +18,7 @@ public class DW_AiMovement : MonoBehaviour
 
         if(character.GetPos() != player.GetPos())
             A(character.GetPos(), player.GetPos());
-       
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             A(_start, _target);
@@ -29,16 +28,19 @@ public class DW_AiMovement : MonoBehaviour
     private void Move()
     {
         Vector2 pos = character.GetPos();
-        string dir = GetDirection(pos);
+
+       
+            string dir = GetDirection(pos);
 
 
-        if (dir == character.Rotation)
-        {
-            Debug.Log(" ai mov");
-            character.StartCharacterMove(.5f);
-        }
-        else
-            Turn(dir);
+            if (dir == character.Rotation)
+            {
+                Debug.Log(" ai mov");
+                character.StartCharacterMove(.5f);
+            }
+            else
+                Turn(dir);
+        
     }
 
     private void Turn(string direction)
@@ -96,16 +98,20 @@ public class DW_AiMovement : MonoBehaviour
             {
                 Path.RemoveAt(0);
             }
-            if (Path[0].y == positionPlayer.y)
+            
             {
-                if (positionPlayer.x > Path[0].x) { return "Left"; }
-                if (positionPlayer.x < Path[0].x) { return "Right"; }
+                if (Path[0].y == positionPlayer.y)
+                {
+                    if (positionPlayer.x > Path[0].x) { return "Left"; }
+                    if (positionPlayer.x < Path[0].x) { return "Right"; }
+                }
+                else if (Path[0].x == positionPlayer.x)
+                {
+                    if (positionPlayer.y < Path[0].y) { return "Down"; }
+                    if (positionPlayer.y > Path[0].y) { return "Up"; }
+                }
             }
-            else if (Path[0].x == positionPlayer.x)
-            {
-                if (positionPlayer.y < Path[0].y) { return "Down"; }
-                if (positionPlayer.y > Path[0].y) { return "Up"; }
-            }
+            
             
         
         }
