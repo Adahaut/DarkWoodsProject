@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class DW_Slot : MonoBehaviour
 {
@@ -67,6 +66,7 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.item != item.m_Item || (!item.isStackable && !item.ExeptionStack.Contains(data._class)))
         {
+            Debug.Log("StockLaw");
             int num = data.numberOfItem;
             for (int i = 0; i < num; i++)
             {
