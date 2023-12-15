@@ -55,8 +55,8 @@ public class DW_Character : MonoBehaviour
 
     public string Rotation;
 
-    [SerializeField]int CharacterX;
-    [SerializeField]int CharacterY;
+    public int CharacterX;
+    public int CharacterY;
 
     private void Start()
     {
@@ -155,7 +155,6 @@ public class DW_Character : MonoBehaviour
         }
         else
             targetRotation = Mathf.RoundToInt(direction ? initialRotation + 90f : initialRotation - 90f);
-        Debug.Log(targetRotation);
 
         GiveDirectionByRotation();
 
@@ -330,6 +329,7 @@ public class DW_Character : MonoBehaviour
                     neighbors.Add(new Vector2(X, current_Y));
                 }
             }
+            Debug.Log(current_X.ToString() + " + " + current_Y.ToString() + " = "  + DW_GridMap.Instance.Grid[current_X, current_Y]);
         }
 
 

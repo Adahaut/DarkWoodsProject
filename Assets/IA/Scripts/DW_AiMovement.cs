@@ -19,13 +19,11 @@ public class DW_AiMovement : MonoBehaviour
     private void Update()
     {
         Vector2 pos = character.GetPos();
-        Debug.Log("My Position On the Grid ====  " + pos);
         if (Path.Count > 0)
         {
             Move();
         }
 
-        Debug.Log(/*character.GetPos() +*/ " /// " + player.GetPos());
         //if(character.GetPos() != player.GetPos())
         //{
         //    return pathFinder.A(character.GetPos(), player.GetPos(), out Path);
@@ -39,7 +37,6 @@ public class DW_AiMovement : MonoBehaviour
         Vector2 pos = character.GetPos();
         string dir = GetDirection(pos);
 
-        Debug.Log("My Position On the Grid ====  " + pos);
 
         if (dir == character.Rotation)
         {
@@ -98,7 +95,7 @@ public class DW_AiMovement : MonoBehaviour
     }
     private string GetDirection(Vector2 positionPlayer)
     {
-        if (positionPlayer == Path[0])
+        while (positionPlayer == Path[0])
         {
             Path.RemoveAt(0);
         }

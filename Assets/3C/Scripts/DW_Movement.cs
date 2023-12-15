@@ -14,7 +14,6 @@ public class Movement : MonoBehaviour
     {
         if (ctx.started)
         {
-            Debug.Log("Player mov");
             player.StartCharacterMove(walkSpeed);
 
         }
@@ -24,18 +23,19 @@ public class Movement : MonoBehaviour
         if (ctx.started)
         {
             Vector2 vector2 = ctx.ReadValue<Vector2>();
-            if(vector2.x < 0)
+            if (vector2.x < 0)
             {
-                player.StartCharacterTurn(turnSpeed, false , false);
+                player.StartCharacterTurn(turnSpeed, false, false);
             }
-            else if(vector2.x > 0)
+            else if (vector2.x > 0)
             {
                 player.StartCharacterTurn(turnSpeed, true, false);
             }
             else if (vector2.y < 0)
             {
                 player.StartCharacterTurn(turnSpeed * 2, true, true);
-            }           
-        }      
+            }
+        }
     }
 }
+
