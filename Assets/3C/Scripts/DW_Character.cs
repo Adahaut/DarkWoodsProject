@@ -22,13 +22,14 @@ public class DW_Character : MonoBehaviour
     private int height = 20;
     private int width = 20;
 
-    private int[,] _grid; 
+    //private int[,] _grid; 
+
+    public Vector2 initial_pos = Vector2.zero;
 
     Transform _transform;
-    public DW_PlayerSound playerSound;
 
 
-    
+
     //int[,] Grid = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
     //                {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
     //                {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = character
@@ -60,9 +61,10 @@ public class DW_Character : MonoBehaviour
     private void Start()
     {
         _transform = gameObject.transform;
-        _grid = DW_GridMap.Instance.Grid;
+        //_grid = DW_GridMap.Instance.Grid;
         SetFirst();
         GiveDirectionByRotation();
+        initial_pos = GetPos();
 
     }
     //private void ConvertList(int[,] _grid)
@@ -113,8 +115,6 @@ public class DW_Character : MonoBehaviour
         float time = 0f;
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
-        if(playerSound != null)
-            playerSound.PlayerSteps();
 
         // If gameObject is the player, play cam anim
         if(playerCamera != null) 
@@ -134,28 +134,13 @@ public class DW_Character : MonoBehaviour
 
     public void StartCharacterMove(float total_time)
     {
-        if (canMove && CheckArround() == 2)
+        if (canMove && CheckArround())
         {
             StartCoroutine(CharacterMove(total_time));
-            GridMove();
-        }  
-        else if(canMove && CheckArround() == 9)
-        {
-            StartCoroutine(CharacterMove(total_time));
-            CheckForVictory();
+            //GridMove();
         }
     }
-
-    public void CheckForVictory()
-    {
-        Debug.Log("Victory");
-    }
     
-    /*
-     if (player.class = paladin && checka arround == 3 && interaction)
-     Interact.gain de foi
-   
-    */
 
     private IEnumerator CharacterTurn(float total_time, bool direction, bool sameAxis)
     {
@@ -186,6 +171,10 @@ public class DW_Character : MonoBehaviour
         canMove = true;
     }
 
+    private void Update()
+    {
+        GridMove();
+    }
     private void GiveDirectionByRotation()
     {
         if (targetRotation == 360 || targetRotation == 0)
@@ -218,28 +207,31 @@ public class DW_Character : MonoBehaviour
 
     private void GridMove()
     {
-        switch (Rotation)
-        {
+        //switch (Rotation)
+        //{
 
-            case "Left":
-                DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX - 1, CharacterY));
-                    CharacterX -= 1;
-                break;
-            case "Right":
-                DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX + 1, CharacterY));
-                CharacterX += 1;
-                break;
-            case "Up":
-                DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY-1));
-                CharacterY -= 1;
-                break;
-            case "Down":
-                DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY+1));
-                CharacterY += 1;
-                break;
-            default:
-                break;
-        }
+        //    case "Left":
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX - 1, CharacterY));
+        //            CharacterX -= 1;
+        //        break;
+        //    case "Right":
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX + 1, CharacterY));
+        //        CharacterX += 1;
+        //        break;
+        //    case "Up":
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY-1));
+        //        CharacterY -= 1;
+        //        break;
+        //    case "Down":
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY+1));
+        //        CharacterY += 1;
+        //        break;
+        //    default:
+        //        break;
+        //}
+       Vector2Int newPos =  DW_GridMap.Instance.SetMyPosInGrid(ID, new Vector2Int(CharacterX, CharacterY), new Vector2Int((int)gameObject.transform.position.x, (int)gameObject.transform.position.z));
+        CharacterX = newPos.x;
+        CharacterY = newPos.y;
     }
 
     public void StartCharacterTurn(float total_time, bool direction, bool sameAxis)
@@ -249,27 +241,59 @@ public class DW_Character : MonoBehaviour
             StartCoroutine(CharacterTurn(total_time, direction, sameAxis));
         }
     }
-
-    private int CheckArround()
+    private bool CheckArround()
     {
         switch (Rotation)
         {
-            case "Left":
-                return _grid[CharacterY, CharacterX - 1];
 
-            case "Right":                
-                    return _grid[CharacterY, CharacterX + 1];
-                              
-            case "Up":                
-                    return _grid[CharacterY - 1, CharacterX];   
-                
-            case "Down":                
-                    return _grid[CharacterY + 1, CharacterX];
-                
+            case "Left":
+                if (DW_GridMap.Instance.Grid[CharacterY,CharacterX - 1] == 2)
+                {
+                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY,CharacterX - 1]);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case "Right":
+                if (DW_GridMap.Instance.Grid[CharacterY,CharacterX + 1] == 2)
+                {
+
+                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY,CharacterX + 1]);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case "Up":
+                if (DW_GridMap.Instance.Grid[CharacterY - 1,CharacterX] == 2)
+                {
+
+                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY - 1,CharacterX]);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case "Down":
+                if (DW_GridMap.Instance.Grid[CharacterY + 1,CharacterX] == 2)
+                {
+
+                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY + 1,CharacterX]);
+                    Debug.Log("Down");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             default:
                 break;
         }
-        return 0;
+        return false;
     }
 
     public List<Vector2> neighbors = new List<Vector2>();
@@ -293,7 +317,7 @@ public class DW_Character : MonoBehaviour
             current_Y = Y + around[i];
             if (current_X >= 0 && current_X < width)
             {
-                if (_grid[current_X, Y] == 2 || _grid[current_X, Y] == 5)
+                if (DW_GridMap.Instance.Grid[current_X, Y] == 2 || DW_GridMap.Instance.Grid[current_X, Y] == 5)
                 {
                     neighbors.Add(new Vector2(current_X, Y));
                 }
@@ -301,7 +325,7 @@ public class DW_Character : MonoBehaviour
 
             if (current_Y >= 0 && current_Y < height)
             {
-                if (_grid[X,current_Y] == 2 || _grid[X, current_Y] == 5)
+                if (DW_GridMap.Instance.Grid[X,current_Y] == 2 || DW_GridMap.Instance.Grid[X, current_Y] == 5)
                 {
                     neighbors.Add(new Vector2(X, current_Y));
                 }
@@ -314,8 +338,8 @@ public class DW_Character : MonoBehaviour
 
     public void UpdatePos(Vector2Int initialPos, Vector2Int newPos)
     {
-        _grid[initialPos.x,initialPos.y] = 2;
-        _grid[newPos.x,newPos.y] = 5;
+        DW_GridMap.Instance.Grid[initialPos.x,initialPos.y] = 2;
+        DW_GridMap.Instance.Grid[newPos.x,newPos.y] = 5;
     }
 
 
