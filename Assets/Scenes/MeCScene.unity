@@ -1358,7 +1358,7 @@ MonoBehaviour:
   canMove: 1
   targetRotation: 0
   playerCamera: {fileID: 0}
-  playerSound: {fileID: 0}
+  initial_pos: {x: 0, y: 0}
   Rotation: 
   CharacterX: 0
   CharacterY: 0
@@ -1377,10 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 387325530}
   player: {fileID: 1338537145}
-  _target: {x: 1, y: 1}
-  _start: {x: 5, y: 3}
   Path: []
-  SavePasedPoint: []
 --- !u!1 &387869973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
@@ -3686,6 +3683,7 @@ MonoBehaviour:
   class_holder: {fileID: 1654985526}
   life_manager: {fileID: 387325529}
   door: {fileID: 1966608502}
+  canvas: {fileID: 0}
 --- !u!114 &1338537144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3719,7 +3717,7 @@ MonoBehaviour:
   canMove: 1
   targetRotation: 0
   playerCamera: {fileID: 1738468686}
-  playerSound: {fileID: 1738468691}
+  initial_pos: {x: 0, y: 0}
   Rotation: 
   CharacterX: 0
   CharacterY: 0
@@ -7022,7 +7020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6770867382462499441, guid: d864004112d2fb44295ee6f0e6e857cb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00030517578
+      value: -0.0006713867
       objectReference: {fileID: 0}
     - target: {fileID: 7933260934920003128, guid: d864004112d2fb44295ee6f0e6e857cb, type: 3}
       propertyPath: m_Pivot.x

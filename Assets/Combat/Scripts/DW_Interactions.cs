@@ -18,6 +18,7 @@ public class DW_Interactions : MonoBehaviour
     private DW_Character player_character;
     public Transform door;
 
+
     private void Awake()
     {
         player_character = this.GetComponent<DW_Character>();
@@ -31,6 +32,8 @@ public class DW_Interactions : MonoBehaviour
 
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
             float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
+
+            Debug.Log(class_holder.classRef);
 
             if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
@@ -68,7 +71,7 @@ public class DW_Interactions : MonoBehaviour
                 Debug.Log("consumed");
             }
         }
-        
+       
     }
 
     public void Interact(DW_interractible interractible)
@@ -101,7 +104,6 @@ public class DW_Interactions : MonoBehaviour
 
     public bool CheckForwardPLayer(string rotation, int value_needed)
     {
-        Debug.Log("Use");
         int[,] _grid = DW_GridMap.Instance.Grid;
         switch (rotation)
         {
