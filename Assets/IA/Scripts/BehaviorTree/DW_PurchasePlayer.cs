@@ -20,8 +20,14 @@ public class DW_PurchasePlayer : Node
     }
     public override NodeState Evaluate()
     {
-        NodeState state = pathFinder.A(character.GetPos(), player.GetPos(), out path, false);
-        movement.SetPath(path);
-        return state;
+        if (movement.IsPathNull())
+        {
+            NodeState state = pathFinder.DijkstraPath(character.GetPos(), player.GetPos(), out path, false);
+            movement.SetPath(path);
+            return state;
+        }
+        else
+            return NodeState.SUCCESS;
+
     }
 }

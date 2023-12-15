@@ -8,19 +8,24 @@ public class DW_GridMap : MonoBehaviour
 
     public Vector2Int origine = new(0, 0);
 
-    public int[,] Grid = { 
+    public GameObject path;
+    public GameObject wall;
+    public GameObject origin;
+
+
+    public int[,] Grid = {
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = character
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 6 = spawn
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 2 = path
+                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1 },  // 2 = path
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1 },
+                    {1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
@@ -32,9 +37,39 @@ public class DW_GridMap : MonoBehaviour
 
 
 
+    private void test()
+    {
+        GameObject go;
+        for (int i = 0; i < 20; i++)
+        {
+            for (int j = 0; j <20; j++)
+            {
+                if(i == 0 && j == 0)
+                {
+                    go = Instantiate<GameObject>(origin);
+                }
+                else if (Grid[i,j]!=1)
+                {
+                     go = Instantiate<GameObject>(path);
+
+                }
+                else
+                {
+                    go = Instantiate<GameObject>(wall);
+
+                }
+
+                go.transform.position = new Vector3(-j * 10, 1, -i * 10);
+
+
+            }
+        }
+    }
+
     private void Awake()
     {
         if(Instance == null ) { Instance = this; }
+        test();
     }
 
     public Vector2Int SetMyPosInGrid(int ID, Vector2Int previous_pos, Vector2Int spawnPosInWorld)

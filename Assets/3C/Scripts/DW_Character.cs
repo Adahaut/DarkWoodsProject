@@ -55,8 +55,8 @@ public class DW_Character : MonoBehaviour
 
     public string Rotation;
 
-    [SerializeField]int CharacterX;
-    [SerializeField]int CharacterY;
+    [SerializeField]int CharaX;
+    [SerializeField]int CharaY;
 
     private void Start()
     {
@@ -82,9 +82,9 @@ public class DW_Character : MonoBehaviour
 
     private void SetFirst()
     {
-        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.x, (int)gameObject.transform.position.z));
-        CharacterX = Mathf.Abs((int)gameObject.transform.position.x / 10);
-        CharacterY = Mathf.Abs((int)gameObject.transform.position.z/10);
+        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
+        CharaX = Mathf.Abs((int)gameObject.transform.position.x / 10);
+        CharaY = Mathf.Abs((int)gameObject.transform.position.z/10);
     }
 
     //private Vector2Int GetCharacterOnGrid()
@@ -105,7 +105,7 @@ public class DW_Character : MonoBehaviour
 
     private Vector2Int GetCharacterPos()
     {
-        return new Vector2Int(CharacterX, CharacterY);
+        return new Vector2Int(CharaY, CharaX);
     }
 
 
@@ -229,9 +229,9 @@ public class DW_Character : MonoBehaviour
         //    default:
         //        break;
         //}
-       Vector2Int newPos =  DW_GridMap.Instance.SetMyPosInGrid(ID, new Vector2Int(CharacterX, CharacterY), new Vector2Int((int)gameObject.transform.position.x, (int)gameObject.transform.position.z));
-        CharacterX = newPos.x;
-        CharacterY = newPos.y;
+       Vector2Int newPos =  DW_GridMap.Instance.SetMyPosInGrid(ID, new Vector2Int(CharaY, CharaX), new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
+        CharaX = newPos.y;
+        CharaY = newPos.x;
     }
 
     public void StartCharacterTurn(float total_time, bool direction, bool sameAxis)
@@ -246,21 +246,21 @@ public class DW_Character : MonoBehaviour
         switch (Rotation)
         {
 
-            case "Left":
-                if (DW_GridMap.Instance.Grid[CharacterY,CharacterX - 1] == 2)
+            case "Right":
+                if (DW_GridMap.Instance.Grid[CharaY,CharaX - 1] == 2)
                 {
-                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY,CharacterX - 1]);
+                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX - 1]);
                     return true;
                 }
                 else
                 {
                     return false;
                 }
-            case "Right":
-                if (DW_GridMap.Instance.Grid[CharacterY,CharacterX + 1] == 2)
+            case "Left":
+                if (DW_GridMap.Instance.Grid[CharaY,CharaX + 1] == 2)
                 {
 
-                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY,CharacterX + 1]);
+                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX + 1]);
                     return true;
                 }
                 else
@@ -268,10 +268,10 @@ public class DW_Character : MonoBehaviour
                     return false;
                 }
             case "Up":
-                if (DW_GridMap.Instance.Grid[CharacterY - 1,CharacterX] == 2)
+                if (DW_GridMap.Instance.Grid[CharaY - 1,CharaX] == 2)
                 {
 
-                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY - 1,CharacterX]);
+                    Debug.Log(DW_GridMap.Instance.Grid[CharaY - 1,CharaX]);
                     return true;
                 }
                 else
@@ -279,10 +279,10 @@ public class DW_Character : MonoBehaviour
                     return false;
                 }
             case "Down":
-                if (DW_GridMap.Instance.Grid[CharacterY + 1,CharacterX] == 2)
+                if (DW_GridMap.Instance.Grid[CharaY + 1,CharaX] == 2)
                 {
 
-                    Debug.Log(DW_GridMap.Instance.Grid[CharacterY + 1,CharacterX]);
+                    Debug.Log(DW_GridMap.Instance.Grid[CharaY + 1,CharaX]);
                     Debug.Log("Down");
                     return true;
                 }
@@ -301,6 +301,8 @@ public class DW_Character : MonoBehaviour
     public List<Vector2> GetPathAround(Vector2 position)
     {
         neighbors.Clear();
+
+        Debug.Log("Initial Position ::::: " +  position + " ID :::: " + DW_GridMap.Instance.Grid[(int)position.y, (int)position.x]);
         //List<Vector2> neighbors = new List<Vector2>();
 
         int X = (int)position.x;

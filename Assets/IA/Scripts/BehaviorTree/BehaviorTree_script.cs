@@ -40,7 +40,7 @@ public class BehaviorTree_script : MonoBehaviour
 
         Chase = new Sequence(new List<Node> { _canSeePlayer, _purchasePlayer });
         ReturnToIniTialPos = new Selector(new List<Node> {_VerifPos, _returnToIniTialPos });
-        selectorRoot = new Selector(new List<Node> {Chase, ReturnToIniTialPos });
+        selectorRoot = new Selector(new List<Node> {Chase/*, ReturnToIniTialPos*/ });
     }
 
     // Update is called once per frame
