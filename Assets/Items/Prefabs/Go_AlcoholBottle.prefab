@@ -102,7 +102,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Item: 3
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   isStackable: 0
   ExeptionStack: 03000000
   m_Position: {x: 0, y: 0}
@@ -128,3 +128,4 @@ MonoBehaviour:
   isWeapon: 0
   healthRestoreAmount: 0
   specialRestoreAmount: 25
+  specialSourceType: 0
