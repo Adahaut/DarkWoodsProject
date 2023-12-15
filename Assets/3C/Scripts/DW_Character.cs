@@ -28,7 +28,7 @@ public class DW_Character : MonoBehaviour
     public DW_PlayerSound playerSound;
 
 
-
+    
     //int[,] Grid = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
     //                {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
     //                {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = character
@@ -54,8 +54,8 @@ public class DW_Character : MonoBehaviour
 
     public string Rotation;
 
-     [SerializeField] public int CharacterX;
-     [SerializeField] public int CharacterY;
+    [SerializeField]int CharacterX;
+    [SerializeField]int CharacterY;
 
     private void Start()
     {
@@ -78,7 +78,7 @@ public class DW_Character : MonoBehaviour
     //}
 
 
-    public void SetFirst()
+    private void SetFirst()
     {
         DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.x, (int)gameObject.transform.position.z));
         CharacterX = Mathf.Abs((int)gameObject.transform.position.x / 10);
@@ -134,13 +134,28 @@ public class DW_Character : MonoBehaviour
 
     public void StartCharacterMove(float total_time)
     {
-        if (canMove && CheckArround())
+        if (canMove && CheckArround() == 2)
         {
             StartCoroutine(CharacterMove(total_time));
             GridMove();
+        }  
+        else if(canMove && CheckArround() == 9)
+        {
+            StartCoroutine(CharacterMove(total_time));
+            CheckForVictory();
         }
     }
+
+    public void CheckForVictory()
+    {
+        Debug.Log("Victory");
+    }
     
+    /*
+     if (player.class = paladin && checka arround == 3 && interaction)
+     Interact.gain de foi
+   
+    */
 
     private IEnumerator CharacterTurn(float total_time, bool direction, bool sameAxis)
     {
@@ -234,57 +249,27 @@ public class DW_Character : MonoBehaviour
             StartCoroutine(CharacterTurn(total_time, direction, sameAxis));
         }
     }
-    private bool CheckArround()
+
+    private int CheckArround()
     {
         switch (Rotation)
         {
-
             case "Left":
-                if (_grid[CharacterY,CharacterX - 1] == 2)
-                {
-                   
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            case "Right":
-                if (_grid[CharacterY,CharacterX + 1] == 2)
-                {
+                return _grid[CharacterY, CharacterX - 1];
 
-                   
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            case "Up":
-                if (_grid[CharacterY - 1,CharacterX] == 2)
-                {
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            case "Down":
-                if (_grid[CharacterY + 1,CharacterX] == 2)
-                {
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            case "Right":                
+                    return _grid[CharacterY, CharacterX + 1];
+                              
+            case "Up":                
+                    return _grid[CharacterY - 1, CharacterX];   
+                
+            case "Down":                
+                    return _grid[CharacterY + 1, CharacterX];
+                
             default:
-                return false;
                 break;
         }
-        return false;
+        return 0;
     }
 
     public List<Vector2> neighbors = new List<Vector2>();
@@ -338,5 +323,4 @@ public class DW_Character : MonoBehaviour
     {
         return GetCharacterPos();
     }
-
 }
