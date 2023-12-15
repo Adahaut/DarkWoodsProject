@@ -11,7 +11,7 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
-    void Start()
+    void Awake()
     {
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
@@ -46,13 +46,14 @@ public class DW_Slot : MonoBehaviour
 
     public void Use()
     {
-        Debug.Log("Use");
         if (data.useAction != null)
         {
             data.useAction();
-            if(data.consommable)
+            if (data.item == Item.Consummable)
+            {
                 data.numberOfItem--;
-            Verification();
+                Verification();
+            }
         }
     }
 
@@ -66,7 +67,6 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.item != item.m_Item || (!item.isStackable && !item.ExeptionStack.Contains(data._class)))
         {
-            Debug.Log("StockLaw");
             int num = data.numberOfItem;
             for (int i = 0; i < num; i++)
             {
@@ -95,7 +95,6 @@ public class DW_Slot : MonoBehaviour
 
     private void Drop()
     {
-        Debug.Log("a");
         if(DW_DropController.Instance.Drop(data.item, Vector3.zero))
         {
             Debug.Log("b");
@@ -108,6 +107,7 @@ public class DW_Slot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(2)) 
         {
+            Debug.Log("drop");
             Drop();
         }
     }

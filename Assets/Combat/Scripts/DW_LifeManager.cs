@@ -7,6 +7,7 @@ public class DW_LifeManager : MonoBehaviour
     [SerializeField] private float max_life;
     public float currentLife;
     public int damage;
+    [SerializeField] GameObject gameOverPanel;
 
     public void OnChangeLeader(DW_Class current_class)
     {
@@ -20,6 +21,14 @@ public class DW_LifeManager : MonoBehaviour
     private void Start()
     {
         currentLife = max_life;    
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -38,7 +47,7 @@ public class DW_LifeManager : MonoBehaviour
         //player death
         if(gameObject.tag == "Player")
         {
-            Debug.Log("mort du joueur");
+            gameOverPanel.SetActive(true);
         }
 
         //enemies death

@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class DW_Weapon : DW_Item
 {
-
+    DW_Class Class;
     public int pourcentDamage = 0;
     public override void Use()
     {
         Debug.Log("Weapon");
-        // GameObject.FindAnyObjectByType<DW_PlayerAttack>().Attack();
-        attack(20);
-    }
-
-    public void attack(int pourcent_bonus)
-    {
-        Debug.Log("attack");
+        GameObject.FindAnyObjectByType<DW_Interactions>().Attack(this);
     }
 }

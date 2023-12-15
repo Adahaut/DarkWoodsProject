@@ -44,7 +44,6 @@ public class DW_AudioManager : MonoBehaviour
         {
             PlayAudio(i);
             yield return new WaitForSeconds(time_before_next_sound);
-            Debug.Log(i);
         }
     }
 

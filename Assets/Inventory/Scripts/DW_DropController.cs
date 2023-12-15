@@ -7,7 +7,7 @@ public class DW_DropController : MonoBehaviour
     public static DW_DropController Instance;
 
     [SerializeField] private List<GameObject> m_Object;
-    [SerializeField] Player player_pos;
+    [SerializeField] DW_Character player_pos;
 
     private GameObject current_gameobject;
 

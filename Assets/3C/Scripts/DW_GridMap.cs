@@ -14,8 +14,8 @@ public class DW_GridMap : MonoBehaviour
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = character
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 6 = spawn
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 2 = path
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 9 = exit
+                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 3 = statue de paladin
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
                     {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
@@ -37,10 +37,11 @@ public class DW_GridMap : MonoBehaviour
         if(Instance == null ) { Instance = this; }
     }
 
-    public void SetMyPosInGrid(int ID, Vector2Int previous_pos, Vector2Int spawnPosInWorld)
+    public Vector2Int SetMyPosInGrid(int ID, Vector2Int previous_pos, Vector2Int spawnPosInWorld)
     {
         Grid[previous_pos.x, previous_pos.y] = 2;
         Grid[Mathf.Abs(spawnPosInWorld.x / 10), Mathf.Abs(spawnPosInWorld.y / 10)] = ID;
+        return new Vector2Int(Mathf.Abs(spawnPosInWorld.x / 10), Mathf.Abs(spawnPosInWorld.y / 10));
     }
 
     public void Spawn(int ID, Vector2Int spawnPosInWorld)
