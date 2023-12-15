@@ -14,40 +14,39 @@ public class DW_Interactions : MonoBehaviour
     [SerializeField] private Collider attack_collider;
 
     [SerializeField] DW_ClassHolderRef class_holder;
+    [SerializeField] DW_LifeManager life_manager;
     private DW_Character player_character;
-
-    Vector2 checkArroundPlayer;
+    public Transform door;
 
     private void Awake()
     {
         player_character = this.GetComponent<DW_Character>();
-    }
-    private void Update()
-    {
     }
 
     public void Attack(DW_Weapon weapon)
     {
         if(can_attack)
         {
+            //calculating damage according to class
+
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
             float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
 
-
-            if (CheckForwardPLayer(player_character.Rotation, 3) == true)
+            if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
-                Debug.Log("Enemy forward");
                 RaycastHit hit;
-                
-                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f,0), this.transform.forward, out hit,10))
+                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f,0), this.transform.forward, out hit,15))
                 {
-                    Debug.Log("Damage : " + finalDamage);
-                    Debug.Log(hit.collider.name);
                     if (hit.collider.tag == "Enemy")
                     {
+                        Debug.Log("degat reçut : " + finalDamage);
                         hit.collider.GetComponent<DW_LifeManager>().TakeDamage(finalDamage);
                         can_attack = false;
                         StartCoroutine(WaitBeforeNextAttack());
+                        if(life_manager.currentLife <= 0)
+                        {
+                            Debug.Log("enemy dead");
+                        }
                     }
                 }
             }
@@ -83,8 +82,7 @@ public class DW_Interactions : MonoBehaviour
                 {
                     if(hit.collider.tag == "Door")
                     {
-                        Destroy(hit.transform.gameObject);
-                        Debug.Log("door opened");
+                        StartCoroutine(AnimDoor(1));
                     }
                 }
             }
@@ -101,19 +99,16 @@ public class DW_Interactions : MonoBehaviour
         can_attack = true;
     }
 
-    private bool CheckForwardPLayer(string rotation, int value_needed)
+    public bool CheckForwardPLayer(string rotation, int value_needed)
     {
-
+        Debug.Log("Use");
         int[,] _grid = DW_GridMap.Instance.Grid;
-
         switch (rotation)
         {
-                // changer la case devant si l'ia est mort sinon on peut taper que 1 fois.
             case "Left":
                 if (_grid[player_character.CharacterY, player_character.CharacterX - 1] == value_needed)
                 {
                     DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY, player_character.CharacterX - 1), new Vector2Int(player_character.CharacterY, player_character.CharacterX - 1));
-
                     return true;
                 }
                 else
@@ -143,7 +138,9 @@ public class DW_Interactions : MonoBehaviour
             case "Down":
                 if (_grid[player_character.CharacterY + 1, player_character.CharacterX] == value_needed)
                 {
+
                     DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY + 1, player_character.CharacterX), new Vector2Int(player_character.CharacterY + 1, player_character.CharacterX));
+
                     return true;
                 }
                 else
@@ -156,7 +153,21 @@ public class DW_Interactions : MonoBehaviour
         return false;
     }
 
+    private IEnumerator AnimDoor(float total_time)
+    {
+        float time = 0f;
+        float start_pos = 1.5f;
+        float end_pos = 11.5f;
+        float rotation = 0f;
 
-
-
+        while (time /total_time < 1)
+        {
+            time += Time.deltaTime;
+            rotation = Mathf.Lerp(start_pos, end_pos, time /total_time);
+            door.transform.position  = new Vector3(30,rotation,-15);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
+    }
+        
 }
