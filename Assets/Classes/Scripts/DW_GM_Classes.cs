@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 
 public class DW_GM_Classes : MonoBehaviour
 {
@@ -22,9 +23,13 @@ public class DW_GM_Classes : MonoBehaviour
     private DW_Skill skill_to_use;
     private DW_ClassHolderRef initiator_skill;
 
+    public UnityEvent<DW_Class> Death;
+
     private void Awake()
     {
         instance = this;
+
+        if(Death == null) { Death = new UnityEvent<DW_Class>(); }
     }
 
     private void Start()
@@ -47,7 +52,8 @@ public class DW_GM_Classes : MonoBehaviour
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[0]);
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[1]);
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[2]);
-            DW_ClassController.Instance.currentClass = team_manager.classes_selected[0];
+            DW_ClassController.Instance.currentClass = team_manager.classes_selected[1];
+            DW_ClassController.Instance.ChangeClass(team_manager.classes_selected[0]);
 
         }
     }
@@ -67,10 +73,25 @@ public class DW_GM_Classes : MonoBehaviour
         }
     }
 
+    public void ClassDeath(DW_Class classRef)
+    {
+        Death.Invoke(classRef);
+        foreach (DW_Class c in DW_ClassController.Instance.classes)
+        {
+
+            if (c.currentHealth > 0)
+            {
+                ApplySkill(c);
+                return;
+            }
+        }
+    }
+
     public void ApplySkill(DW_Class classRef)
     {
         if(skill_to_use != null && initiator_skill != null)
         {
+            Debug.Log("apply skill to -> " + classRef.className);
             DW_Class foundClass = classRef;
             foreach(DW_Class c in DW_ClassController.Instance.classes)
             {
@@ -85,7 +106,7 @@ public class DW_GM_Classes : MonoBehaviour
                     initiator_skill.classRef.specialSourceAmount -= skill_to_use.percentCost;
                     initiator_skill.UpdateSpecialBar();
                     class_holder_ref.UpdateHealthBar();
-                    classRef.classSkill.isOnCooldown = true;
+                    DW_ClassController.Instance.currentClass.classSkill.isOnCooldown = true;
                     break;
                 }
             }

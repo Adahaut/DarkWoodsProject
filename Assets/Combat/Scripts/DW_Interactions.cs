@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.FilePathAttribute;
 using UnityEngine.TextCore.Text;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
+using JetBrains.Annotations;
 
 public class DW_Interactions : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class DW_Interactions : MonoBehaviour
     [SerializeField] DW_ClassHolderRef class_holder;
     [SerializeField] DW_LifeManager life_manager;
     private DW_Character player_character;
-    public Transform door;
 
     private void Awake()
     {
@@ -31,6 +31,8 @@ public class DW_Interactions : MonoBehaviour
 
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
             float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
+
+            Debug.Log(class_holder.classRef);
 
             if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
@@ -68,25 +70,29 @@ public class DW_Interactions : MonoBehaviour
                 Debug.Log("consumed");
             }
         }
-        
+       
     }
 
-    public void Interact(DW_interractible interractible)
+    public bool Interact(DW_interractible interractible)
     {
-        if(interractible.m_Item == Item.Key)
-        {
-            if (CheckForwardPLayer(player_character.Rotation, 4) == true )
+        if (CheckForwardPLayer(player_character.Rotation, 4)) 
+        {   
+            if (interractible.m_Item == Item.Key)
             {
                 RaycastHit hit;
-                if(Physics.Raycast(this.transform.position + new Vector3 (0,0.5f,2),this.transform.forward,out hit,10))
+                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 10))
                 {
-                    if(hit.collider.tag == "Door")
+                    Debug.Log(hit.collider.tag);
+                    if (hit.collider.tag == "Door")
                     {
-                        StartCoroutine(AnimDoor(1));
+                        Debug.Log("disappeared");
+                        StartCoroutine(AnimDoor(1, hit.collider.gameObject));
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
     IEnumerator WaitBeforeNextAttack()
@@ -101,14 +107,13 @@ public class DW_Interactions : MonoBehaviour
 
     public bool CheckForwardPLayer(string rotation, int value_needed)
     {
-        Debug.Log("Use");
         int[,] _grid = DW_GridMap.Instance.Grid;
         switch (rotation)
         {
             case "Left":
-                if (_grid[player_character.CharacterY, player_character.CharacterX - 1] == value_needed)
+                if (_grid[player_character.CharaY, player_character.CharaX - 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY, player_character.CharacterX - 1), new Vector2Int(player_character.CharacterY, player_character.CharacterX - 1));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
                     return true;
                 }
                 else
@@ -116,9 +121,9 @@ public class DW_Interactions : MonoBehaviour
                     return false;
                 }
             case "Right":
-                if (_grid[player_character.CharacterY, player_character.CharacterX + 1] == value_needed)
+                if (_grid[player_character.CharaY, player_character.CharaX + 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY, player_character.CharacterX + 1), new Vector2Int(player_character.CharacterY, player_character.CharacterX + 1));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
                     return true;
                 }
                 else
@@ -126,9 +131,9 @@ public class DW_Interactions : MonoBehaviour
                     return false;
                 }
             case "Up":
-                if (_grid[player_character.CharacterY - 1, player_character.CharacterX] == value_needed)
+                if (_grid[player_character.CharaY - 1, player_character.CharaX] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY - 1, player_character.CharacterX), new Vector2Int(player_character.CharacterY - 1, player_character.CharacterX));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY - 1, player_character.CharaX), new Vector2Int(player_character.CharaY - 1, player_character.CharaX));
                     return true;
                 }
                 else
@@ -136,10 +141,10 @@ public class DW_Interactions : MonoBehaviour
                     return false;
                 }
             case "Down":
-                if (_grid[player_character.CharacterY + 1, player_character.CharacterX] == value_needed)
+                if (_grid[player_character.CharaY + 1, player_character.CharaX] == value_needed)
                 {
 
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharacterY + 1, player_character.CharacterX), new Vector2Int(player_character.CharacterY + 1, player_character.CharacterX));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY + 1, player_character.CharaX), new Vector2Int(player_character.CharaY + 1, player_character.CharaX));
 
                     return true;
                 }
@@ -153,18 +158,18 @@ public class DW_Interactions : MonoBehaviour
         return false;
     }
 
-    private IEnumerator AnimDoor(float total_time)
+    private IEnumerator AnimDoor(float total_time, GameObject door)
     {
         float time = 0f;
-        float start_pos = 1.5f;
-        float end_pos = 11.5f;
+        float start_pos = this.transform.position.y;
+        float end_pos = this.transform.position.y + 10f;
         float rotation = 0f;
 
         while (time /total_time < 1)
         {
             time += Time.deltaTime;
             rotation = Mathf.Lerp(start_pos, end_pos, time /total_time);
-            door.transform.position  = new Vector3(30,rotation,-15);
+            door.transform.position  = new Vector3(door.transform.position.x, rotation, door.transform.position.z);
             yield return null;
         }
         yield return new WaitForSeconds(1);

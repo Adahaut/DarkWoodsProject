@@ -11,23 +11,20 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
+
+    DW_Interactions interactions;
+    DW_Character player_character;
+
+
     void Awake()
     {
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
     }
-
     public void RefreshSlot()
     {
-        //if(data != null && image != null)
-        //{
-        //    this.GetComponent<Image>().sprite = data.image;
-        //}
-        //else
-        //{
-        //    this.GetComponent<Image>().sprite = originalSprite;
-        //}
+        image.sprite = data.image;
     }
 
     public void Stock(DW_Item item)
@@ -48,8 +45,7 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.useAction != null)
         {
-            data.useAction();
-            if (data.item == Item.Consummable)
+            if ((data.item == Item.Key || data.item == Item.Consummable) && data.useAction())
             {
                 data.numberOfItem--;
                 Verification();

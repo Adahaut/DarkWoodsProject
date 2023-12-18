@@ -16,4 +16,4 @@ MonoBehaviour:
   item: 0
   numberOfItem: 0
   _class: 2
-  consommable: 0
+  consommable: 1

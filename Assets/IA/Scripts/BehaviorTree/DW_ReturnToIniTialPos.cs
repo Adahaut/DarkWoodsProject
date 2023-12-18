@@ -20,7 +20,7 @@ public class DW_ReturnToIniTialPos : Node
     }
     public override NodeState Evaluate()
     {
-        NodeState state = pathFinder.A(character.GetPos(), initial_pos, out path, true);
+        NodeState state = pathFinder.DijkstraPath(character.GetPos(), initial_pos, out path, true);
         movement.SetPath(path);
         return state;
     }

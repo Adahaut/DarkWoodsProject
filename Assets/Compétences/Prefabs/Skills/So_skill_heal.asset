@@ -18,7 +18,8 @@ MonoBehaviour:
   skillDescription: Heal 20% of max health of a designated ally.
   percentCost: 20
   skillCooldown: 25
-  currentSkillCooldown: 25
-  isOnCooldown: 0
+  currentSkillCooldown: 23.481386
+  isOnCooldown: 1
   emitterVFX: {fileID: 0}
+  effectDuration: 0
   restaurationHealth: 20

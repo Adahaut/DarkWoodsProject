@@ -25,7 +25,7 @@ public abstract class DW_Item : MonoBehaviour
     public string m_description;
 
     public bool isWeapon = false;
-    public abstract void Use();
+    public abstract bool Use();
 
     public Item GetItem()
     {
