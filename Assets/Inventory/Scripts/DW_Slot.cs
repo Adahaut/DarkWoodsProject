@@ -11,8 +11,10 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
-    private DW_Interactions interactions;
-    private DW_Character player_character;
+
+    DW_Interactions interactions;
+    DW_Character player_character;
+
 
     void Awake()
     {
@@ -50,10 +52,8 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.useAction != null)
         {
-            data.useAction();
-            if (data.item == Item.Consummable || data.item == Item.Key)
+            if ((data.item == Item.Key || data.item == Item.Consummable) && data.useAction())
             {
-                Debug.Log("pokjnb");
                 data.numberOfItem--;
                 Verification();
             }

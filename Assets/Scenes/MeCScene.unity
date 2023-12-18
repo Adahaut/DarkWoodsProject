@@ -3683,7 +3683,6 @@ MonoBehaviour:
   class_holder: {fileID: 1654985526}
   life_manager: {fileID: 387325529}
   door: {fileID: 1966608502}
-  canvas: {fileID: 0}
 --- !u!114 &1338537144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6072,7 +6071,7 @@ Transform:
   m_GameObject: {fileID: 1966608501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0074176053, z: -0, w: 0.9999725}
-  m_LocalPosition: {x: 30, y: 2, z: -15}
+  m_LocalPosition: {x: 10.95, y: 2, z: 2.24}
   m_LocalScale: {x: 20, y: 5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
