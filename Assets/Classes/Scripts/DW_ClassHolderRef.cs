@@ -38,7 +38,6 @@ public class DW_ClassHolderRef : MonoBehaviour
         slotLeft.RefreshSlot();
         slotRight.RefreshSlot();
         skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { DW_GM_Classes.Instance.UseOtherSkill(this); });
-        Debug.Log(slotLeft.data.item + " : " + slotRight.data.item);
 
         UpdateHealthBar();
         UpdateSpecialBar();

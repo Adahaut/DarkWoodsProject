@@ -24,14 +24,7 @@ public class DW_Slot : MonoBehaviour
     }
     public void RefreshSlot()
     {
-        if (data != null && image != null)
-        {
-            this.GetComponent<Image>().sprite = data.image;
-        }
-        else
-        {
-            this.GetComponent<Image>().sprite = originalSprite;
-        }
+        image.sprite = data.image;
     }
 
     public void Stock(DW_Item item)

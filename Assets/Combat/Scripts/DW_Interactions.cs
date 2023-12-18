@@ -17,7 +17,6 @@ public class DW_Interactions : MonoBehaviour
     [SerializeField] DW_ClassHolderRef class_holder;
     [SerializeField] DW_LifeManager life_manager;
     private DW_Character player_character;
-    public Transform door;
 
     private void Awake()
     {
@@ -81,12 +80,13 @@ public class DW_Interactions : MonoBehaviour
             if (interractible.m_Item == Item.Key)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 2), this.transform.forward, out hit, 10))
+                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 10))
                 {
+                    Debug.Log(hit.collider.tag);
                     if (hit.collider.tag == "Door")
                     {
                         Debug.Log("disappeared");
-                        StartCoroutine(AnimDoor(1));
+                        StartCoroutine(AnimDoor(1, hit.collider.gameObject));
                         return true;
                     }
                 }
@@ -158,18 +158,18 @@ public class DW_Interactions : MonoBehaviour
         return false;
     }
 
-    private IEnumerator AnimDoor(float total_time)
+    private IEnumerator AnimDoor(float total_time, GameObject door)
     {
         float time = 0f;
-        float start_pos = 1.5f;
-        float end_pos = 11.5f;
+        float start_pos = this.transform.position.y;
+        float end_pos = this.transform.position.y + 10f;
         float rotation = 0f;
 
         while (time /total_time < 1)
         {
             time += Time.deltaTime;
             rotation = Mathf.Lerp(start_pos, end_pos, time /total_time);
-            door.transform.position  = new Vector3(30,rotation,-15);
+            door.transform.position  = new Vector3(door.transform.position.x, rotation, door.transform.position.z);
             yield return null;
         }
         yield return new WaitForSeconds(1);
