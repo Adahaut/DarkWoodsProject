@@ -24,7 +24,7 @@ MonoBehaviour:
   currentAttackSpeed: 1
   minattackDamage: 1
   maxattackDamage: 6
-  shouldBeAggro: 0
+  shouldBeAggro: 1
   minPercentDamage: 10
   maxPercentDamage: 60
   specialSourceType: 1

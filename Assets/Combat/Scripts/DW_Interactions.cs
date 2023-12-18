@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.FilePathAttribute;
 using UnityEngine.TextCore.Text;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
+using JetBrains.Annotations;
 
 public class DW_Interactions : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class DW_Interactions : MonoBehaviour
 
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
             float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
+
+            Debug.Log(class_holder.classRef);
 
             if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
@@ -68,20 +71,21 @@ public class DW_Interactions : MonoBehaviour
                 Debug.Log("consumed");
             }
         }
-        
+       
     }
 
     public void Interact(DW_interractible interractible)
     {
         if(interractible.m_Item == Item.Key)
         {
-            if (CheckForwardPLayer(player_character.Rotation, 4) == true )
+            if (CheckForwardPLayer(player_character.Rotation, 4) == true)
             {
                 RaycastHit hit;
-                if(Physics.Raycast(this.transform.position + new Vector3 (0,0.5f,2),this.transform.forward,out hit,10))
+                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 2), this.transform.forward, out hit, 10))
                 {
-                    if(hit.collider.tag == "Door")
+                    if (hit.collider.tag == "Door")
                     {
+                        Debug.Log("disappeared");
                         StartCoroutine(AnimDoor(1));
                     }
                 }
@@ -101,7 +105,6 @@ public class DW_Interactions : MonoBehaviour
 
     public bool CheckForwardPLayer(string rotation, int value_needed)
     {
-        Debug.Log("Use");
         int[,] _grid = DW_GridMap.Instance.Grid;
         switch (rotation)
         {
