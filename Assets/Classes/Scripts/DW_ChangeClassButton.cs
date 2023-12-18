@@ -10,7 +10,7 @@ public class DW_ChangeClassButton : MonoBehaviour
     private void OnEnable()
     {
         DW_GM_Classes gm = DW_GM_Classes.Instance;
-        this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(team_manager.classes_selected[index_class]); }) ;
+        this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(team_manager.classes_selected[index_class]); });
         
     }
 }

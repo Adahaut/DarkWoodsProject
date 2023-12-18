@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using static UnityEditor.FilePathAttribute;
 using UnityEngine.TextCore.Text;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
+using JetBrains.Annotations;
 
 public class DW_Interactions : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class DW_Interactions : MonoBehaviour
     [SerializeField] DW_LifeManager life_manager;
     private DW_Character player_character;
     public Transform door;
-
 
     private void Awake()
     {
@@ -78,13 +78,14 @@ public class DW_Interactions : MonoBehaviour
     {
         if(interractible.m_Item == Item.Key)
         {
-            if (CheckForwardPLayer(player_character.Rotation, 4) == true )
+            if (CheckForwardPLayer(player_character.Rotation, 4) == true)
             {
                 RaycastHit hit;
-                if(Physics.Raycast(this.transform.position + new Vector3 (0,0.5f,2),this.transform.forward,out hit,10))
+                if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 2), this.transform.forward, out hit, 10))
                 {
-                    if(hit.collider.tag == "Door")
+                    if (hit.collider.tag == "Door")
                     {
+                        Debug.Log("disappeared");
                         StartCoroutine(AnimDoor(1));
                     }
                 }

@@ -34,6 +34,8 @@ public class DW_ClassHolderRef : MonoBehaviour
         slotLeft.RefreshSlot();
         slotRight.RefreshSlot();
 
+        Debug.Log(slotLeft.data.item + " : " + slotRight.data.item);
+
         UpdateHealthBar();
         UpdateSpecialBar();
     }

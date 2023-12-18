@@ -11,23 +11,25 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
+    private DW_Interactions interactions;
+    private DW_Character player_character;
+
     void Awake()
     {
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
     }
-
     public void RefreshSlot()
     {
-        //if(data != null && image != null)
-        //{
-        //    this.GetComponent<Image>().sprite = data.image;
-        //}
-        //else
-        //{
-        //    this.GetComponent<Image>().sprite = originalSprite;
-        //}
+        if (data != null && image != null)
+        {
+            this.GetComponent<Image>().sprite = data.image;
+        }
+        else
+        {
+            this.GetComponent<Image>().sprite = originalSprite;
+        }
     }
 
     public void Stock(DW_Item item)
@@ -49,8 +51,9 @@ public class DW_Slot : MonoBehaviour
         if (data.useAction != null)
         {
             data.useAction();
-            if (data.item == Item.Consummable)
+            if (data.item == Item.Consummable || data.item == Item.Key)
             {
+                Debug.Log("pokjnb");
                 data.numberOfItem--;
                 Verification();
             }
