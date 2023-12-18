@@ -46,7 +46,6 @@ public class DW_Drag : MonoBehaviour
             // see if the player try to drag a card item in the pop_up
             if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(1) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
             {
-                Debug.Log("Test");
                 _item = hit.collider.gameObject.GetComponent<DW_ItemCard>().GetItem();
                 current.SetActive(true);
                 _isDragging =true;
@@ -59,7 +58,6 @@ public class DW_Drag : MonoBehaviour
                     slot.Stock(_item);
                     DW_ObjectDetection.Instance.RemoveObject(_item.gameObject);
                     _item.gameObject.SetActive(false);
-                    Debug.Log("stock Perfectly");
                 }
             }
         }

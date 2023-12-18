@@ -55,8 +55,8 @@ public class DW_Character : MonoBehaviour
 
     public string Rotation;
 
-    [SerializeField]int CharaX;
-    [SerializeField]int CharaY;
+    public int CharaX;
+    public int CharaY;
 
     private void Start()
     {
@@ -211,20 +211,20 @@ public class DW_Character : MonoBehaviour
         //{
 
         //    case "Left":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX - 1, CharacterY));
-        //            CharacterX -= 1;
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX - 1, CharaY));
+        //            CharaX -= 1;
         //        break;
         //    case "Right":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX + 1, CharacterY));
-        //        CharacterX += 1;
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX + 1, CharaY));
+        //        CharaX += 1;
         //        break;
         //    case "Up":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY-1));
-        //        CharacterY -= 1;
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX, CharaY-1));
+        //        CharaY -= 1;
         //        break;
         //    case "Down":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharacterX, CharacterY+1));
-        //        CharacterY += 1;
+        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX, CharaY+1));
+        //        CharaY += 1;
         //        break;
         //    default:
         //        break;

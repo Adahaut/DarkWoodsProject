@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class DW_PersoInventory : MonoBehaviour
 {
@@ -67,11 +66,6 @@ public class DW_PersoInventory : MonoBehaviour
             {
                 slots.Add(slot);
                 slot.SetClass(m_class);
-                Debug.Log("Slot found");
-            }
-            else
-            {
-                Debug.Log("Slot not found");
             }
         }
     }

@@ -7,6 +7,7 @@ public class DW_LifeManager : MonoBehaviour
     [SerializeField] private float max_life;
     public float currentLife;
     public int damage;
+    private DW_Character player_character;
 
     public void OnChangeLeader(DW_Class current_class)
     {
@@ -24,7 +25,7 @@ public class DW_LifeManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(damage);
+        //Debug.Log(damage);
         currentLife -= damage;
         // convert in integer;
         if(currentLife <= 0)
@@ -48,5 +49,4 @@ public class DW_LifeManager : MonoBehaviour
             //Drop
         }
     }
-    
 }

@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Cryptography;
-using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class Player : DW_Character
 {
@@ -96,6 +92,9 @@ public class Player : DW_Character
         float time = 0f;
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
+
+        //Play steps sound
+        playerCamera.gameObject.GetComponent<DW_PlayerSound>().PlayerSteps();
 
         // a remettre sur branche originale
         playerCamera.GetComponent<Animation>().Play();

@@ -5,16 +5,29 @@ using UnityEngine.UI;
 
 public class DW_Slot : MonoBehaviour
 {
-    [SerializeField] private So_ItemData data;
+    public So_ItemData data;
 
     [SerializeField] private Image image;
+    [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
-    void Start()
+    void Awake()
     {
         m_transform = transform;
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
+    }
+
+    public void RefreshSlot()
+    {
+        //if(data != null && image != null)
+        //{
+        //    this.GetComponent<Image>().sprite = data.image;
+        //}
+        //else
+        //{
+        //    this.GetComponent<Image>().sprite = originalSprite;
+        //}
     }
 
     public void Stock(DW_Item item)
@@ -29,15 +42,18 @@ public class DW_Slot : MonoBehaviour
 
     }
 
+
+
     public void Use()
     {
-        Debug.Log("Use");
         if (data.useAction != null)
         {
             data.useAction();
-            if(data.consommable)
+            if (data.item == Item.Consummable)
+            {
                 data.numberOfItem--;
-            Verification();
+                Verification();
+            }
         }
     }
 
@@ -79,7 +95,6 @@ public class DW_Slot : MonoBehaviour
 
     private void Drop()
     {
-        Debug.Log("a");
         if(DW_DropController.Instance.Drop(data.item, Vector3.zero))
         {
             Debug.Log("b");
@@ -92,6 +107,7 @@ public class DW_Slot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(2)) 
         {
+            Debug.Log("drop");
             Drop();
         }
     }
