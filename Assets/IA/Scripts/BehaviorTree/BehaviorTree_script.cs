@@ -35,8 +35,8 @@ public class BehaviorTree_script : MonoBehaviour
         _aiMovement = gameObject.GetComponent<DW_AiMovement>();
 
         _VerifPos = new DW_VerifPosition(gameObject.GetComponent<DW_Character>().initial_pos, gameObject.GetComponent<DW_Character>());
-        _canSeePlayer = new canSeePlayer(gameObject, Player,  view_distance);
-        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos);
+        _canSeePlayer = new canSeePlayer(gameObject, Player,  view_distance, _aiMovement);
+        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos, Player.GetComponent<DW_Character>());
         _purchasePlayer = new DW_PurchasePlayer(_aiMovement, gameObject.GetComponent<DW_Character>(), Player.GetComponent<DW_Character>());
         _canAttack = new DW_CanAttack(gameObject, Player, attack_range);
         _attack = new DW_Attack(gameObject, Player, time_between_attacks);
@@ -51,7 +51,7 @@ public class BehaviorTree_script : MonoBehaviour
         Selector selector1 = new Selector(new List<Node> { sequence1, _purchasePlayer });
         Sequence sequence2 = new Sequence(new List<Node> { _canSeePlayer, selector1 });
         Selector selector2 = new Selector(new List<Node> { _VerifPos, _returnToIniTialPos });
-        selectorRoot = new Selector(new List<Node> { sequence2 /*sequence2, selector2*/ });
+        selectorRoot = new Selector(new List<Node> { /*sequence2*/ sequence2, selector2 });
 
     }
 
