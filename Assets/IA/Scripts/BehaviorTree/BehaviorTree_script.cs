@@ -36,7 +36,7 @@ public class BehaviorTree_script : MonoBehaviour
 
         _VerifPos = new DW_VerifPosition(gameObject.GetComponent<DW_Character>().initial_pos, gameObject.GetComponent<DW_Character>());
         _canSeePlayer = new canSeePlayer(gameObject, Player,  view_distance, _aiMovement);
-        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos, Player.GetComponent<DW_Character>());
+        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos);
         _purchasePlayer = new DW_PurchasePlayer(_aiMovement, gameObject.GetComponent<DW_Character>(), Player.GetComponent<DW_Character>());
         _canAttack = new DW_CanAttack(gameObject, Player, attack_range);
         _attack = new DW_Attack(gameObject, Player, time_between_attacks);

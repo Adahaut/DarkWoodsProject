@@ -82,7 +82,7 @@ public class DW_Character : MonoBehaviour
 
     private void SetFirst()
     {
-        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
+        //DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
         CharaX = Mathf.Abs((int)gameObject.transform.position.x / 10);
         CharaY = Mathf.Abs((int)gameObject.transform.position.z/10);
     }
