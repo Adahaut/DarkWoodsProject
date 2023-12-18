@@ -4479,6 +4479,9 @@ MonoBehaviour:
   parent_inventory: {fileID: 1329522348}
   class_holder_ref: {fileID: 1654985526}
   team_manager: {fileID: 1705576825}
+  Death:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1583408570
 Transform:
   m_ObjectHideFlags: 0
