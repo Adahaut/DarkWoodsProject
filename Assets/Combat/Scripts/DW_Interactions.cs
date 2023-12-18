@@ -74,11 +74,11 @@ public class DW_Interactions : MonoBehaviour
        
     }
 
-    public void Interact(DW_interractible interractible)
+    public bool Interact(DW_interractible interractible)
     {
-        if(interractible.m_Item == Item.Key)
-        {
-            if (CheckForwardPLayer(player_character.Rotation, 4) == true)
+        if (CheckForwardPLayer(player_character.Rotation, 4)) 
+        {   
+            if (interractible.m_Item == Item.Key)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 2), this.transform.forward, out hit, 10))
@@ -87,10 +87,12 @@ public class DW_Interactions : MonoBehaviour
                     {
                         Debug.Log("disappeared");
                         StartCoroutine(AnimDoor(1));
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
     IEnumerator WaitBeforeNextAttack()
