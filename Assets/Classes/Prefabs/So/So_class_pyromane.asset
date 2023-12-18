@@ -20,12 +20,12 @@ MonoBehaviour:
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
   classSkill: {fileID: 11400000, guid: a52207c32f643ba41893631a151cc63f, type: 2}
   classType: 3
-  currentHealth: 35
+  currentHealth: 0
   maxHealth: 35
   currentAttackSpeed: 1.25
   minattackDamage: 6
   maxattackDamage: 15
-  shouldBeAggro: 1
+  shouldBeAggro: 0
   minPercentDamage: 80
   maxPercentDamage: 200
   specialSourceType: 2
