@@ -21,4 +21,5 @@ MonoBehaviour:
   currentSkillCooldown: 10
   isOnCooldown: 0
   emitterVFX: {fileID: 0}
+  effectDuration: 0
   restaurationHealth: 0

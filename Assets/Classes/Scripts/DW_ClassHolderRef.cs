@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,10 +17,13 @@ public class DW_ClassHolderRef : MonoBehaviour
     public DW_Slot slotLeft, slotRight;
 
     [HideInInspector] public DW_Class classRef;
+    [SerializeField] private DW_ClassController class_controller;
+
+    [SerializeField] private List<DW_Skill> all_skills;
 
     public void InitalizeCard(DW_Class class_ref)
     {
-        skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { DW_GM_Classes.Instance.UseOtherSkill(this); });
+        
 
         classIcon.sprite = class_ref.classIcon;
         skillIcon.sprite = class_ref.classSkill.skillIcon;
@@ -33,7 +37,7 @@ public class DW_ClassHolderRef : MonoBehaviour
 
         slotLeft.RefreshSlot();
         slotRight.RefreshSlot();
-
+        skillIcon.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { DW_GM_Classes.Instance.UseOtherSkill(this); });
         Debug.Log(slotLeft.data.item + " : " + slotRight.data.item);
 
         UpdateHealthBar();
@@ -42,19 +46,36 @@ public class DW_ClassHolderRef : MonoBehaviour
 
     private void Update()
     {
-        if (!classRef.classSkill.isOnCooldown )
-            return;
-        if(classRef.classSkill.currentSkillCooldown <= 0)
+        if( all_skills.Any(b => b.isOnCooldown == true))
         {
-            classRef.classSkill.isOnCooldown = false;
-            classRef.classSkill.currentSkillCooldown =Mathf.RoundToInt( classRef.classSkill.skillCooldown);
+            foreach(var skill in all_skills)
+            {
+                if(skill.isOnCooldown)
+                {
+                    if (skill.currentSkillCooldown <= 0)
+                    {
 
-            if(classRef.classSkill.skillType == SkillType.Attention)
-                GameObject.FindObjectOfType<DW_ClassController>().ResetAggro(classRef);
-            return;
+                        switch (skill.skillType)
+                        {
+                            case SkillType.Heal: break;
+                            case SkillType.Attention:
+                                class_controller.ResetAggro();
+                                skill.isOnCooldown = false;
+                                break;
+                            case SkillType.Brazier: break;
+                            case SkillType.Discretion: break;
+                        }
+                        skill.currentSkillCooldown = skill.skillCooldown;
+                        skill.isOnCooldown = false;
+                        continue;
+                    }
+                    else
+                    {
+                        skill.currentSkillCooldown -= Time.deltaTime;
+                    }
+                }
+            }
         }
-
-        classRef.classSkill.currentSkillCooldown -= Time.deltaTime;
     }
 
     public void UpdateHealthBar()

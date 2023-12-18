@@ -1236,6 +1236,7 @@ MonoBehaviour:
   max_life: 200
   currentLife: 0
   damage: 0
+  class_holder_ref: {fileID: 0}
 --- !u!114 &387325530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   view_distance: 20
+  attack_range: 10
+  time_between_attacks: 3
 --- !u!1 &387869973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
@@ -3611,6 +3614,7 @@ MonoBehaviour:
   max_life: 0
   currentLife: 0
   damage: 0
+  class_holder_ref: {fileID: 0}
 --- !u!114 &1338537145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,6 +4873,30 @@ PrefabInstance:
       propertyPath: slotRight
       value: 
       objectReference: {fileID: 1008073837}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: class_controller
+      value: 
+      objectReference: {fileID: 1338537142}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: all_skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: all_skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e8d1b141e9800034093c5c24cd206885, type: 2}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: all_skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a52207c32f643ba41893631a151cc63f, type: 2}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: all_skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 03f677e0f0b576f4ab869777b5c40aba, type: 2}
+    - target: {fileID: 3113852833517210884, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
+      propertyPath: all_skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c84dbe68d676da54a839d76e32034210, type: 2}
     - target: {fileID: 4102305658719005299, guid: 0dc7534f080656b4ea8faffe2967ec24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

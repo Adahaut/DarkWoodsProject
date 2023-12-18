@@ -10,6 +10,7 @@ public class DW_LifeManager : MonoBehaviour
     public int damage;
     private DW_Character player_character;
     private DW_Class m_current_class;
+    [SerializeField] private DW_ClassHolderRef class_holder_ref;
 
     public void OnChangeLeader(DW_Class current_class)
     {
@@ -28,10 +29,22 @@ public class DW_LifeManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        //Debug.Log(damage);
         currentLife -= damage;
-        if(m_current_class != null) 
-            m_current_class.currentHealth = currentLife;
+
+        if (this.tag == "Player")
+        {
+            foreach (DW_Class c in this.GetComponent<DW_ClassController>().classes)
+            {
+                if (c.shouldBeAggro)
+                {
+                    c.currentHealth -= damage;
+                    class_holder_ref.UpdateHealthBar();
+
+                    if (c.currentHealth <= 0)
+                        Die(c);
+                }
+            }
+        }
         // convert in integer;
         if(currentLife <= 0)
         {
@@ -48,12 +61,13 @@ public class DW_LifeManager : MonoBehaviour
         }
     }
 
-    private void Die()
+    private void Die(DW_Class class_died = null)
     {
         //player death
         if(gameObject.tag == "Player")
         {
-            DW_GM_Classes.Instance.ClassDeath(gameObject.GetComponent<DW_ClassController>().currentClass);
+            DW_GM_Classes.Instance.ClassDeath(class_died);
+            this.GetComponent<DW_ClassController>().ResetAggro();
         }
 
         //enemies death
