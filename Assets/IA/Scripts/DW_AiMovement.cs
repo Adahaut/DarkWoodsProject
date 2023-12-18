@@ -1,11 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using static UnityEditor.PlayerSettings;
-using static Node_script;
-using static DW_A_Star;
-using UnityEngine.TextCore.Text;
 
 public class DW_AiMovement : MonoBehaviour
 {

@@ -2488,6 +2488,7 @@ GameObject:
   - component: {fileID: 969626990}
   - component: {fileID: 969626989}
   - component: {fileID: 969626992}
+  - component: {fileID: 969626993}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2620,6 +2621,21 @@ MonoBehaviour:
   path: {fileID: 576511407}
   wall: {fileID: 1560012557}
   origin: {fileID: 2052697921}
+--- !u!114 &969626993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969626988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f868955f1add19540983f78927b34d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_class: {fileID: 11400000, guid: 43681ba6dd4d0914dac608f03e0d6a0b, type: 2}
+  m_class2: {fileID: 11400000, guid: 6fbfc85b975bc4e4196f125ca1acea54, type: 2}
+  save: {fileID: 11400000, guid: ac0109dd43eb3fc47ac53f28da481812, type: 2}
 --- !u!1 &982443810
 GameObject:
   m_ObjectHideFlags: 0

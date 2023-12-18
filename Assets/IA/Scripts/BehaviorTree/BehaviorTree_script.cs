@@ -1,12 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using static Node_script;
-using static Selector;
-using static Sequence;
-using static canSeePlayer;
-using static DW_AiMovement;
 
 public class BehaviorTree_script : MonoBehaviour
 {
