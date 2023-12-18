@@ -13,7 +13,7 @@ public class DW_AiMovement : MonoBehaviour
     public DW_Character player;
 
 
-    [SerializeField] private List<Vector2> Path = new List<Vector2>();
+    public List<Vector2> Path = new List<Vector2>();
 
 
     private void Update()
