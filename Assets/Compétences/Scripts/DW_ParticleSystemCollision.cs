@@ -12,9 +12,7 @@ public class DW_ParticleSystemCollision : MonoBehaviour
             // modifier le layer avec le futur layer officiel
             // retirer ici la vie de l'ennemi.
 
-            float basePercent = Random.Range(ownerClass.minPercentDamage, ownerClass.maxPercentDamage);
-            float baseDmg = Random.Range(ownerClass.minattackDamage, ownerClass.maxattackDamage);
-            baseDmg += (basePercent / 100) * baseDmg;
+            float baseDmg = ownerClass.currentDamage;
             baseDmg /= 50;
 
             print(baseDmg);
