@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 
 public class DW_GM_Classes : MonoBehaviour
 {
@@ -22,9 +23,13 @@ public class DW_GM_Classes : MonoBehaviour
     private DW_Skill skill_to_use;
     private DW_ClassHolderRef initiator_skill;
 
+    public UnityEvent<DW_Class> Death;
+
     private void Awake()
     {
         instance = this;
+
+        if(Death == null) { Death = new UnityEvent<DW_Class>(); }
     }
 
     private void Start()
@@ -47,7 +52,8 @@ public class DW_GM_Classes : MonoBehaviour
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[0]);
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[1]);
             DW_ClassController.Instance.classes.Add(team_manager.classes_selected[2]);
-            DW_ClassController.Instance.currentClass = team_manager.classes_selected[0];
+            DW_ClassController.Instance.currentClass = team_manager.classes_selected[1];
+            DW_ClassController.Instance.ChangeClass(team_manager.classes_selected[0]);
 
         }
     }
@@ -67,32 +73,18 @@ public class DW_GM_Classes : MonoBehaviour
         }
     }
 
-    public bool IsClassAlive(DW_Class classRef)
+    public void ClassDeath(DW_Class classRef)
     {
+        Death.Invoke(classRef);
         foreach (DW_Class c in DW_ClassController.Instance.classes)
         {
-            if (c == classRef)
-            {
-                if(c.currentHealth > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    foreach (DW_Class classes in DW_ClassController.Instance.classes)
-                    {
-                        if(classes.currentHealth > 0)
-                        {
-                            ApplySkill(classes);
-                            return false;
-                        }
 
-                    }
-                }
+            if (c.currentHealth > 0)
+            {
+                ApplySkill(c);
+                return;
             }
         }
-        Debug.Log("All Class Are Dead");
-        return false;
     }
 
     public void ApplySkill(DW_Class classRef)
