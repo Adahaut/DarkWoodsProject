@@ -67,6 +67,34 @@ public class DW_GM_Classes : MonoBehaviour
         }
     }
 
+    public bool IsClassAlive(DW_Class classRef)
+    {
+        foreach (DW_Class c in DW_ClassController.Instance.classes)
+        {
+            if (c == classRef)
+            {
+                if(c.currentHealth > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    foreach (DW_Class classes in DW_ClassController.Instance.classes)
+                    {
+                        if(classes.currentHealth > 0)
+                        {
+                            ApplySkill(classes);
+                            return false;
+                        }
+
+                    }
+                }
+            }
+        }
+        Debug.Log("All Class Are Dead");
+        return false;
+    }
+
     public void ApplySkill(DW_Class classRef)
     {
         if(skill_to_use != null && initiator_skill != null)
