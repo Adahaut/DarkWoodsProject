@@ -52,14 +52,6 @@ public class DW_LifeManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E)) 
-        {
-            TakeDamage(10);
-            Debug.Log("Take Dammage");
-        }
-    }
 
     private void Die(DW_Class class_died = null)
     {

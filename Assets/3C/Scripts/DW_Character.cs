@@ -87,6 +87,7 @@ public class DW_Character : MonoBehaviour
         CharaY = Mathf.Abs((int)gameObject.transform.position.z/10);
     }
 
+
     //private Vector2Int GetCharacterOnGrid()
     //{
     //    for (int i = 0; i < _grid.Length; i++)
@@ -129,6 +130,9 @@ public class DW_Character : MonoBehaviour
             yield return null;
         }
         transform.position = new Vector3((int)end_pos.x, (int)end_pos.y, (int)end_pos.z);
+
+        if(gameObject.CompareTag("Player"))
+            DW_ObjectDetection.Instance.SetPlayerPos(new(GetPos().y, GetPos().x));
         yield return new WaitForSeconds(waitCooldown);
         canMove = true;
     }
@@ -176,6 +180,12 @@ public class DW_Character : MonoBehaviour
     private void Update()
     {
         GridMove();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.position = new(-110, 7, -210);
+
+        }
     }
     private void GiveDirectionByRotation()
     {
