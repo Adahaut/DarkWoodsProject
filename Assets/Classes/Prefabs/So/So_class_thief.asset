@@ -24,10 +24,10 @@ MonoBehaviour:
   currentAttackSpeed: 1.5
   minattackDamage: 5
   maxattackDamage: 8
-  shouldBeAggro: 1
+  shouldBeAggro: 0
   minPercentDamage: 15
   maxPercentDamage: 70
   specialSourceType: 0
-  specialSourceAmount: 0
+  specialSourceAmount: 73.2
   slotLeft: {fileID: 11400000, guid: 87c7eafa5f0fe264897620935148bc0b, type: 2}
   slotRight: {fileID: 11400000, guid: c48a825405a53a94c86d0dca3b359d53, type: 2}

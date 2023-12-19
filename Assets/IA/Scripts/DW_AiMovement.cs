@@ -2,28 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static Node_script;
+using static DW_A_Star;
+using UnityEngine.TextCore.Text;
 
 public class DW_AiMovement : MonoBehaviour
 {
     public DW_Character character;
     public DW_Character player;
 
-    // Update is called once per frame
-    void Update()
+
+    public List<Vector2> Path = new List<Vector2>();
+
+
+    private void Update()
     {
         Vector2 pos = character.GetPos();
+        Debug.Log("My Position On the Grid ====  " + pos);
         if (Path.Count > 0)
         {
             Move();
         }
 
-        if(character.GetPos() != player.GetPos())
-            A(character.GetPos(), player.GetPos());
-       
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            A(_start, _target);
-        }
+        Debug.Log(/*character.GetPos() +*/ " /// " + player.GetPos());
+        //if(character.GetPos() != player.GetPos())
+        //{
+        //    return pathFinder.A(character.GetPos(), player.GetPos(), out Path);
+        //}
+            
+        //return NodeState.FAILURE;
     }
 
     private void Move()
@@ -31,10 +38,10 @@ public class DW_AiMovement : MonoBehaviour
         Vector2 pos = character.GetPos();
         string dir = GetDirection(pos);
 
+        Debug.Log("My Position On the Grid ====  " + pos);
 
         if (dir == character.Rotation)
         {
-            Debug.Log(" ai mov");
             character.StartCharacterMove(.5f);
         }
         else
@@ -54,7 +61,8 @@ public class DW_AiMovement : MonoBehaviour
         };
 
         int currentDir = GetDirectionIndex(character.Rotation);
-        int targetDir = GetDirectionIndex(direction);
+        int targetDir = GetDirectionIndex(direction) == -1 ? 0 : GetDirectionIndex(direction);
+
 
         switch (difference_between_direction[currentDir, targetDir])
         {
@@ -90,122 +98,45 @@ public class DW_AiMovement : MonoBehaviour
     }
     private string GetDirection(Vector2 positionPlayer)
     {
-        if (Path.Count > 0)
+        while (Path.Count > 0 && (/*positionPlayer == new Vector2(Path[0].y, Path[0].x) ||*/ positionPlayer == Path[0]))
         {
-            if (positionPlayer == Path[0])
-            {
-                Path.RemoveAt(0);
-            }
-            if (Path[0].y == positionPlayer.y)
-            {
-                if (positionPlayer.x > Path[0].x) { return "Left"; }
-                if (positionPlayer.x < Path[0].x) { return "Right"; }
-            }
-            else if (Path[0].x == positionPlayer.x)
-            {
-                if (positionPlayer.y < Path[0].y) { return "Down"; }
-                if (positionPlayer.y > Path[0].y) { return "Up"; }
-            }
-            
-        
+            Path.RemoveAt(0);
         }
-        return character.Rotation;
+        if(Path.Count <= 0) { return "UP"; }
+        //if (Path[0].x == positionPlayer.y)
+        //{
+        //    if(positionPlayer.x < Path[0].y) { return "Left"; }
+        //    if (positionPlayer.x > Path[0].y) { return "Right"; }
+        //}
+        //else if (Path[0].y == positionPlayer.x)
+        //{
+        //    if (positionPlayer.y < Path[0].x) { return "Down"; }
+        //    if (positionPlayer.y > Path[0].x) { return "Up"; }
+        //}
+        /*else*/ if (Path[0].y == positionPlayer.y)
+        {
+            if (positionPlayer.x < Path[0].x) { return "Down"; }
+            if (positionPlayer.x > Path[0].x) { return "Up"; }
+        }
+        else if (Path[0].x == positionPlayer.x)
+        {
+            if (positionPlayer.y < Path[0].y) { return "Left"; }
+            if (positionPlayer.y > Path[0].y) { return "Right"; }
+        }
+
+        return "Null";
     }
 
-
-    [SerializeField] private Vector2 _target;
-    [SerializeField] private Vector2 _start;
-    private Vector2 current_position;
-    private Vector2 real_current_position;
-
-    private static Vector2 null_vector = new Vector2(200,200);
-
-    [SerializeField]private List<Vector2> Path = new List<Vector2>();
-    [SerializeField] private List<Vector2> SavePasedPoint = new List<Vector2>();
-    public List<Vector2> A(Vector2 start, Vector2 target)
+    public void SetPath(List<Vector2> path)
     {
-        _target = target;
-        current_position = start;
-
-        SavePasedPoint.Clear();
-        Path.Clear();
-
-        while (current_position != _target) // while no way found
-        {
-            real_current_position = current_position;
-
-            if (!Path.Contains(current_position))
-                Path.Add(current_position);
-
-            current_position = FindNearest(current_position);
-
-            if (current_position == null_vector)
-            {
-                Path.Remove(real_current_position);
-
-                if (Path.Count == 0)
-                {
-                    return null;
-                }
-
-                current_position = Path[Path.Count - 1];
-
-
-            }
-            if (Path.Count > 1000 || SavePasedPoint.Count > 1000)
-            {
-                SavePasedPoint.Clear();
-                Path.Clear();
-                return null;
-            }
-
-        }
-
-        //if (current_position == _target)
-            //Path.Add(current_position);
-
-        return Path;
-
+        Path = path;
     }
-
-    private Vector2 FindNearest(Vector2 testValue)
+    public bool IsPathNull()
     {
-        List<float> heuristiqueDistance = new List<float>(); // The distance between the two object + the distance between the object we want to go and the target
-        List<Vector2> neighbors = character.GetPathAround(testValue);/*Get all the neighbors the ennemie can go on*/
-
-        if (neighbors.Count == 0)
-        {
-            SavePasedPoint.Add(testValue);
-            return null_vector;
-        }
-
-        int indexNearest = -1;
-
-        for (int i = 0; i < neighbors.Count; i++)
-        {
-            heuristiqueDistance.Add(Vector2.Distance(neighbors[i], testValue) + Vector3.Distance(neighbors[i], _target));
-
-            if ((indexNearest == -1 ? Mathf.Infinity : heuristiqueDistance[indexNearest]) >= heuristiqueDistance[i] && !SavePasedPoint.Contains(neighbors[i]) && !Path.Contains(neighbors[i])) // is newDistance < nearest distance calculate  
-            {
-                indexNearest = i;
-            }
-        }
-
-        if (indexNearest == -1) // no distance find
-        {
-            SavePasedPoint.Add(testValue);
-            return null_vector;
-        }
-
-        if (neighbors[indexNearest] == null)
-            SavePasedPoint.Add(testValue);
-
-        return neighbors[indexNearest];
+        if(Path.Count > 0)
+            return false;
+        return true;
     }
-
-
-
-
 }
 
 

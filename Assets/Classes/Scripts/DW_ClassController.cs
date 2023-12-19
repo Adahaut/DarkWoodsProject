@@ -14,7 +14,7 @@ public class DW_ClassController : MonoBehaviour
 
     // effects that alterate the controller stats
     private bool is_paladin_aggro = false;
-
+    private DW_Class current_aggro_class;
     private bool is_speed_reduced = false;
     private float speedReducedTimer = 0.0f;
     private float removed_speed = 0.0f;
@@ -49,28 +49,6 @@ public class DW_ClassController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.P))
         //{
         //    UseAbility();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    if (!is_paladin_aggro)
-        //    {
-        //        currentClass.shouldBeAggro = false;
-        //    }
-        //    if (index_class + 1 < classes.Count)
-        //    {
-        //        index_class += 1;
-        //        currentClass = classes[index_class];
-        //    }
-        //    else
-        //    {
-        //        index_class = 0;
-        //        currentClass = classes[index_class];
-        //    }
-        //    if (!is_paladin_aggro)
-        //        currentClass.shouldBeAggro = true;
-
-        //    this.GetComponent<DW_LifeManager>().OnChangeLeader(currentClass);
         //}
 
         if(is_speed_reduced)
@@ -111,6 +89,8 @@ public class DW_ClassController : MonoBehaviour
             default:
                 break;
         }
+
+        Debug.Log(abilityToUse);
         if(abilityToUse != null)
         if(currentClass.specialSourceAmount - abilityToUse.percentCost >= 0 && !abilityToUse.isOnCooldown)
         {
@@ -141,6 +121,7 @@ public class DW_ClassController : MonoBehaviour
     public void SkillAttention(DW_Skill _abilityToUse)
     {
         _abilityToUse.isOnCooldown = true;
+        current_aggro_class = currentClass;
         currentClass.shouldBeAggro = true;
         is_paladin_aggro = true;
     }
@@ -207,10 +188,11 @@ public class DW_ClassController : MonoBehaviour
         return null;
     }
 
-    public void ResetAggro(DW_Class classAggro)
+    public void ResetAggro()
     {
         is_paladin_aggro = false;
-        classAggro.shouldBeAggro = false;
+        current_aggro_class.shouldBeAggro = false;
+        current_aggro_class = null;
         currentClass.shouldBeAggro = true;
     }
 }

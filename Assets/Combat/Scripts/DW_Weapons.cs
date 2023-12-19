@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DW_Weapons : MonoBehaviour
 {
-    DW_PlayerAttack player_attack;
+    DW_Interactions player_attack;
     DW_LifeManager life_manager;
     [SerializeField] private float weapon_time_between_attacks;
     [SerializeField] private int weapon_damage;
@@ -12,7 +12,7 @@ public class DW_Weapons : MonoBehaviour
 
     private void Start()
     {
-        player_attack = GameObject.Find("Player").GetComponent<DW_PlayerAttack>();
+        player_attack = GameObject.Find("Player").GetComponent<DW_Interactions>();
         life_manager = GameObject.Find("Player").GetComponent<DW_LifeManager>();
     }
 

@@ -15,6 +15,7 @@ public class DW_MenuController : MonoBehaviour
     public Slider LuminositySlider;
     public Toggle FullScreenToggle;
     public Image _Luminosity;
+
     public void Settings()
     {
         _Settings.SetActive(true);
@@ -53,11 +54,14 @@ public class DW_MenuController : MonoBehaviour
     public void Pause()
     {
         _Pause.SetActive(true);
+        Time.timeScale = 0.0f;
+
     }
 
     public void ExitPause()
     {
         _Pause.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void Volume()

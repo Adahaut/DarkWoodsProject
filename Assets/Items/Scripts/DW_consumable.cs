@@ -7,9 +7,11 @@ public class DW_consumable : DW_Item
 
     public float healthRestoreAmount;
     public float specialRestoreAmount;
-    public override void Use()
+    public specialSourceType specialSourceType;
+    public override bool Use()
     {
-        Debug.Log("consumable");
-        // in player attack call consumable function.
+
+        GameObject.FindAnyObjectByType<DW_Interactions>().ConsumeItem(this, specialSourceType);
+        return true;
     }
 }

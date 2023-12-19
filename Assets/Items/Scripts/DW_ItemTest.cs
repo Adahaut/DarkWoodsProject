@@ -9,9 +9,10 @@ public class DW_ItemTest : DW_Item
         m_Item = Item.NULL;
     }
 
-    public override void Use()
+    public override bool Use()
     {
         Debug.Log("Use capacity Test");
+        return true;
     }
 
 }
