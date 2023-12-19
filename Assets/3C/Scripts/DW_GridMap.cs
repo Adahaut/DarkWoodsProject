@@ -43,6 +43,7 @@ public class DW_GridMap : MonoBehaviour
     private void Awake()
     {
         if(Instance == null ) { Instance = this; }
+      //  test();
     }
 
     public Vector2Int SetMyPosInGrid(int ID, Vector2Int previous_pos, Vector2Int spawnPosInWorld)
@@ -51,7 +52,37 @@ public class DW_GridMap : MonoBehaviour
         Grid[Mathf.Abs(spawnPosInWorld.x / 10), Mathf.Abs(spawnPosInWorld.y / 10)] = ID;
         return new Vector2Int(Mathf.Abs(spawnPosInWorld.x / 10), Mathf.Abs(spawnPosInWorld.y / 10));
     }
-   
+
+
+   /* private void test()
+    {
+        GameObject go;
+        for (int i = 0; i < 23; i++)
+        {
+            for (int j = 0; j < 23; j++)
+            {
+                if (Grid[i, j] == 0)
+                {
+                    go = Instantiate<GameObject>(c, this.transform.parent);
+                }
+                else if (Grid[i, j] == 1)
+                {
+                    go = Instantiate<GameObject>(c, this.transform.parent);
+
+                }
+                else
+                {
+                    go = Instantiate<GameObject>(e, this.transform.parent);
+
+                }
+
+                go.transform.position = new Vector3(-i * 10, 10, -j * 10);
+
+
+            }
+        }
+    }
+   */
     public void Spawn(int ID, Vector2Int spawnPosInWorld)
     {
         //if (Grid[Mathf.Abs(spawnPosInWorld.x/10), Mathf.Abs(spawnPosInWorld.y/10)] == 2) 
