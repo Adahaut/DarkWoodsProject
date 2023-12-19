@@ -128,6 +128,7 @@ public class DW_Character : MonoBehaviour
 
             yield return null;
         }
+        transform.position = new Vector3((int)end_pos.x, (int)end_pos.y, (int)end_pos.z);
         yield return new WaitForSeconds(waitCooldown);
         canMove = true;
     }
