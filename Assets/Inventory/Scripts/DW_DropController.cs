@@ -27,7 +27,9 @@ public class DW_DropController : MonoBehaviour
             {
                 current_gameobject = Instantiate<GameObject>(m_Object[i]);
                 current_gameobject.transform.position = position;
+                current_gameobject.GetComponent<DW_Item>().m_Position = new Vector2(Mathf.Abs(position.x / 10), Mathf.Abs(position.z / 10));
                 DW_ObjectDetection.Instance.AddObject(current_gameobject);
+                Debug.Log("Successfuly dropped");
                 return true;
             }
         }

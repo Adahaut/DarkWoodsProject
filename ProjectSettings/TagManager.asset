@@ -8,6 +8,7 @@ TagManager:
   - UiItem
   - Enemy
   - Door
+  - test
   layers:
   - Default
   - TransparentFX

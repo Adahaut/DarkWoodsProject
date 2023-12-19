@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -34,6 +36,68 @@ public class Movement : MonoBehaviour
             {
                 player.StartCharacterTurn(turnSpeed * 2, true, true);
             }
+        }
+    }
+    private float timer_press = 0;
+    public float speed_timer = 1;
+    public Image fill_search;
+    public GameObject inspection_ui;
+
+    private DW_CampSearch camp_fire;
+
+    public void Update()
+    {
+        if(Input.GetKey(KeyCode.P))
+        {
+
+            RaycastHit hit;
+            if (Physics.Raycast(player.transform.position + new Vector3(0, 0.5f, 0), player.transform.forward, out hit, 15))
+            {
+                if (hit.collider.tag == "test" && !hit.collider.gameObject.GetComponent<DW_CampSearch>().hasBeenSearched)
+                {
+                    inspection_ui.SetActive(true);
+                    timer_press += Time.deltaTime * speed_timer;
+                    fill_search.fillAmount = timer_press / 3;
+
+                    camp_fire = hit.collider.gameObject.GetComponent<DW_CampSearch>();
+                }
+                else
+                {
+                    inspection_ui.SetActive(true);
+                    fill_search.fillAmount = 1;
+                    fill_search.color = Color.red;
+                }
+            }
+
+
+        }
+
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            if(timer_press < 3)
+            {
+                timer_press = 0;
+            }
+            else
+            {
+                if (timer_press >= 3)
+                {
+                    DW_Item item = camp_fire.SearchCamp();
+
+                    if (item != null)
+                        GameObject.FindObjectOfType<DW_DropController>().Drop(item.m_Item, player.transform.position);
+
+                    timer_press = 0;
+                }
+                else
+                {
+                    timer_press += Time.deltaTime;
+                }
+            }
+
+            inspection_ui.SetActive(false);
+            fill_search.fillAmount = 0;
+            fill_search.color = Color.white;
         }
     }
 }
