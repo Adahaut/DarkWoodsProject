@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3D object/MAP.prefab.meta
 guid: 20f7964727a9a2547b7e7db4a1b697a6
 PrefabImporter:
+========
+guid: 74a1026faa4a421458cc04f7db826f24
+DefaultImporter:
+>>>>>>>> Arts:Assets/Scenes/Map hopital.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
