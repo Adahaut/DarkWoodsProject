@@ -20,6 +20,7 @@ public class DW_CanAttack : Node
     public override NodeState Evaluate()
     {
         Vector3 distance = Player.transform.position - Enemy.transform.position;
+        Debug.Log(distance);
         if (Physics.Raycast(Enemy.transform.position, distance / distance.magnitude, out hit, attack_range))
         {
             Debug.DrawRay(Enemy.transform.position, distance / distance.magnitude * attack_range, Color.blue);

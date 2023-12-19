@@ -24,6 +24,7 @@ public class DW_PurchasePlayer : Node
         {
             NodeState state = pathFinder.DijkstraPath(character.GetPos(), player.GetPos(), out path, false);
             movement.SetPath(path);
+            Debug.Log("Chase");
             return state;
         }
         else

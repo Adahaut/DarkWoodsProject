@@ -32,6 +32,7 @@ public class DW_Attack : Node
         }
         else
         {
+            Debug.Log("Off attack");
             return NodeState.RUNNING;
         }
     }

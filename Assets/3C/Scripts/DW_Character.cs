@@ -19,8 +19,8 @@ public class DW_Character : MonoBehaviour
     public int targetRotation;
     public Transform playerCamera;
 
-    private int height = 20;
-    private int width = 20;
+    private int height = 23;
+    private int width = 23;
 
     //private int[,] _grid; 
 
@@ -302,9 +302,6 @@ public class DW_Character : MonoBehaviour
     public List<Vector2> GetPathAround(Vector2 position)
     {
         neighbors.Clear();
-
-        Debug.Log("Initial Position ::::: " +  position + " ID :::: " + DW_GridMap.Instance.Grid[(int)position.y, (int)position.x]);
-        //List<Vector2> neighbors = new List<Vector2>();
 
         int X = (int)position.x;
         int Y = (int)position.y;
