@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DW_LifeManager : MonoBehaviour
 {
@@ -40,8 +41,7 @@ public class DW_LifeManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E)) 
         {
-            TakeDamage(10);
-            Debug.Log("Take Dammage");
+            SceneManager.LoadScene("TestHospital");
         }
     }
 

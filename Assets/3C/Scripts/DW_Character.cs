@@ -124,7 +124,7 @@ public class DW_Character : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(waitCooldown);
-        canMove = true;
+        canMove = true;    
     }
 
     public void StartCharacterMove(float total_time)

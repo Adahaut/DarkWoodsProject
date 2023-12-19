@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class DW_ScenePersistance : MonoBehaviour
 {
-    public GameObject persistentObject;
+    [SerializeField] private GameObject persistentObject;
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        persistentObject = this.gameObject;
         if (persistentObject != null)
             TransferObjectToNewScene();
     }

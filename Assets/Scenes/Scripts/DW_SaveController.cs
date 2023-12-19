@@ -1,36 +1,81 @@
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DW_SaveController : MonoBehaviour
 {
-    public DW_Class m_class;
-    public DW_Class m_class2;
+    [SerializeField] private List<DW_Class> data_class;
     public DW_Save save;
     // Start is called before the first frame update
     void Start()
     {
         Load();
+
+    }
+
+    private void OnDisable()
+    {
+        Save();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DW_ClassController.Instance.classes[0].currentHealth = 10;
+        }
+
+        for (int i = 0; i < DW_ClassController.Instance.classes.Count; i++)
+        {
+            if (data_class.Count < DW_ClassController.Instance.classes.Count)
+            {
+                data_class.Add(DW_ClassController.Instance.classes[i]);
+            }
+            else
+                data_class[i] = DW_ClassController.Instance.classes[i];
+
+        }
     }
 
 
     public void Save()
     {
-        for(int i = 0; i<DW_ClassController.Instance.classes.Count; i++)
+        //JsonSave(DW_ClassController.Instance);
+        for (int i = 0; i<DW_ClassController.Instance.classes.Count; i++)
         {
             CopyClassScriptable(save.data_class[i], DW_ClassController.Instance.classes[i]);
+            if(data_class.Count < DW_ClassController.Instance.classes.Count)
+            {
+                data_class.Add(DW_ClassController.Instance.classes[i]);
+            }
+            else
+                data_class[i] = DW_ClassController.Instance.classes[i];
+            
         }
     }
 
     public void Load()
     {
-        for (int i = 0; i < DW_ClassController.Instance.classes.Count; i++)
+        //JsonLoad(DW_ClassController.Instance);
+        for (int i = 0; i < save.data_class.Count; i++)
         {
             CopyClassScriptable(DW_ClassController.Instance.classes[i], save.data_class[i]);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            for (int j = 0; j < data_class.Count; j++)
+            {
+                if (data_class.Count > DW_ClassController.Instance.classes.Count)
+                {
+                    DW_ClassController.Instance.classes.Add(data_class[j]);
+                }
+                else
+                    DW_ClassController.Instance.classes[j] =data_class[j];
+
+            }
+
+            
         }
     }
 
@@ -66,5 +111,20 @@ public class DW_SaveController : MonoBehaviour
         copy.numberOfItem = inventory.numberOfItem;
         copy._class = inventory._class;
         copy.consommable = inventory.consommable;
+    }
+
+    private void JsonSave(DW_ClassController _class)
+    {
+        string player = JsonUtility.ToJson(_class);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/PlayerData.json", player);
+
+    }
+
+    private void JsonLoad(DW_ClassController _class)
+    {
+        var inputString = File.ReadAllText(Application.persistentDataPath + "/PlayerData.json");
+
+        JsonUtility.FromJsonOverwrite(inputString, _class);
+        //JsonUtility.FromJsonOverwrite("player", _class);
     }
 }
