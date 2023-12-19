@@ -45,7 +45,8 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.useAction != null)
         {
-            if ((data.item == Item.Key || data.item == Item.Consummable) && data.useAction())
+            data.useAction();
+            if ((data.item == Item.Key || data.item == Item.Consummable))
             {
                 data.numberOfItem--;
                 Verification();

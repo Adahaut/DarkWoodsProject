@@ -30,8 +30,6 @@ public class DW_Interactions : MonoBehaviour
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
             float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
 
-            Debug.Log(class_holder.classRef);
-
             if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
                 RaycastHit hit;
@@ -43,7 +41,7 @@ public class DW_Interactions : MonoBehaviour
                         hit.collider.GetComponent<DW_LifeManager>().TakeDamage(finalDamage);
                         can_attack = false;
                         StartCoroutine(WaitBeforeNextAttack());
-                        if(life_manager.currentLife <= 0)
+                        if(hit.collider.GetComponent<DW_LifeManager>().currentLife <= 0)
                         {
                             Debug.Log("enemy dead");
                         }

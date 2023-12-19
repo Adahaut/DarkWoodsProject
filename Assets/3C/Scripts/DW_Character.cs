@@ -139,7 +139,6 @@ public class DW_Character : MonoBehaviour
 
     public void StartCharacterMove(float total_time)
     {
-        Debug.Log(CheckArround());
         if (canMove && CheckArround())
         {
             StartCoroutine(CharacterMove(total_time));
@@ -161,7 +160,6 @@ public class DW_Character : MonoBehaviour
         }
         else
             targetRotation = Mathf.RoundToInt(direction ? initialRotation + 90f : initialRotation - 90f);
-        Debug.Log(targetRotation);
 
         GiveDirectionByRotation();
 
@@ -260,7 +258,6 @@ public class DW_Character : MonoBehaviour
             case "Right":
                 if (DW_GridMap.Instance.Grid[CharaY,CharaX - 1] == 2)
                 {
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX - 1]);
                     return true;
                 }
                 else
@@ -270,8 +267,6 @@ public class DW_Character : MonoBehaviour
             case "Left":
                 if (DW_GridMap.Instance.Grid[CharaY,CharaX + 1] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX + 1]);
                     return true;
                 }
                 else
@@ -281,8 +276,6 @@ public class DW_Character : MonoBehaviour
             case "Up":
                 if (DW_GridMap.Instance.Grid[CharaY - 1,CharaX] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY - 1,CharaX]);
                     return true;
                 }
                 else
@@ -292,9 +285,6 @@ public class DW_Character : MonoBehaviour
             case "Down":
                 if (DW_GridMap.Instance.Grid[CharaY + 1,CharaX] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY + 1,CharaX]);
-                    Debug.Log("Down");
                     return true;
                 }
                 else
