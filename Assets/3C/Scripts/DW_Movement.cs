@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.P))
         {
-
+            player.canMove = false;
             RaycastHit hit;
             if (Physics.Raycast(player.transform.position + new Vector3(0, 0.5f, 0), player.transform.forward, out hit, 15))
             {
@@ -98,6 +98,8 @@ public class Movement : MonoBehaviour
             inspection_ui.SetActive(false);
             fill_search.fillAmount = 0;
             fill_search.color = Color.white;
+
+            player.canMove = true;
         }
     }
 }
