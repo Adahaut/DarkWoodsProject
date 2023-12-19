@@ -134,6 +134,7 @@ public class DW_Character : MonoBehaviour
 
     public void StartCharacterMove(float total_time)
     {
+        Debug.Log(CheckArround());
         if (canMove && CheckArround())
         {
             StartCoroutine(CharacterMove(total_time));
@@ -179,7 +180,6 @@ public class DW_Character : MonoBehaviour
     {
         if (targetRotation == 360 || targetRotation == 0)
         {
-            Debug.Log("UP");
             sizeCells = new Vector3(0, 0, 10);
             Rotation = "Up";
 
