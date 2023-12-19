@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
         if (ctx.started)
         {
             player.StartCharacterMove(walkSpeed);
-
+            player.GetComponentInChildren<DW_PlayerSound>().PlayerSteps();
         }
     }
     public void OnTurnCameraRight(InputAction.CallbackContext ctx)
