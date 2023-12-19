@@ -7,6 +7,7 @@ using static UnityEditor.FilePathAttribute;
 using UnityEngine.TextCore.Text;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class DW_Interactions : MonoBehaviour
 {
@@ -16,11 +17,11 @@ public class DW_Interactions : MonoBehaviour
 
     [SerializeField] DW_ClassHolderRef class_holder;
     [SerializeField] DW_LifeManager life_manager;
-    private DW_Character player_character;
+    [SerializeField] private DW_Character player_character;
+    DW_CampFire camp_fire;
 
-    private void Awake()
+    private void OnEnable()
     {
-        player_character = this.GetComponent<DW_Character>();
     }
 
     public void Attack(DW_Weapon weapon)
@@ -53,6 +54,31 @@ public class DW_Interactions : MonoBehaviour
                 }
             }
             
+        }
+    }
+
+    public void InteractCampFire(DW_search slider , DW_DropController dropController) 
+    {
+        DW_CampFire camp_fire= null;
+        RaycastHit hit;
+        UnityEngine.Debug.Log("aaaa");
+        if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 100))
+        {
+            Debug.Log("tyuiop");
+            if (hit.collider.tag == "CampFire")
+            {
+                if (slider.radialIndicator.fillAmount < 1)
+                {
+                    slider.Search();
+                }
+                else
+                {
+                    camp_fire = hit.collider.gameObject.GetComponent<DW_CampFire>();
+                    dropController.Drop(camp_fire.RandomItem().m_Item, this.transform.position);
+                    slider.ResetSlider();
+                    camp_fire.CampFire();
+                }
+            }
         }
     }
 
@@ -95,6 +121,15 @@ public class DW_Interactions : MonoBehaviour
         return false;
     }
 
+    public bool SearchItem()
+    {
+        if(CheckForwardPLayer(player_character.Rotation, 7))
+        {
+            return true;
+        }
+        return false;
+    }
+
     IEnumerator WaitBeforeNextAttack()
     {
         yield return new WaitForSeconds(0.2f);
@@ -113,7 +148,10 @@ public class DW_Interactions : MonoBehaviour
             case "Left":
                 if (_grid[player_character.CharaY, player_character.CharaX - 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
+                    if (value_needed != 7)
+                    {
+                        DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
+                    }
                     return true;
                 }
                 else
@@ -123,7 +161,10 @@ public class DW_Interactions : MonoBehaviour
             case "Right":
                 if (_grid[player_character.CharaY, player_character.CharaX + 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
+                    if (value_needed != 7)
+                    {
+                        DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
+                    }
                     return true;
                 }
                 else
@@ -133,7 +174,10 @@ public class DW_Interactions : MonoBehaviour
             case "Up":
                 if (_grid[player_character.CharaY - 1, player_character.CharaX] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY - 1, player_character.CharaX), new Vector2Int(player_character.CharaY - 1, player_character.CharaX));
+                    if (value_needed != 7)
+                    {
+                        DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY - 1, player_character.CharaX), new Vector2Int(player_character.CharaY - 1, player_character.CharaX));
+                    }
                     return true;
                 }
                 else
@@ -143,9 +187,10 @@ public class DW_Interactions : MonoBehaviour
             case "Down":
                 if (_grid[player_character.CharaY + 1, player_character.CharaX] == value_needed)
                 {
-
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY + 1, player_character.CharaX), new Vector2Int(player_character.CharaY + 1, player_character.CharaX));
-
+                    if (value_needed != 7)
+                    {
+                        DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY + 1, player_character.CharaX), new Vector2Int(player_character.CharaY + 1, player_character.CharaX));
+                    }
                     return true;
                 }
                 else

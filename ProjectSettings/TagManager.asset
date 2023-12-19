@@ -8,6 +8,7 @@ TagManager:
   - UiItem
   - Enemy
   - Door
+  - CampFire
   layers:
   - Default
   - TransparentFX
