@@ -2805,8 +2805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origine: {x: 220, y: 350}
-  c: {fileID: 2004078195}
-  e: {fileID: 226865319}
+  path: {fileID: 0}
+  wall: {fileID: 0}
+  origin: {fileID: 0}
 --- !u!1 &982443810
 GameObject:
   m_ObjectHideFlags: 0
