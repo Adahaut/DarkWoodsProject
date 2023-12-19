@@ -134,4 +134,9 @@ public class DW_ObjectDetection : MonoBehaviour
     {
         objects.Remove(go.GetComponent<DW_Item>());
     }
+
+    public void SetPlayerPos(Vector2 pos)
+    {
+        playerPos = pos;
+    }
 }
