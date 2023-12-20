@@ -85,6 +85,7 @@ public class DW_GM_Classes : MonoBehaviour
                 return;
             }
         }
+        gameObject.GetComponent<DW_SwitchScene>().OnFadeComplete();
     }
 
     public void ApplySkill(DW_Class classRef)
