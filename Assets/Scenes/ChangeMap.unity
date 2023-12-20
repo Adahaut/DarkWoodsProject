@@ -5797,6 +5797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Go_ExplodeLightsTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 4329328290558297867, guid: a1827ae7e3b948640ad490023b6820ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5511410628193820383, guid: a1827ae7e3b948640ad490023b6820ef, type: 3}
       propertyPath: lights.Array.size
       value: 4
@@ -5881,7 +5885,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 28.159
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4329328290558297867, guid: a1827ae7e3b948640ad490023b6820ef, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6320173813705203253, guid: a1827ae7e3b948640ad490023b6820ef, type: 3}
     - {fileID: 3744080915913446286, guid: a1827ae7e3b948640ad490023b6820ef, type: 3}
