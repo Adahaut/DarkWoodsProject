@@ -53,15 +53,21 @@ public class DW_MenuController : MonoBehaviour
 
     public void Pause()
     {
-        _Pause.SetActive(true);
-        Time.timeScale = 0.0f;
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Debug.Log("pause");
+            _Pause.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
     }
 
     public void ExitPause()
     {
-        _Pause.SetActive(false);
-        Time.timeScale = 1.0f;
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            _Pause.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
     }
 
     public void Volume()
