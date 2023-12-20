@@ -99,12 +99,19 @@ public class DW_Character : MonoBehaviour
 
             yield return null;
         }
-        transform.position = new Vector3((int)end_pos.x, (int)end_pos.y, (int)end_pos.z);
+        _transform.position = new Vector3((int)end_pos.x, (int)end_pos.y, (int)end_pos.z);
 
         if(gameObject.CompareTag("Player"))
             DW_ObjectDetection.Instance.SetPlayerPos(new(GetPos().y, GetPos().x));
         yield return new WaitForSeconds(waitCooldown);
         canMove = true;
+    }
+
+    public void PlayerTP(Vector3 pos)
+    {
+        StopAllCoroutines();
+        canMove = true;
+        _transform.position = pos;
     }
 
     public void StartCharacterMove(float total_time)
