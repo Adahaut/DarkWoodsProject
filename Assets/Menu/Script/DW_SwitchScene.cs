@@ -8,11 +8,9 @@ public class DW_SwitchScene : MonoBehaviour
     //on trigger enter freeze position pour eviter les bugs -> lancer le fade / scene
    
     public Animator animator;
-    [SerializeField] private int level_to_load;
-    [SerializeField] private int current_level;
-    [SerializeField] List<GameObject> maps = new List<GameObject>();
-    [SerializeField] List<Vector3> spawn_pos = new List<Vector3>();
-    public bool change_map;
+    [SerializeField] private List<GameObject> Show_object;
+    [SerializeField] private List<GameObject> Hide_object;
+    [SerializeField] private Vector3 spawn_pos = new Vector3();
     public DW_Character player;
 
 
@@ -24,21 +22,25 @@ public class DW_SwitchScene : MonoBehaviour
 
     public void FadeToLevel(int levelIndex)
     {
-        level_to_load = levelIndex;
+        //level_to_load = levelIndex;
         //animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete()
     {
-        if(!change_map)
-            SceneManager.LoadScene(level_to_load);
-        else 
+        for(int i = 0;  i < Hide_object.Count; i++)
         {
-            maps[current_level].SetActive(false);
-            maps[level_to_load].SetActive(true);
-            
-            player.PlayerTP(spawn_pos[level_to_load]); // put the sound bloc on hospital spawn;
+            Hide_object[i].SetActive(false);
+
         }
+
+        for(int i = 0; i < Show_object.Count; i++) 
+        {
+            Show_object[i].SetActive(true);
+        }
+
+            
+            player.PlayerTP(spawn_pos); // put the sound bloc on hospital spawn;
     }
 
     private void OnTriggerEnter(Collider other)
