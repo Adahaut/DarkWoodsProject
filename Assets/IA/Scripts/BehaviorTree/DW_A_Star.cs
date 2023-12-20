@@ -54,6 +54,10 @@ public class DW_A_Star
         while (list.Count > 0)
         {
             currentSommet = list.Dequeue();
+            if (currentSommet == target)
+            {
+                break;
+            }
             List<Vector2> voisin = character.GetPathAround(currentSommet);
             for (int i = 0; i < voisin.Count; i++)
             {

@@ -24,19 +24,22 @@ public class canSeePlayer : Node
 
     public override NodeState Evaluate()
     {
-        Vector3 heading = Player.transform.position - Enemy.transform.position;
-        if (Physics.Raycast(Enemy.transform.position, heading / heading.magnitude, out hit, view_distance))
-        {
-            Debug.DrawRay(Enemy.transform.position, heading / heading.magnitude * view_distance, Color.red);
-        }
-        if (hit.collider != null && hit.collider.tag == "Player")
-        {
-            if(!movement.IsPathNull())
-            {
-                movement.Path.Clear();
-            }
+        //Vector3 heading = Player.transform.position - Enemy.transform.position;
+        //if (Physics.Raycast(Enemy.transform.position, heading / heading.magnitude, out hit, view_distance))
+        //{
+        //    Debug.DrawRay(Enemy.transform.position, heading / heading.magnitude * view_distance, Color.red);
+        //}
+        //if (hit.collider != null && hit.collider.tag == "Player")
+        //{
+        //    if(!movement.IsPathNull())
+        //    {
+        //        movement.Path.Clear();
+        //    }
+        //    return NodeState.RUNNING;
+        //}
+
+        if (Vector3.Distance(Enemy.transform.position, Player.transform.position) < view_distance)
             return NodeState.SUCCESS;
-        }
 
         return NodeState.FAILURE;
     }
