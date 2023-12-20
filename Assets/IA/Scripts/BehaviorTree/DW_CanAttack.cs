@@ -26,7 +26,6 @@ public class DW_CanAttack : Node
         }
         if (hit.collider != null && hit.collider.tag == "Player")
         {
-            Debug.Log("can attack Player");
             return NodeState.SUCCESS;
         }
 

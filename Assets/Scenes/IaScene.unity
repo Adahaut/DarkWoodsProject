@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_title: weapon
   m_description: hurts a lot
   isWeapon: 1
+  pourcentDamage: 0
 --- !u!1001 &602644960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3924,7 +3925,7 @@ Transform:
   m_GameObject: {fileID: 1502586391}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: 1, z: -100}
+  m_LocalPosition: {x: -110, y: 1, z: -210}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3948,6 +3949,7 @@ MonoBehaviour:
   max_life: 0
   currentLife: 0
   damage: 0
+  class_holder_ref: {fileID: 0}
 --- !u!114 &1502586395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3960,8 +3962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a7b0807ebe4334dbc3b9171776f23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  attack_collider: {fileID: 1999993937}
 --- !u!114 &1502586396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3976,6 +3976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentClass: {fileID: 11400000, guid: 43681ba6dd4d0914dac608f03e0d6a0b, type: 2}
   classes: []
+  cardHolderRef: {fileID: 0}
 --- !u!114 &1502586397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3988,9 +3989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6797a8a43d8e8e14fa537f58bede7bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steps_clips:
-  - {fileID: 8300000, guid: a8921abcc5ace6e428ec587de0108a03, type: 3}
-  - {fileID: 8300000, guid: db3040f7e3c751c44b853a82086f3189, type: 3}
+  inHospital: 0
+  forest_steps_clips: []
+  hospital_steps_clips: []
   steps_audio_source: {fileID: 1115676436}
 --- !u!82 &1502586398
 AudioSource:
@@ -4449,7 +4450,7 @@ Transform:
   m_GameObject: {fileID: 1614685148}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50, y: 1, z: -50}
+  m_LocalPosition: {x: -100, y: 1, z: -120}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4470,6 +4471,7 @@ MonoBehaviour:
   max_life: 200
   currentLife: 0
   damage: 0
+  class_holder_ref: {fileID: 0}
 --- !u!136 &1614685151
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4607,6 +4609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   view_distance: 200
+  attack_range: 10
+  time_between_attacks: 3
 --- !u!114 &1614685159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5512,9 +5516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79223cddb2b2fcd4ea5ef06540fc3161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1502586404}
-  walkSpeed: 1
-  turnSpeed: 1.5
 --- !u!114 &2027226743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5589,10 +5590,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5e41e27512ae249a8a2cc891e3931a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preGameEnvironnement: {fileID: 1684341408}
-  inGameEnvironnement: {fileID: 2075274368}
-  parentInventory: {fileID: 1706506892}
-  initiator_skill: {fileID: 0}
+  pre_game_environnement: {fileID: 0}
+  in_game_environnement: {fileID: 0}
+  parent_inventory: {fileID: 0}
+  class_holder_ref: {fileID: 0}
+  team_manager: {fileID: 0}
+  Death:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2027226745
 Transform:
   m_ObjectHideFlags: 0
@@ -5898,9 +5903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origine: {x: 0, y: 0}
-  path: {fileID: 568394786}
-  wall: {fileID: 1065243733}
-  origin: {fileID: 961757648}
+  c: {fileID: 0}
+  e: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

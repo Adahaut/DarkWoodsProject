@@ -35,8 +35,6 @@ public class canSeePlayer : Node
             {
                 movement.Path.Clear();
             }
-
-            Debug.Log("See Player");
             return NodeState.SUCCESS;
         }
 

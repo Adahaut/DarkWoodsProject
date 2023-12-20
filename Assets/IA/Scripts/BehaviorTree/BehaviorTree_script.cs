@@ -60,7 +60,6 @@ public class BehaviorTree_script : MonoBehaviour
     {
         _canSeePlayer.SetFieldOfView(view_distance);
         NodeState a  = selectorRoot.Evaluate();
-        Debug.Log(a.ToString());
         //Vector3 heading = Player.transform.position - gameObject.transform.position;
         //Debug.DrawRay(gameObject.transform.position, heading / heading.magnitude * 30, Color.green);
         //if (Physics.Raycast(gameObject.transform.position, heading / heading.magnitude, out hit, 30))

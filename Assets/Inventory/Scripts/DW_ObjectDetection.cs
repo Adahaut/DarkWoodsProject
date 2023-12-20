@@ -34,24 +34,6 @@ public class DW_ObjectDetection : MonoBehaviour
     void Update()
     {
         IsTheObjectInMyArea();
-
-        PopUpNavigation();
-    }
-
-    private void PopUpNavigation()
-    {
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-        //    current_card_select++;
-        //    Selection();
-        //}
-        //if (Input.GetKeyDown(KeyCode.UpArrow))
-        //{
-        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-        //    current_card_select--;
-        //    Selection();
-        //}
     }
 
     //See if the object is near the player
@@ -133,5 +115,10 @@ public class DW_ObjectDetection : MonoBehaviour
     public void RemoveObject(GameObject go) 
     {
         objects.Remove(go.GetComponent<DW_Item>());
+    }
+
+    public void SetPlayerPos(Vector2 pos)
+    {
+        playerPos = pos;
     }
 }

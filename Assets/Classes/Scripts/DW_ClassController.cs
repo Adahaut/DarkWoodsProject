@@ -90,7 +90,6 @@ public class DW_ClassController : MonoBehaviour
                 break;
         }
 
-        Debug.Log(abilityToUse);
         if(abilityToUse != null)
         if(currentClass.specialSourceAmount - abilityToUse.percentCost >= 0 && !abilityToUse.isOnCooldown)
         {

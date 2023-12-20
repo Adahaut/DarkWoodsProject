@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3D object/arbre map 4.fbx.meta
 guid: 69753fe351f8f89438b681836ea070fa
+========
+guid: 166a441a7990ff7418355919060559f8
+>>>>>>>> Arts:Assets/3D object/foret/map part/arbre map 4.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
