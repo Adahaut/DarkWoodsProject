@@ -84,6 +84,7 @@ public class DW_ClassHolderRef : MonoBehaviour
 
     public void UpdateSpecialBar()
     {
+        specialBar.gameObject.SetActive(true);
         switch (classRef.specialSourceType)
         {
             case specialSourceType.HolyWater:

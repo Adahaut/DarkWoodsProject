@@ -21,23 +21,33 @@ public class DW_Interactions : MonoBehaviour
         player_character = this.GetComponent<DW_Character>();
     }
 
-    public void Attack(DW_Weapon weapon)
+    public void Attack(DW_Weapon weapon = null)
     {
         if(can_attack)
         {
             //calculating damage according to class
 
             float damage = Random.Range(class_holder.classRef.minattackDamage, class_holder.classRef.maxattackDamage);
-            float finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 100);
+            float finalDamage = 0;
+            if(weapon != null)
+            {
+                finalDamage = damage * ((class_holder.classRef.currentPercentDamage + weapon.pourcentDamage) / 10);
+            }
+            else
+            {
+                finalDamage = damage * ((class_holder.classRef.currentPercentDamage) / 100);
+            }
+
+            
 
             if (CheckForwardPLayer(player_character.Rotation, 3 ) == true|| CheckForwardPLayer(player_character.Rotation,2) == true)
             {
+                Debug.Log("degat reçut : " + finalDamage);
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f,0), this.transform.forward, out hit,15))
                 {
                     if (hit.collider.tag == "Enemy")
                     {
-                        Debug.Log("degat reçut : " + finalDamage);
                         hit.collider.GetComponent<DW_LifeManager>().TakeDamage(finalDamage);
                         can_attack = false;
                         StartCoroutine(WaitBeforeNextAttack());

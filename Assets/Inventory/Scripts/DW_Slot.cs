@@ -11,11 +11,6 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
-
-    DW_Interactions interactions;
-    DW_Character player_character;
-
-
     void Awake()
     {
         m_transform = transform;
@@ -51,6 +46,10 @@ public class DW_Slot : MonoBehaviour
                 data.numberOfItem--;
                 Verification();
             }
+        }
+        else
+        {
+            GameObject.Find("Player").GetComponent<DW_Interactions>().Attack();
         }
     }
 
