@@ -11018,6 +11018,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 555
       objectReference: {fileID: 0}
+    - target: {fileID: 3539302138400105787, guid: dbe6e9ad623719a449e84c29f13bf316, type: 3}
+      propertyPath: m_text
+      value: As the three young people finally leave the asylum, their gaze haunted
+        by the horror they have experienced, they cannot help but wonder if the echoes
+        of the asylum will continue to haunt them even once they are out of the darkness.
+      objectReference: {fileID: 0}
     - target: {fileID: 4372304992011994561, guid: dbe6e9ad623719a449e84c29f13bf316, type: 3}
       propertyPath: m_Pivot.x
       value: 0
