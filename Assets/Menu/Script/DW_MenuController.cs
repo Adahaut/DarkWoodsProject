@@ -23,7 +23,7 @@ public class DW_MenuController : MonoBehaviour
 
     public void GoToCharactereSelection()
     {
-        SceneManager.LoadScene("CharactereSelection");
+        SceneManager.LoadScene("MeCScene");
     }
 
     public void GoToMainMenu()

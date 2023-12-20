@@ -15,16 +15,19 @@ MonoBehaviour:
   className: Thief
   classDescription: The thief is a pro in his industry. Even if he is a little weak,
     he never failed to open a door.
-  classIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  classIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
-  classSkill: {fileID: 11400000, guid: 27b91b006ab54734398423978ff9eeb3, type: 2}
-  currentHealth: 35
-  maxHealth: 35
-  currentAttackSpeed: 1
-  minattackDamage: 1
-  maxattackDamage: 6
-  minPercentDamage: 10
-  maxPercentDamage: 60
-  amountHolyWater: 100
-  amountAlcohol: 0
-  amountFaith: 0
+  classSkill: {fileID: 11400000, guid: 03f677e0f0b576f4ab869777b5c40aba, type: 2}
+  classType: 4
+  currentHealth: 45
+  maxHealth: 45
+  currentAttackSpeed: 1.5
+  minattackDamage: 5
+  maxattackDamage: 8
+  shouldBeAggro: 0
+  minPercentDamage: 15
+  maxPercentDamage: 70
+  specialSourceType: 0
+  specialSourceAmount: 73.2
+  slotLeft: {fileID: 11400000, guid: 87c7eafa5f0fe264897620935148bc0b, type: 2}
+  slotRight: {fileID: 11400000, guid: c48a825405a53a94c86d0dca3b359d53, type: 2}
