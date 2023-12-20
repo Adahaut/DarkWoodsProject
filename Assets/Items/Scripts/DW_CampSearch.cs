@@ -14,7 +14,6 @@ public class DW_CampSearch : MonoBehaviour
             hasBeenSearched = true;
             int index = Random.Range(0, items.Length);
             DW_Item item = items[index].GetComponent<DW_Item>();
-            Debug.Log("item");
             return item;
         }
         return null;

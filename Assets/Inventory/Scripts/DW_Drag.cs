@@ -26,9 +26,10 @@ public class DW_Drag : MonoBehaviour
     private void OnMouseOver()
     {
         Debug.Log("blabla");
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
             Debug.Log("Here");
+            current = _item.gameObject;
             current.SetActive(true);
             _isDragging = true;
         }
@@ -44,14 +45,14 @@ public class DW_Drag : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 2000, layer))
         {
             // see if the player try to drag a card item in the pop_up
-            if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(1) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
+            if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(0) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
             {
                 _item = hit.collider.gameObject.GetComponent<DW_ItemCard>().GetItem();
                 current.SetActive(true);
                 _isDragging =true;
             }
             // see if the player drop the card item on a slot 
-            if(hit.collider.CompareTag("UiSlot") &&  _isDragging && Input.GetMouseButtonUp(1))
+            if(hit.collider.CompareTag("UiSlot") &&  _isDragging && Input.GetMouseButtonUp(0))
             {
                 if(hit.collider.gameObject.TryGetComponent<DW_Slot>(out DW_Slot slot))
                 {
@@ -69,7 +70,7 @@ public class DW_Drag : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonUp(1)) { _isDragging = false;  current.SetActive(false); }
+        if(Input.GetMouseButtonUp(0)) { _isDragging = false;  current.SetActive(false); }
     }
 
 }

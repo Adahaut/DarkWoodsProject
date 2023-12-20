@@ -155,12 +155,6 @@ public class DW_Character : MonoBehaviour
     private void Update()
     {
         GridMove();
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            transform.position = new(-110, 7, -210);
-
-        }
     }
     private void GiveDirectionByRotation()
     {

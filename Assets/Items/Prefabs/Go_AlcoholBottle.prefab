@@ -77,7 +77,7 @@ MonoBehaviour:
   isWeapon: 0
   healthRestoreAmount: 0
   specialRestoreAmount: 25
-  specialSourceType: 0
+  specialSourceType: 2
 --- !u!1001 &9118433376624301351
 PrefabInstance:
   m_ObjectHideFlags: 0

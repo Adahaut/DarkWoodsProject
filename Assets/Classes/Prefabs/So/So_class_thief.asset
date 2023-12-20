@@ -19,9 +19,9 @@ MonoBehaviour:
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
   classSkill: {fileID: 11400000, guid: 03f677e0f0b576f4ab869777b5c40aba, type: 2}
   classType: 4
-  currentHealth: 200
+  currentHealth: 45
   maxHealth: 45
-  currentAttackSpeed: 1.5
+  currentAttackSpeed: 0.75
   minattackDamage: 5
   maxattackDamage: 8
   shouldBeAggro: 0

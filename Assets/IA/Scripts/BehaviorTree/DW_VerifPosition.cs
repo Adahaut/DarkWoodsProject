@@ -19,7 +19,6 @@ public class DW_VerifPosition : Node_script.Node
 
         if (character.GetPos() == m_Position) //if is on initial pos
         {
-            Debug.Log("is on init pos");
             return NodeState.SUCCESS;
         }            
         else
