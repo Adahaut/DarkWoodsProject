@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     [SerializeField] DW_Character player;
+    [SerializeField] private DW_MenuController menus;
 
     public float walkSpeed = 1.0f;
     public float turnSpeed = 1.5f;
@@ -68,9 +70,9 @@ public class Movement : MonoBehaviour
                     fill_search.color = Color.red;
                 }
             }
-
-
         }
+
+        
 
         if(Input.GetKeyUp(KeyCode.P))
         {
@@ -102,5 +104,20 @@ public class Movement : MonoBehaviour
             player.canMove = true;
         }
     }
+
+    public void PauseActive(InputAction.CallbackContext ctx)
+    {
+        if(ctx.started)
+        {
+            menus.pauseIsActive = true;
+            if(menus.pauseIsActive)
+            {
+                menus.Pause();
+            }
+        }
+    }
+
+
+
 }
 
