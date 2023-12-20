@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbd9232864bcf8429d4982f25b3c306, type: 3}
   m_Name: So_skill_heal
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  skillIcon: {fileID: 21300000, guid: 8818db7abcaf7394e8d1667387a1c216, type: 3}
   skillType: 2
   skillName: Heal
   skillDescription: Heal 20% of max health of a designated ally.
