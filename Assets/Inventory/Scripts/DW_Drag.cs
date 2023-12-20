@@ -43,7 +43,6 @@ public class DW_Drag : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 2000, layer))
         {
-            Debug.Log(hit.collider.gameObject.name);
             // see if the player try to drag a card item in the pop_up
             if(hit.collider.CompareTag("UiItem") && !_isDragging && Input.GetMouseButtonDown(1) && DW_ViewPort.Instance.objectInViewPort.Contains(hit.collider.gameObject))
             {
