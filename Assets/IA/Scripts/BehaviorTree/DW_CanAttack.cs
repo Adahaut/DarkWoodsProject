@@ -9,12 +9,14 @@ public class DW_CanAttack : Node
     private GameObject Enemy;
     private GameObject Player;
     private float attack_range;
+    private Animator anim;
 
-    public DW_CanAttack(GameObject enemy, GameObject player, float attackrange)
+    public DW_CanAttack(GameObject enemy, GameObject player, float attackrange, Animator animator)
     {
         Enemy = enemy;
         Player = player;
         attack_range = attackrange;
+        anim = animator;
     }
 
     public override NodeState Evaluate()
@@ -26,6 +28,8 @@ public class DW_CanAttack : Node
         }
         if (hit.collider != null && hit.collider.tag == "Player")
         {
+            anim.SetBool("IsWalking", false);
+            anim.SetBool("IsAttacking", true);
             return NodeState.SUCCESS;
         }
 

@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.025
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1898,22 +1898,41 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422264e955ed2734f84ddf1032113c4b, type: 3}
---- !u!4 &142643703 stripped
+--- !u!4 &142643703
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1602812724}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &142643704 stripped
+  m_GameObject: {fileID: 493995847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142643704
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -3031859973048422867, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1602812724}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 493995847}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0177bde266c0e6045a8131e42340ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 1
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 04000000
+  m_Position: {x: 0, y: 0}
+  m_title: Key
+  m_description: Used to open doors.
+  isWeapon: 0
 --- !u!1001 &149812187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3895,22 +3914,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274257792}
   m_Mesh: {fileID: -3149476610794045934, guid: 352e374715ee3dd468523d26d521b60e, type: 3}
---- !u!4 &281647489 stripped
+--- !u!4 &281647489
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1350600769}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281647490 stripped
+  m_GameObject: {fileID: 329531665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281647490
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -3031859973048422867, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1350600769}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 329531665}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0177bde266c0e6045a8131e42340ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 1
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 04000000
+  m_Position: {x: 0, y: 0}
+  m_title: Key
+  m_description: Used to open doors.
+  isWeapon: 0
 --- !u!1 &286774594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4290,6 +4328,97 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8656d1a0acfd1c040a23d5fba28a6bfc, type: 3}
   m_PrefabInstance: {fileID: 320696421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &329531665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1350600769}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281647489}
+  - component: {fileID: 329531668}
+  - component: {fileID: 329531667}
+  - component: {fileID: 329531666}
+  - component: {fileID: 281647490}
+  m_Layer: 0
+  m_Name: GO_Key (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &329531666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1350600769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329531665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &329531667
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1350600769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329531665}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &329531668
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1350600769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329531665}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &339384462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4905,7 +5034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4453741327218870920, guid: 13e15b2e2c86d714e86227bcd161fa12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4821396
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4453741327218870920, guid: 13e15b2e2c86d714e86227bcd161fa12, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5243,18 +5372,44 @@ MonoBehaviour:
   view_distance: 20
   attack_range: 10
   time_between_attacks: 3
---- !u!1 &387869973 stripped
+--- !u!1 &387869973
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 678197540}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &387869974 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387869974}
+  - component: {fileID: 387869978}
+  - component: {fileID: 387869977}
+  - component: {fileID: 387869976}
+  - component: {fileID: 387869975}
+  m_Layer: 0
+  m_Name: Go_AlcoholBottle (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &387869974
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 678197540}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &387869975 stripped
+  m_GameObject: {fileID: 387869973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387869975
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 678197540}
   m_PrefabAsset: {fileID: 0}
@@ -5264,6 +5419,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 03000000
+  m_Position: {x: 0, y: 0}
+  m_title: Alcohol Bottle
+  m_description: Refill the pyromaniac's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 2
+--- !u!65 &387869976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 678197540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387869973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &387869977
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 678197540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387869973}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &387869978
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 678197540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387869973}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &394326838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6263,6 +6500,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &457034158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 2117113444}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886190086}
+  - component: {fileID: 1886190090}
+  - component: {fileID: 1886190089}
+  - component: {fileID: 1886190088}
+  - component: {fileID: 1886190087}
+  m_Layer: 0
+  m_Name: GO_Key
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &460068109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6325,6 +6582,97 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1234954696284045282, guid: c30a35de3c995c94ea68bad2286d9e7e, type: 3}
   m_PrefabInstance: {fileID: 460068109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &493995847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1602812724}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142643703}
+  - component: {fileID: 493995850}
+  - component: {fileID: 493995849}
+  - component: {fileID: 493995848}
+  - component: {fileID: 142643704}
+  m_Layer: 0
+  m_Name: GO_Key (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &493995848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1602812724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493995847}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &493995849
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1602812724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493995847}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &493995850
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1602812724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493995847}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &497654306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7131,18 +7479,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576511407}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &582002016 stripped
+--- !u!1 &582002016
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 931370559}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &582002017 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582002017}
+  - component: {fileID: 582002021}
+  - component: {fileID: 582002020}
+  - component: {fileID: 582002019}
+  - component: {fileID: 582002018}
+  m_Layer: 0
+  m_Name: Go_BottleOfHolyWater (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582002017
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 931370559}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &582002018 stripped
+  m_GameObject: {fileID: 582002016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582002018
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 931370559}
   m_PrefabAsset: {fileID: 0}
@@ -7152,6 +7526,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 01000000
+  m_Position: {x: 0, y: 0}
+  m_title: Bottle of holy watter
+  m_description: Refill the priest's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 1
+--- !u!65 &582002019
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 931370559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582002016}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &582002020
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 931370559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582002016}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &582002021
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 931370559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582002016}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &588254838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4327500418919518988, guid: f1ef28ee88445eb47a6341e1fc16e368, type: 3}
@@ -8310,6 +8766,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8656d1a0acfd1c040a23d5fba28a6bfc, type: 3}
   m_PrefabInstance: {fileID: 713624694}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &715172130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1155515354}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1584886618}
+  - component: {fileID: 1584886622}
+  - component: {fileID: 1584886621}
+  - component: {fileID: 1584886620}
+  - component: {fileID: 1584886619}
+  m_Layer: 0
+  m_Name: GO_Key (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &718964055
 GameObject:
   m_ObjectHideFlags: 0
@@ -8748,18 +9224,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &743626620 stripped
+--- !u!1 &743626620
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1802301776}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &743626621 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743626621}
+  - component: {fileID: 743626625}
+  - component: {fileID: 743626624}
+  - component: {fileID: 743626623}
+  - component: {fileID: 743626622}
+  m_Layer: 0
+  m_Name: Go_AlcoholBottle (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &743626621
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1802301776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &743626622 stripped
+  m_GameObject: {fileID: 743626620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &743626622
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1802301776}
   m_PrefabAsset: {fileID: 0}
@@ -8769,6 +9271,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 03000000
+  m_Position: {x: 0, y: 0}
+  m_title: Alcohol Bottle
+  m_description: Refill the pyromaniac's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 2
+--- !u!65 &743626623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1802301776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743626620}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &743626624
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1802301776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743626620}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &743626625
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1802301776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743626620}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &753256503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9140,18 +9724,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767205597}
   m_CullTransparentMesh: 1
---- !u!1 &769195355 stripped
+--- !u!1 &769195355
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 149812187}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &769195356 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769195356}
+  - component: {fileID: 769195360}
+  - component: {fileID: 769195359}
+  - component: {fileID: 769195358}
+  - component: {fileID: 769195357}
+  m_Layer: 0
+  m_Name: Go_AlcoholBottle (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769195356
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 149812187}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &769195357 stripped
+  m_GameObject: {fileID: 769195355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769195357
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 149812187}
   m_PrefabAsset: {fileID: 0}
@@ -9161,6 +9771,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 03000000
+  m_Position: {x: 0, y: 0}
+  m_title: Alcohol Bottle
+  m_description: Refill the pyromaniac's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 2
+--- !u!65 &769195358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 149812187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769195355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &769195359
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 149812187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769195355}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &769195360
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 149812187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769195355}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &770554034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11658,7 +12350,6 @@ MonoBehaviour:
   origine: {x: 220, y: 350}
   c: {fileID: 1533710686}
   e: {fileID: 742937440}
-  l: {fileID: 576511407}
 --- !u!1 &973938998
 GameObject:
   m_ObjectHideFlags: 0
@@ -11753,6 +12444,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &976921616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 812044321}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031254133}
+  - component: {fileID: 1031254137}
+  - component: {fileID: 1031254136}
+  - component: {fileID: 1031254135}
+  - component: {fileID: 1031254134}
+  m_Layer: 0
+  m_Name: Go_AlcoholBottle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &979711216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12581,22 +13292,115 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1031254133 stripped
+--- !u!4 &1031254133
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 812044321}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1031254134 stripped
+  m_GameObject: {fileID: 976921616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031254134
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 812044321}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 976921616}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 03000000
+  m_Position: {x: 0, y: 0}
+  m_title: Alcohol Bottle
+  m_description: Refill the pyromaniac's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 2
+--- !u!65 &1031254135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 812044321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976921616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1031254136
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 812044321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976921616}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1031254137
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 812044321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976921616}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1042125994
 GameObject:
   m_ObjectHideFlags: 0
@@ -14066,6 +14870,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1ef28ee88445eb47a6341e1fc16e368, type: 3}
+--- !u!1 &1163235260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 888250}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686940930}
+  - component: {fileID: 1686940934}
+  - component: {fileID: 1686940933}
+  - component: {fileID: 1686940932}
+  - component: {fileID: 1686940931}
+  m_Layer: 0
+  m_Name: GO_Key (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1165220848
 GameObject:
   m_ObjectHideFlags: 0
@@ -14150,18 +14974,44 @@ Transform:
   - {fileID: 274257793}
   m_Father: {fileID: 2030490090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1168435654 stripped
+--- !u!1 &1168435654
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1703538670}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1168435655 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168435655}
+  - component: {fileID: 1168435659}
+  - component: {fileID: 1168435658}
+  - component: {fileID: 1168435657}
+  - component: {fileID: 1168435656}
+  m_Layer: 0
+  m_Name: Go_BottleOfHolyWater (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168435655
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1703538670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1168435656 stripped
+  m_GameObject: {fileID: 1168435654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168435656
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1703538670}
   m_PrefabAsset: {fileID: 0}
@@ -14171,6 +15021,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 01000000
+  m_Position: {x: 0, y: 0}
+  m_title: Bottle of holy watter
+  m_description: Refill the priest's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 1
+--- !u!65 &1168435657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1703538670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168435654}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1168435658
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1703538670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168435654}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1168435659
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1703538670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168435654}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1170174341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14903,18 +15835,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8656d1a0acfd1c040a23d5fba28a6bfc, type: 3}
   m_PrefabInstance: {fileID: 1227098442}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1229874771 stripped
+--- !u!1 &1229874771
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1054072396}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1229874772 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229874772}
+  - component: {fileID: 1229874776}
+  - component: {fileID: 1229874775}
+  - component: {fileID: 1229874774}
+  - component: {fileID: 1229874773}
+  m_Layer: 0
+  m_Name: Go_BottleOfHolyWater (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229874772
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1054072396}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1229874773 stripped
+  m_GameObject: {fileID: 1229874771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229874773
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 1054072396}
   m_PrefabAsset: {fileID: 0}
@@ -14924,6 +15882,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 01000000
+  m_Position: {x: 0, y: 0}
+  m_title: Bottle of holy watter
+  m_description: Refill the priest's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 1
+--- !u!65 &1229874774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1054072396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229874771}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1229874775
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1054072396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229874771}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1229874776
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 1054072396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229874771}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1237942077
 GameObject:
   m_ObjectHideFlags: 0
@@ -18244,18 +19284,44 @@ Transform:
   - {fileID: 2068417581}
   m_Father: {fileID: 1455075578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1386898488 stripped
+--- !u!1 &1386898488
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 690575735}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1386898489 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386898489}
+  - component: {fileID: 1386898493}
+  - component: {fileID: 1386898492}
+  - component: {fileID: 1386898491}
+  - component: {fileID: 1386898490}
+  m_Layer: 0
+  m_Name: Go_BottleOfHolyWater (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386898489
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 690575735}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1386898490 stripped
+  m_GameObject: {fileID: 1386898488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386898490
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 690575735}
   m_PrefabAsset: {fileID: 0}
@@ -18265,6 +19331,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 01000000
+  m_Position: {x: 0, y: 0}
+  m_title: Bottle of holy watter
+  m_description: Refill the priest's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 1
+--- !u!65 &1386898491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 690575735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386898488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1386898492
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 690575735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386898488}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1386898493
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 690575735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386898488}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1388511851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4327500418919518988, guid: f1ef28ee88445eb47a6341e1fc16e368, type: 3}
@@ -21176,24 +22324,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1338537145}
+  menus: {fileID: 0}
   walkSpeed: 1.2
   turnSpeed: 1.5
---- !u!4 &1584886618 stripped
+  speed_timer: 1
+  fill_search: {fileID: 0}
+  inspection_ui: {fileID: 0}
+--- !u!4 &1584886618
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1155515354}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1584886619 stripped
+  m_GameObject: {fileID: 715172130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584886619
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -3031859973048422867, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 1155515354}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 715172130}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0177bde266c0e6045a8131e42340ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 1
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 04000000
+  m_Position: {x: 0, y: 0}
+  m_title: Key
+  m_description: Used to open doors.
+  isWeapon: 0
+--- !u!65 &1584886620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1155515354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715172130}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1584886621
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1155515354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715172130}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1584886622
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 1155515354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715172130}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1585594740
 GameObject:
   m_ObjectHideFlags: 0
@@ -23088,22 +24330,112 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8656d1a0acfd1c040a23d5fba28a6bfc, type: 3}
   m_PrefabInstance: {fileID: 1684759562}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1686940930 stripped
+--- !u!4 &1686940930
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 888250}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1686940931 stripped
+  m_GameObject: {fileID: 1163235260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686940931
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -3031859973048422867, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 888250}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1163235260}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0177bde266c0e6045a8131e42340ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 1
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 04000000
+  m_Position: {x: 0, y: 0}
+  m_title: Key
+  m_description: Used to open doors.
+  isWeapon: 0
+--- !u!65 &1686940932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 888250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163235260}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1686940933
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 888250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163235260}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1686940934
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 888250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163235260}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1696847389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8656d1a0acfd1c040a23d5fba28a6bfc, type: 3}
@@ -24225,18 +25557,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4327500418919518988, guid: c1bce4e6087050845b7be7a2a02915bf, type: 3}
   m_PrefabInstance: {fileID: 2092377418}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1795576142 stripped
+--- !u!1 &1795576142
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1776178214}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1795576143 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795576143}
+  - component: {fileID: 1795576147}
+  - component: {fileID: 1795576146}
+  - component: {fileID: 1795576145}
+  - component: {fileID: 1795576144}
+  m_Layer: 0
+  m_Name: Go_AlcoholBottle (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795576143
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1776178214}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1795576144 stripped
+  m_GameObject: {fileID: 1795576142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795576144
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
   m_PrefabInstance: {fileID: 1776178214}
   m_PrefabAsset: {fileID: 0}
@@ -24246,6 +25604,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 03000000
+  m_Position: {x: 0, y: 0}
+  m_title: Alcohol Bottle
+  m_description: Refill the pyromaniac's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 2
+--- !u!65 &1795576145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1776178214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795576142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1795576146
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1776178214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795576142}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1795576147
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: a7ca75ea14f86d54a8cb32ea2673fc36, type: 3}
+  m_PrefabInstance: {fileID: 1776178214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795576142}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1795883798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25840,22 +27280,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index_class: 2
   team_manager: {fileID: 1705576825}
---- !u!4 &1886190086 stripped
+--- !u!4 &1886190086
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 2117113444}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1886190087 stripped
+  m_GameObject: {fileID: 457034158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886190087
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -3031859973048422867, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
   m_PrefabInstance: {fileID: 2117113444}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 457034158}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0177bde266c0e6045a8131e42340ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 1
+  m_Texture: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 04000000
+  m_Position: {x: 0, y: 0}
+  m_title: Key
+  m_description: Used to open doors.
+  isWeapon: 0
+--- !u!65 &1886190088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 2117113444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457034158}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1886190089
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 2117113444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457034158}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1886190090
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 18c202cd2acdafa4890716d9380f8876, type: 3}
+  m_PrefabInstance: {fileID: 2117113444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457034158}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1886316130
 GameObject:
   m_ObjectHideFlags: 0
@@ -26909,18 +28439,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962573803}
   m_Mesh: {fileID: -3149476610794045934, guid: 352e374715ee3dd468523d26d521b60e, type: 3}
---- !u!1 &1964396712 stripped
+--- !u!1 &1964396712
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7704084330018896539, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 45088771}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1964396713 stripped
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964396713}
+  - component: {fileID: 1964396717}
+  - component: {fileID: 1964396716}
+  - component: {fileID: 1964396715}
+  - component: {fileID: 1964396714}
+  m_Layer: 0
+  m_Name: Go_BottleOfHolyWater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1964396713
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6326304689207536935, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 45088771}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1964396714 stripped
+  m_GameObject: {fileID: 1964396712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.87848, y: -22.438812, z: 31.254839}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1592314856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964396714
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -925976890448966860, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
   m_PrefabInstance: {fileID: 45088771}
   m_PrefabAsset: {fileID: 0}
@@ -26930,6 +28486,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b551c232f1ed47b515d1e6591d868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Item: 3
+  m_Texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  isStackable: 0
+  ExeptionStack: 01000000
+  m_Position: {x: 0, y: 0}
+  m_title: Bottle of holy watter
+  m_description: Refill the priest's special bar
+  isWeapon: 0
+  healthRestoreAmount: 0
+  specialRestoreAmount: 25
+  specialSourceType: 1
+--- !u!65 &1964396715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7930683898794600371, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 45088771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964396712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1964396716
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3663326280755679231, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 45088771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964396712}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1964396717
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 321655573557959485, guid: 5fb60e10d4b806d408fd9edbd521e74c, type: 3}
+  m_PrefabInstance: {fileID: 45088771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964396712}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1967281220
 PrefabInstance:
   m_ObjectHideFlags: 0
