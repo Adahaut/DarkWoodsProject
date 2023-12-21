@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 21300000, guid: 59362cc5056a5f24489275b00d073d10, type: 3}
   skillType: 4
-  skillName: 
-  skillDescription: 
-  percentCost: 0
+  skillName: Attention
+  skillDescription: attracts the attention of all nearby enemies
+  percentCost: 45
   skillCooldown: 10
   currentSkillCooldown: 10
   isOnCooldown: 0
