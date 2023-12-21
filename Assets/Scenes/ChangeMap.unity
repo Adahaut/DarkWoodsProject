@@ -3595,9 +3595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1887189480}
   menus: {fileID: 2464064}
-  walkSpeed: 1
-  turnSpeed: 1.5
-  speed_timer: 1
+  walkSpeed: 0.01
+  turnSpeed: 0.01
+  speed_timer: 0.01
   fill_search: {fileID: 97445357}
   inspection_ui: {fileID: 1283178540}
 --- !u!114 &217127284
