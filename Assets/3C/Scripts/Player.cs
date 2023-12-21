@@ -1,9 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using Unity.VisualScripting;
-using UnityEngine;
-
 public class Player : DW_Character
 {
     /* public float waitCooldown = 0.5f;

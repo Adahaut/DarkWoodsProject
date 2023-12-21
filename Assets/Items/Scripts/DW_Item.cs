@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum Item
 {
-    NULL,Key,Weapon, Consummable
+    NULL,Key,Axe, Consummable, Knife, WoodStick
 };
 
 public abstract class DW_Item : MonoBehaviour

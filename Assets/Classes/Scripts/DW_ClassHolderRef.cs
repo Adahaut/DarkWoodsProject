@@ -15,6 +15,7 @@ public class DW_ClassHolderRef : MonoBehaviour
     public Image healthBar;
     public Image specialBar;
     public DW_Slot slotLeft, slotRight;
+    public Button SkillButton;
 
     [HideInInspector] public DW_Class classRef;
     [SerializeField] private DW_ClassController class_controller;
@@ -45,7 +46,16 @@ public class DW_ClassHolderRef : MonoBehaviour
 
     private void Update()
     {
-        if( all_skills.Any(b => b.isOnCooldown == true))
+        if(DW_ClassController.Instance.currentClass.classSkill.isOnCooldown)
+        {
+            SkillButton.interactable = false;
+        }
+        else
+            SkillButton.interactable = true;
+
+
+
+        if ( all_skills.Any(b => b.isOnCooldown == true))
         {
             foreach(var skill in all_skills)
             {

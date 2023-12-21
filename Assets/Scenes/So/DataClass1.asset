@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f287e81f58c2b9e41a3e96badc0382e8, type: 3}
+  m_Name: DataClass1
+  m_EditorClassIdentifier: 
+  className: Pyromane
+  classDescription: The pyromaniac is nyctophobic, he is scared to be in the dark.
+    In order to overcome his fear, he learnt how to handle fire to get rid of the
+    obscurity.
+  classIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
+  classSkill: {fileID: 11400000, guid: a52207c32f643ba41893631a151cc63f, type: 2}
+  classType: 0
+  currentHealth: 100
+  maxHealth: 35
+  currentAttackSpeed: 1.25
+  minattackDamage: 6
+  maxattackDamage: 15
+  shouldBeAggro: 1
+  minPercentDamage: 80
+  maxPercentDamage: 200
+  specialSourceType: 2
+  specialSourceAmount: 25
+  slotLeft: {fileID: 11400000, guid: cbcd998cb14e2df468497ee6b9d335a2, type: 2}
+  slotRight: {fileID: 11400000, guid: db25db4012c3d9141a8079b5e83ff363, type: 2}

@@ -10,13 +10,15 @@ public class DW_Attack : Node
     private GameObject Enemy;
     private float time_between_attacks;
     private float last_attack_time;
+    private Animator anim;
 
 
-    public DW_Attack(GameObject enemy, GameObject player, float timeBetweenAttacks)
+    public DW_Attack(GameObject enemy, GameObject player, float timeBetweenAttacks, Animator animator)
     {
         Enemy = enemy;
         Player = player;
         time_between_attacks = timeBetweenAttacks;
+        anim = animator;
     }  
 
     public override NodeState Evaluate()
@@ -24,6 +26,7 @@ public class DW_Attack : Node
         if (Time.time - last_attack_time >= time_between_attacks)
         {
             Player.GetComponent<DW_LifeManager>().TakeDamage(Enemy.GetComponent<DW_LifeManager>().damage);
+            anim.SetBool("IsAttacking", true);
 
             last_attack_time = Time.time;
 
@@ -31,6 +34,7 @@ public class DW_Attack : Node
         }
         else
         {
+            anim.SetBool("IsAttacking", false);
             return NodeState.RUNNING;
         }
     }

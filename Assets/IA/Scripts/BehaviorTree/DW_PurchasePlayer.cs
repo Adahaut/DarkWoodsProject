@@ -10,13 +10,15 @@ public class DW_PurchasePlayer : Node
     private DW_A_Star pathFinder;
     private DW_Character player;
     private List<Vector2> path;
+    private Animator anim;
 
-    public DW_PurchasePlayer(DW_AiMovement _movement, DW_Character _character, DW_Character _player)
+    public DW_PurchasePlayer(DW_AiMovement _movement, DW_Character _character, DW_Character _player, Animator animator)
     {
         movement = _movement;
         character = _character;
         player = _player;
         pathFinder = new DW_A_Star(character);
+        anim = animator;
     }
     public override NodeState Evaluate()
     {
@@ -24,6 +26,7 @@ public class DW_PurchasePlayer : Node
         {
             NodeState state = pathFinder.DijkstraPath(character.GetPos(), player.GetPos(), out path, false);
             movement.SetPath(path);
+            anim.SetBool("IsWalking", true);
             return state;
         }
         else

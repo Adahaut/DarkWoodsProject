@@ -1,12 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using static Node_script;
-using static Selector;
-using static Sequence;
-using static canSeePlayer;
-using static DW_AiMovement;
 
 public class BehaviorTree_script : MonoBehaviour
 {
@@ -16,7 +10,7 @@ public class BehaviorTree_script : MonoBehaviour
     private Sequence Chase;
     private Selector ReturnToIniTialPos;
     [SerializeField]private GameObject Player;
-    [SerializeField] private float view_distance  = 20;
+    public float view_distance  = 25;
     [SerializeField] private float attack_range  = 10;
     [SerializeField] private float time_between_attacks = 3;
     private bool canAttack = false;
@@ -28,18 +22,25 @@ public class BehaviorTree_script : MonoBehaviour
     private DW_ReturnToIniTialPos _returnToIniTialPos;
     private DW_CanAttack _canAttack;
     private DW_Attack _attack;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
         _aiMovement = gameObject.GetComponent<DW_AiMovement>();
+        animator = gameObject.GetComponentInChildren<Animator>();
+        if(animator == null)
+        {
+            animator = gameObject.GetComponent<Animator>();
+        }
 
-        _VerifPos = new DW_VerifPosition(gameObject.GetComponent<DW_Character>().initial_pos, gameObject.GetComponent<DW_Character>());
-        _canSeePlayer = new canSeePlayer(gameObject, Player,  view_distance, _aiMovement);
-        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos);
-        _purchasePlayer = new DW_PurchasePlayer(_aiMovement, gameObject.GetComponent<DW_Character>(), Player.GetComponent<DW_Character>());
-        _canAttack = new DW_CanAttack(gameObject, Player, attack_range);
-        _attack = new DW_Attack(gameObject, Player, time_between_attacks);
+        _VerifPos = new DW_VerifPosition(gameObject.GetComponent<DW_Character>().initial_pos, gameObject.GetComponent<DW_Character>(), animator);
+        _canSeePlayer = new canSeePlayer(gameObject, Player,  view_distance, _aiMovement, animator);
+        _returnToIniTialPos = new DW_ReturnToIniTialPos(_aiMovement, gameObject.GetComponent<DW_Character>(), gameObject.GetComponent<DW_Character>().initial_pos, animator);
+        _purchasePlayer = new DW_PurchasePlayer(_aiMovement, gameObject.GetComponent<DW_Character>(), Player.GetComponent<DW_Character>(), animator);
+        _canAttack = new DW_CanAttack(gameObject, Player, attack_range, animator);
+        _attack = new DW_Attack(gameObject, Player, time_between_attacks, animator);
 
 
 

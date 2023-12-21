@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
 using JetBrains.Annotations;
+using UnityEngine.InputSystem.HID;
 
 public class DW_Interactions : MonoBehaviour
 {
@@ -79,6 +80,16 @@ public class DW_Interactions : MonoBehaviour
        
     }
 
+    //private void Update()
+    //{
+    //    Debug.DrawRay(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward*10, Color.red);
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 10))
+    //    {
+    //        Debug.Log("DoorHit2 " + hit.collider.tag);
+
+    //    }
+    //}
     public bool Interact(DW_interractible interractible)
     {
         if (CheckForwardPLayer(player_character.Rotation, 4)) 
@@ -88,7 +99,7 @@ public class DW_Interactions : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 10))
                 {
-                    Debug.Log(hit.collider.tag);
+                    Debug.Log("DoorHit" + hit.collider.tag);
                     if (hit.collider.tag == "Door")
                     {
                         Debug.Log("disappeared");
@@ -117,7 +128,7 @@ public class DW_Interactions : MonoBehaviour
         switch (rotation)
         {
             case "Left":
-                if (_grid[player_character.CharaY, player_character.CharaX - 1] == value_needed)
+                if (_grid[player_character.CharaY, player_character.CharaX + 1] == value_needed)
                 {
                     DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
                     return true;
@@ -127,7 +138,7 @@ public class DW_Interactions : MonoBehaviour
                     return false;
                 }
             case "Right":
-                if (_grid[player_character.CharaY, player_character.CharaX + 1] == value_needed)
+                if (_grid[player_character.CharaY, player_character.CharaX - 1] == value_needed)
                 {
                     DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
                     return true;
