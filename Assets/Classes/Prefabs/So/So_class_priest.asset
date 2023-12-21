@@ -19,7 +19,7 @@ MonoBehaviour:
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
   classSkill: {fileID: 11400000, guid: c84dbe68d676da54a839d76e32034210, type: 2}
   classType: 1
-  currentHealth: 35
+  currentHealth: -12153
   maxHealth: 35
   currentAttackSpeed: 1
   minattackDamage: 1
@@ -28,6 +28,6 @@ MonoBehaviour:
   minPercentDamage: 10
   maxPercentDamage: 60
   specialSourceType: 1
-  specialSourceAmount: 100
+  specialSourceAmount: 25
   slotLeft: {fileID: 11400000, guid: ef79b2b81d3fe134795ffbfb185051bb, type: 2}
   slotRight: {fileID: 11400000, guid: 3cc8c46c735dfc64da2c3b5e2ffa9513, type: 2}

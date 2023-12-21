@@ -10,7 +10,7 @@ public class BehaviorTree_script : MonoBehaviour
     private Sequence Chase;
     private Selector ReturnToIniTialPos;
     [SerializeField]private GameObject Player;
-    [SerializeField] private float view_distance  = 20;
+    public float view_distance  = 25;
     [SerializeField] private float attack_range  = 10;
     [SerializeField] private float time_between_attacks = 3;
     private bool canAttack = false;

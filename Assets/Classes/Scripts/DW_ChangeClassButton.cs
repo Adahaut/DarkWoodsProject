@@ -13,6 +13,8 @@ public class DW_ChangeClassButton : MonoBehaviour
         team_manager = GameObject.Find("TeamManager").GetComponent<DW_TeamManager>();
         this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(team_manager.classes_selected[index_class]); }) ;
         button = this.GetComponent<Button>();
+
+        this.GetComponent<Image>().sprite = team_manager.classes_selected[index_class].classIcon;
         gm.Death.AddListener(IsDead);
     }
 
