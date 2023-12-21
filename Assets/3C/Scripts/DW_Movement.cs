@@ -1,12 +1,16 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] DW_Character player;
+    [SerializeField] private DW_MenuController menus;
 
     public float walkSpeed = 1.0f;
     public float turnSpeed = 1.5f;
@@ -15,7 +19,6 @@ public class Movement : MonoBehaviour
         if (ctx.started)
         {
             player.StartCharacterMove(walkSpeed);
-            player.GetComponentInChildren<DW_PlayerSound>().PlayerSteps();
         }
     }
     public void OnTurnCameraRight(InputAction.CallbackContext ctx)
@@ -34,6 +37,82 @@ public class Movement : MonoBehaviour
             else if (vector2.y < 0)
             {
                 player.StartCharacterTurn(turnSpeed * 2, true, true);
+            }
+        }
+    }
+    private float timer_press = 0;
+    public float speed_timer = 1;
+    public Image fill_search;
+    public GameObject inspection_ui;
+
+    private DW_CampSearch camp_fire;
+
+    public void Update()
+    {
+        if(Input.GetKey(KeyCode.E))
+        {
+            player.canMove = false;
+            RaycastHit hit;
+            if (Physics.Raycast(player.transform.position + new Vector3(0, 0.5f, 0), player.transform.forward, out hit, 15))
+            {
+                if (hit.collider.tag == "test" && !hit.collider.gameObject.GetComponent<DW_CampSearch>().hasBeenSearched)
+                {
+                    inspection_ui.SetActive(true);
+                    timer_press += Time.deltaTime * speed_timer;
+                    fill_search.fillAmount = timer_press / 3;
+
+                    camp_fire = hit.collider.gameObject.GetComponent<DW_CampSearch>();
+                }
+                else
+                {
+                    inspection_ui.SetActive(true);
+                    fill_search.fillAmount = 1;
+                    fill_search.color = Color.red;
+                }
+            }
+        }
+
+        
+
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            if(timer_press < 3)
+            {
+                timer_press = 0;
+            }
+            else
+            {
+                if (timer_press >= 3)
+                {
+                    DW_Item item = camp_fire.SearchCamp();
+
+                    if (item != null)
+                        GameObject.FindObjectOfType<DW_DropController>().Drop(item.m_Item, player.transform.position);
+
+                    timer_press = 0;
+                }
+                else
+                {
+                    timer_press += Time.deltaTime;
+                }
+            }
+
+            inspection_ui.SetActive(false);
+            fill_search.fillAmount = 0;
+            fill_search.color = Color.white;
+
+            player.canMove = true;
+        }
+    }
+
+    public void PauseActive(InputAction.CallbackContext ctx)
+    {
+        if(ctx.started)
+        {
+            menus.pauseIsActive = true;
+            if(menus.pauseIsActive)
+            {
+                menus.Pause();
             }
         }
     }

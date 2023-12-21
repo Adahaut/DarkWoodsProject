@@ -8,6 +8,7 @@ public class DW_BackgroundMusic : MonoBehaviour
     [SerializeField] AudioClip[] music_clips;
     [SerializeField] DW_PlayerSound player_sound;
     [SerializeField] GameObject steps_behind_the_player;
+    [SerializeField] GameObject Lamp;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class DW_BackgroundMusic : MonoBehaviour
         if(player_sound.inHospital)
         {
             steps_behind_the_player.SetActive(false);
+            Lamp.SetActive(false);
         }
         else
         {

@@ -34,24 +34,6 @@ public class DW_ObjectDetection : MonoBehaviour
     void Update()
     {
         IsTheObjectInMyArea();
-
-        PopUpNavigation();
-    }
-
-    private void PopUpNavigation()
-    {
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-        //    current_card_select++;
-        //    Selection();
-        //}
-        //if (Input.GetKeyDown(KeyCode.UpArrow))
-        //{
-        //    cards[current_card_select].transform.GetChild(0).gameObject.SetActive(false);
-        //    current_card_select--;
-        //    Selection();
-        //}
     }
 
     //See if the object is near the player
@@ -60,34 +42,12 @@ public class DW_ObjectDetection : MonoBehaviour
         current_object_arround.Clear();
         for(int i = 0; i < objects.Count; i++) 
         {
-            if (Mathf.Abs(objects[i].m_Position.x - playerPos.x) <=1 && Mathf.Abs(objects[i].m_Position.y - playerPos.y) <= 1)
+            if (objects[i].m_Position == playerPos)
             {
                 current_object_arround.Add(objects[i]);
             }
         }
         ShowObject();
-    }
-
-    // Make the outline on the select card in the pop-up and put the card in the viewport
-    private void Selection()
-    {
-        if (cards.Count > 0)
-        {
-            if (current_card_select >= cards.Count)
-            {
-                current_card_select = 0;
-            }
-            if (current_card_select < 0)
-            {
-                current_card_select = cards.Count - 1;
-            }
-            cards[current_card_select].transform.GetChild(0).gameObject.SetActive(true);
-            currentObjectSelect = cards[current_card_select].GetComponentInChildren<DW_ItemCard>().GetItem();
-            distance = m_transform.parent.position.y - cards[current_card_select].transform.position.y;
-            m_transform.position = new Vector3(m_transform.position.x, m_transform.position.y + distance + offset, m_transform.position.z);
-        }
-        else
-            currentObjectSelect = null;
     }
 
     // Put the new card of the object the player can take and delete the card the player can no longer take
@@ -116,7 +76,7 @@ public class DW_ObjectDetection : MonoBehaviour
                         Destroy(m_transform.GetChild(j).gameObject);
                         view_object_arround.Remove(view_object_arround[i]);
                         current_card_select = 0;
-                        Selection();
+                        //Selection();
                         continue;
                     }
                 }
@@ -133,5 +93,10 @@ public class DW_ObjectDetection : MonoBehaviour
     public void RemoveObject(GameObject go) 
     {
         objects.Remove(go.GetComponent<DW_Item>());
+    }
+
+    public void SetPlayerPos(Vector2 pos)
+    {
+        playerPos = pos;
     }
 }

@@ -27,7 +27,6 @@ public class DW_Attack : Node
 
             last_attack_time = Time.time;
 
-            Debug.Log("Attack Player");
             return NodeState.SUCCESS;
         }
         else

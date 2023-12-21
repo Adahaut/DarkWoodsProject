@@ -50,7 +50,7 @@ public class BehaviorTree_script : MonoBehaviour
         Sequence sequence1 = new Sequence(new List<Node> { _canAttack, _attack });
         Selector selector1 = new Selector(new List<Node> { sequence1, _purchasePlayer });
         Sequence sequence2 = new Sequence(new List<Node> { _canSeePlayer, selector1 });
-        Selector selector2 = new Selector(new List<Node> { _VerifPos, _returnToIniTialPos });
+        Selector selector2 = new Selector(new List<Node> { _VerifPos/*, _returnToIniTialPos*/ });
         selectorRoot = new Selector(new List<Node> { /*sequence2*/ sequence2, selector2 });
 
     }
@@ -60,7 +60,6 @@ public class BehaviorTree_script : MonoBehaviour
     {
         _canSeePlayer.SetFieldOfView(view_distance);
         NodeState a  = selectorRoot.Evaluate();
-        Debug.Log(a.ToString());
         //Vector3 heading = Player.transform.position - gameObject.transform.position;
         //Debug.DrawRay(gameObject.transform.position, heading / heading.magnitude * 30, Color.green);
         //if (Physics.Raycast(gameObject.transform.position, heading / heading.magnitude, out hit, 30))

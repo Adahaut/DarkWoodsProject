@@ -11,11 +11,6 @@ public class DW_Slot : MonoBehaviour
     [SerializeField] private Sprite originalSprite;
     private Transform m_transform;
 
-
-    DW_Interactions interactions;
-    DW_Character player_character;
-
-
     void Awake()
     {
         m_transform = transform;
@@ -45,11 +40,16 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.useAction != null)
         {
-            if ((data.item == Item.Key || data.item == Item.Consummable) && data.useAction())
+            data.useAction();
+            if ((data.item == Item.Key || data.item == Item.Consummable))
             {
                 data.numberOfItem--;
                 Verification();
             }
+        }
+        else
+        {
+            GameObject.Find("Player").GetComponent<DW_Interactions>().Attack();
         }
     }
 
@@ -101,9 +101,8 @@ public class DW_Slot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(2)) 
+        if(Input.GetMouseButtonDown(1)) 
         {
-            Debug.Log("drop");
             Drop();
         }
     }
