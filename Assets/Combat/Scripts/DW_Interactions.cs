@@ -46,6 +46,7 @@ public class DW_Interactions : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f,0), this.transform.forward, out hit,15))
                 {
+                    Debug.Log(hit.collider.tag);
                     if (hit.collider.tag == "Enemy")
                     {
                         hit.collider.GetComponent<DW_LifeManager>().TakeDamage(finalDamage);
@@ -88,7 +89,6 @@ public class DW_Interactions : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward, out hit, 10))
                 {
-                    Debug.Log(hit.collider.tag);
                     if (hit.collider.tag == "Door")
                     {
                         Debug.Log("disappeared");
