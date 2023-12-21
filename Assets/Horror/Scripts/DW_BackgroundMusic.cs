@@ -22,7 +22,8 @@ public class DW_BackgroundMusic : MonoBehaviour
         if(player_sound.inHospital)
         {
             steps_behind_the_player.SetActive(false);
-            Lamp.SetActive(false);
+            if(Lamp != null) 
+                Lamp.SetActive(false);
         }
         else
         {

@@ -13,6 +13,7 @@ public class DW_SwitchScene : MonoBehaviour
     public Vector3 spawn_pos = new Vector3();
     public DW_Character player;
     public bool isInHospital = false;
+    public GameObject objects;
 
 
     public void FadeToNextLevel()
@@ -25,6 +26,19 @@ public class DW_SwitchScene : MonoBehaviour
     {
         //level_to_load = levelIndex;
         //animator.SetTrigger("FadeOut");
+    }
+
+    private void SetObjectInScene()
+    {
+        if(objects!=null)
+        {
+            DW_ObjectDetection.Instance.ClearObject();
+            Transform obj = objects.transform;
+            for(int i = 0; i< obj.childCount; i++) 
+            {
+                DW_ObjectDetection.Instance.AddObject(obj.GetChild(i).gameObject);
+            }
+        }
     }
 
     public void OnFadeComplete()
@@ -41,7 +55,10 @@ public class DW_SwitchScene : MonoBehaviour
             Show_object[i].SetActive(true);
         }
 
-            
+        SetObjectInScene();
+
+
+
         player.PlayerTP(spawn_pos); // put the sound bloc on hospital spawn;
         DW_GridMap.Instance.Grid = new int[,]{
                // 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7

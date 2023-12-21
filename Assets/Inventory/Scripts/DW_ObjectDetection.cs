@@ -85,6 +85,11 @@ public class DW_ObjectDetection : MonoBehaviour
     }
 
 
+    public void ClearObject()
+    {
+        objects.Clear();
+    }
+
     public void AddObject(GameObject go)
     {
         objects.Add(go.GetComponent<DW_Item>());
