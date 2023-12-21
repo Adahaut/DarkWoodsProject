@@ -47,6 +47,7 @@ public class DW_Interactions : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position + new Vector3(0, 0.5f,0), this.transform.forward, out hit,15))
                 {
+                    Debug.Log("Attack " + hit.collider.tag + "  " + hit.collider.gameObject.name);
                     if (hit.collider.tag == "Enemy")
                     {
                         hit.collider.GetComponent<DW_LifeManager>().TakeDamage(finalDamage);
