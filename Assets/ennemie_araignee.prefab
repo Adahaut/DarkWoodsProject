@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  view_distance: 20
+  view_distance: 25
   attack_range: 10
   time_between_attacks: 3
 --- !u!1001 &5521286514933168061
