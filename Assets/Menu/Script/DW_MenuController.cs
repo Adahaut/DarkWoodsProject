@@ -17,6 +17,12 @@ public class DW_MenuController : MonoBehaviour
     public Toggle FullScreenToggle;
     public Image _Luminosity;
 
+    public bool is_in_hospital = false;
+    public List<GameObject> destroy_on_load = new List<GameObject>();
+    public List<GameObject> enable_on_load = new List<GameObject>();
+    public DW_Character Player;
+    public DW_SwitchScene exit_forest;
+
     public bool pauseIsActive = false;
     private void Update()
     {
@@ -44,7 +50,34 @@ public class DW_MenuController : MonoBehaviour
 
     public void Respawn()
     {
-        Debug.Log("Respawn");
+        foreach(DW_Class c in DW_ClassController.Instance.classes)
+        {
+            c.currentHealth = c.maxHealth;
+            c.specialSourceAmount = 100;
+
+            c.classSkill.isOnCooldown = false;
+            c.classSkill.currentSkillCooldown = c.classSkill.skillCooldown;
+            c.shouldBeAggro = false;
+        }
+        is_in_hospital = exit_forest.isInHospital;
+        if(is_in_hospital)
+        {
+            foreach(GameObject go in destroy_on_load)
+            {
+                go.SetActive(false);
+            }
+            foreach(GameObject go in enable_on_load)
+            {
+                go.SetActive(true);
+            }
+            Player.transform.position = exit_forest.spawn_pos;
+            Player.initial_pos = new Vector2Int((int)Mathf.Abs(exit_forest.spawn_pos.x / 10), (int)Mathf.Abs(exit_forest.spawn_pos.z / 10));
+
+        }
+        else
+        {
+            SceneManager.LoadScene("ChangeMap");
+        }
     }
 
     public void GameOver()

@@ -10,8 +10,9 @@ public class DW_SwitchScene : MonoBehaviour
     public Animator animator;
     [SerializeField] private List<GameObject> Show_object;
     [SerializeField] private List<GameObject> Hide_object;
-    [SerializeField] private Vector3 spawn_pos = new Vector3();
+    public Vector3 spawn_pos = new Vector3();
     public DW_Character player;
+    public bool isInHospital = false;
 
 
     public void FadeToNextLevel()
@@ -80,6 +81,7 @@ public class DW_SwitchScene : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            isInHospital = true;
             player = other.gameObject.GetComponent<DW_Character>();
             FadeToNextLevel();
         }
