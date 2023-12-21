@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7361660695771387867}
   - component: {fileID: 6517885418015692882}
   - component: {fileID: 827573451593529680}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ennemie_araignee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
