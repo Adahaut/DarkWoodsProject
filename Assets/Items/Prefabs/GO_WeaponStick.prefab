@@ -75,7 +75,7 @@ MonoBehaviour:
   m_title: Weapon
   m_description: Weak damage stick
   isWeapon: 1
-  pourcentDamage: 10
+  pourcentDamage: 1
 --- !u!1001 &7381637275020076903
 PrefabInstance:
   m_ObjectHideFlags: 0

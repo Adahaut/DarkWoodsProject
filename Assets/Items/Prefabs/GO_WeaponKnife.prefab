@@ -75,7 +75,7 @@ MonoBehaviour:
   m_title: Weapon
   m_description: Knife that inflicts moderate damage
   isWeapon: 1
-  pourcentDamage: 20
+  pourcentDamage: 5
 --- !u!1001 &7150451964762735351
 PrefabInstance:
   m_ObjectHideFlags: 0
