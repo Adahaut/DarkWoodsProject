@@ -11119,6 +11119,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 435106917}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 435106917}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DW_MenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DW_MenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869253325114089410, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5688529706937316900, guid: 8e1bb54ea6ba83f4283c024deceabdca, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -14602,6 +14646,7 @@ MonoBehaviour:
   - {fileID: 1439636903}
   spawn_pos: {x: -10, y: 7, z: -140}
   player: {fileID: 0}
+  isInHospital: 0
 --- !u!65 &579253575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17457,6 +17502,7 @@ MonoBehaviour:
   - {fileID: 0}
   spawn_pos: {x: -10, y: 7, z: -140}
   player: {fileID: 0}
+  isInHospital: 0
 --- !u!65 &707752183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29182,6 +29228,9 @@ MonoBehaviour:
   currentClass: {fileID: 0}
   classes: []
   cardHolderRef: {fileID: 1654985526}
+  controller_movement: {fileID: 0}
+  is_speed_reduced: 0
+  speedReducedTimer: 0
 --- !u!114 &1338537143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35668,6 +35717,7 @@ MonoBehaviour:
   - {fileID: 359648942}
   spawn_pos: {x: 0, y: 0, z: 0}
   player: {fileID: 1338537145}
+  isInHospital: 0
 --- !u!1 &1585594740
 GameObject:
   m_ObjectHideFlags: 0
