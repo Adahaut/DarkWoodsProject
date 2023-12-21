@@ -86,9 +86,10 @@ public class DW_Character : MonoBehaviour
         float time = 0f;
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
+        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)end_pos.z, (int)end_pos.x));
 
         // If gameObject is the player, play cam anim
-        if(playerCamera != null) 
+        if (playerCamera != null) 
             playerCamera.GetComponent<Animation>().Play();
 
 
@@ -99,7 +100,7 @@ public class DW_Character : MonoBehaviour
 
             yield return null;
         }
-        _transform.position = new Vector3((int)end_pos.x, (int)end_pos.y, (int)end_pos.z);
+        _transform.position = new Vector3((int)end_pos.x, end_pos.y, (int)end_pos.z);
 
         if(gameObject.CompareTag("Player"))
             DW_ObjectDetection.Instance.SetPlayerPos(new(GetPos().y, GetPos().x));
