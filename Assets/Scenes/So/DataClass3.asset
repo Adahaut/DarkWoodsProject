@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f287e81f58c2b9e41a3e96badc0382e8, type: 3}
-  m_Name: So_class_priest
+  m_Name: DataClass3
   m_EditorClassIdentifier: 
   className: Priest
   classDescription: The priest is the party's support.Often having holy water near,
     he can heal allies in the need.
-  classIcon: {fileID: 21300000, guid: 185131e8019c635408cc7a87d2cf0028, type: 3}
+  classIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   classPassif: {fileID: 11400000, guid: 4691f87d5c830da4f9976361b4b906a9, type: 2}
   classSkill: {fileID: 11400000, guid: c84dbe68d676da54a839d76e32034210, type: 2}
-  classType: 1
-  currentHealth: -12153
+  classType: 0
+  currentHealth: 40
   maxHealth: 35
   currentAttackSpeed: 1
   minattackDamage: 1
@@ -28,6 +28,6 @@ MonoBehaviour:
   minPercentDamage: 10
   maxPercentDamage: 60
   specialSourceType: 1
-  specialSourceAmount: 25
-  slotLeft: {fileID: 11400000, guid: ef79b2b81d3fe134795ffbfb185051bb, type: 2}
-  slotRight: {fileID: 11400000, guid: 3cc8c46c735dfc64da2c3b5e2ffa9513, type: 2}
+  specialSourceAmount: 90
+  slotLeft: {fileID: 11400000, guid: 0bf4c12fb3f67fb47b00001144011976, type: 2}
+  slotRight: {fileID: 11400000, guid: 96c492a6f944bb5469f63d0b127e9e7a, type: 2}

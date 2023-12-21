@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +10,11 @@ public class DW_ChangeClassButton : MonoBehaviour
     private void OnEnable()
     {
         DW_GM_Classes gm = DW_GM_Classes.Instance;
+        team_manager = GameObject.Find("TeamManager").GetComponent<DW_TeamManager>();
         this.GetComponent<Button>().onClick.AddListener(() => { gm.ApplySkill(team_manager.classes_selected[index_class]); }) ;
         button = this.GetComponent<Button>();
+
+        this.GetComponent<Image>().sprite = team_manager.classes_selected[index_class].classIcon;
         gm.Death.AddListener(IsDead);
     }
 

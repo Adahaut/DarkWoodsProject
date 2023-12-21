@@ -1,12 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using static Node_script;
-using static Selector;
-using static Sequence;
-using static canSeePlayer;
-using static DW_AiMovement;
 
 public class BehaviorTree_script : MonoBehaviour
 {
@@ -16,7 +10,7 @@ public class BehaviorTree_script : MonoBehaviour
     private Sequence Chase;
     private Selector ReturnToIniTialPos;
     [SerializeField]private GameObject Player;
-    [SerializeField] private float view_distance  = 20;
+    public float view_distance  = 25;
     [SerializeField] private float attack_range  = 10;
     [SerializeField] private float time_between_attacks = 3;
     private bool canAttack = false;

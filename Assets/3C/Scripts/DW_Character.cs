@@ -1,11 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using UnityEngine.UIElements;
 
 public class DW_Character : MonoBehaviour
 {
@@ -105,7 +100,7 @@ public class DW_Character : MonoBehaviour
         if(gameObject.CompareTag("Player"))
             DW_ObjectDetection.Instance.SetPlayerPos(new(GetPos().y, GetPos().x));
         yield return new WaitForSeconds(waitCooldown);
-        canMove = true;
+        canMove = true;    
     }
 
     public void PlayerTP(Vector3 pos)

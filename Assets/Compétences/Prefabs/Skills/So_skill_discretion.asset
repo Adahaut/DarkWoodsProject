@@ -16,10 +16,10 @@ MonoBehaviour:
   skillType: 3
   skillName: Discretion
   skillDescription: Reduce the line of sight of the nearby enemies.
-  percentCost: 50
+  percentCost: 0
   skillCooldown: 10
   currentSkillCooldown: 10
   isOnCooldown: 0
   emitterVFX: {fileID: 0}
-  effectDuration: 0
+  effectDuration: 10
   restaurationHealth: 0

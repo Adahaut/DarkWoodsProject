@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // Use this script to be able to use abilities.
@@ -11,13 +9,15 @@ public class DW_ClassController : MonoBehaviour
     public DW_Class currentClass;
     public List<DW_Class> classes;
     [SerializeField] private DW_ClassHolderRef cardHolderRef;
+    [SerializeField] private Movement controller_movement;
+
+    private List<BehaviorTree_script> enemies_in_range = new List<BehaviorTree_script>();
 
     // effects that alterate the controller stats
     private bool is_paladin_aggro = false;
     private DW_Class current_aggro_class;
-    private bool is_speed_reduced = false;
-    private float speedReducedTimer = 0.0f;
-    private float removed_speed = 0.0f;
+    public bool is_speed_reduced = false;
+    public float speedReducedTimer = 0.0f;
 
     private void Awake()
     {
@@ -55,9 +55,14 @@ public class DW_ClassController : MonoBehaviour
         {
             if(speedReducedTimer <= 0)
             {
-                // this.speed += removed_speed;
-                removed_speed = 0.0f;
-                speedReducedTimer = 0;
+                foreach(BehaviorTree_script enemy in enemies_in_range)
+                {
+                    Debug.Log(enemy.name);
+                    enemy.view_distance += 10;
+                    continue;
+                }
+
+                enemies_in_range.Clear();
                 is_speed_reduced = false;
                 return;
             }
@@ -140,16 +145,16 @@ public class DW_ClassController : MonoBehaviour
      */
     public void SkillDiscretion(DW_Skill _abilityToUse)
     {
-        foreach(DW_TestEnemyClass enemy in GameObject.FindObjectsOfType<DW_TestEnemyClass>()) // change the script, this one is for tests
+        foreach(BehaviorTree_script enemy in GameObject.FindObjectsOfType<BehaviorTree_script>()) // change the script, this one is for tests
         {
-            if(Vector3.Distance(this.transform.position, enemy.transform.position) < 10) // change the value, this one is for tests
+            if(Vector3.Distance(this.transform.position, enemy.transform.position) < 50) // change the value, this one is for tests
             {
-                enemy.ReduceFov();
-                speedReducedTimer = _abilityToUse.effectDuration;
-                //removed_speed = (_abilityToUse.percentCost / 100) * this.speed
-                // this.speed -= removed_speed;
+                enemy.view_distance -= 10;
+                enemies_in_range.Add(enemy);
             }
         }
+        speedReducedTimer = _abilityToUse.effectDuration;
+        is_speed_reduced = true;
         _abilityToUse.isOnCooldown = true;
     }
 

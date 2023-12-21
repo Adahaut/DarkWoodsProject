@@ -59,14 +59,14 @@ public class DW_LifeManager : MonoBehaviour
         if(gameObject.tag == "Player")
         {
             DW_GM_Classes.Instance.ClassDeath(class_died);
-            Vector2 Pos = gameObject.GetComponent<DW_Character>().GetPos();
-            DW_GridMap.Instance.Grid[(int)Pos.x, (int)Pos.y] = 2;
             this.GetComponent<DW_ClassController>().ResetAggro(); 
         }
 
         //enemies death
         if(gameObject.tag == "Enemy")
         {
+            Vector2 Pos = gameObject.GetComponent<DW_Character>().GetPos();
+            DW_GridMap.Instance.Grid[(int)Pos.x, (int)Pos.y] = 2;
             Destroy(gameObject);
             //Drop
         }
