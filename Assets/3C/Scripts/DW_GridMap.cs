@@ -39,8 +39,6 @@ public class DW_GridMap : MonoBehaviour
                 {1,1,1,1,1,2,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1 },  //1
                 {1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1 }}; //2
 
-
-
     private void Awake()
     {
         if(Instance == null ) { Instance = this; }
