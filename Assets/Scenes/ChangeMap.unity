@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.025
@@ -16583,7 +16583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 69753fe351f8f89438b681836ea070fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 69753fe351f8f89438b681836ea070fa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18083,6 +18083,10 @@ PrefabInstance:
     - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
       propertyPath: m_Name
       value: Spider (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20730,7 +20734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 9cff0924282152e48aa4be5c31b5700b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 9cff0924282152e48aa4be5c31b5700b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21328,6 +21332,10 @@ PrefabInstance:
     - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
       propertyPath: m_Name
       value: Spider (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22343,6 +22351,10 @@ PrefabInstance:
     - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
       propertyPath: m_Name
       value: Spider (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23902,6 +23914,10 @@ PrefabInstance:
     - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
       propertyPath: m_Name
       value: Spider (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26281,7 +26297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 274bf93c0a7787f4bbb93008ca4f0f5a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 274bf93c0a7787f4bbb93008ca4f0f5a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31178,6 +31194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32312,6 +32332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32518,6 +32542,10 @@ PrefabInstance:
     - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
       propertyPath: m_Name
       value: Spider (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842782993968657909, guid: 07a3f07761b1ede4aaafc0b9d7451163, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39908,7 +39936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: eaae10b9133a77341b188b37899534a2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: eaae10b9133a77341b188b37899534a2, type: 3}
       propertyPath: m_StaticEditorFlags
