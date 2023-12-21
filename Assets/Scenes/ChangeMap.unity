@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.025
+  m_FogDensity: 0.03
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -164,11 +164,6 @@ MonoBehaviour:
   LuminositySlider: {fileID: 2011849203}
   FullScreenToggle: {fileID: 1511342311}
   _Luminosity: {fileID: 0}
-  is_in_hospital: 0
-  destroy_on_load: []
-  enable_on_load: []
-  Player: {fileID: 0}
-  exit_forest: {fileID: 0}
   pauseIsActive: 0
 --- !u!114 &2464065
 MonoBehaviour:
