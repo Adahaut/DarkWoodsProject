@@ -131,7 +131,7 @@ public class DW_Interactions : MonoBehaviour
             case "Left":
                 if (_grid[player_character.CharaY, player_character.CharaX + 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
                     return true;
                 }
                 else
@@ -141,7 +141,7 @@ public class DW_Interactions : MonoBehaviour
             case "Right":
                 if (_grid[player_character.CharaY, player_character.CharaX - 1] == value_needed)
                 {
-                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX + 1), new Vector2Int(player_character.CharaY, player_character.CharaX + 1));
+                    DW_GridMap.Instance.SetMyPosInGrid(2, new Vector2Int(player_character.CharaY, player_character.CharaX - 1), new Vector2Int(player_character.CharaY, player_character.CharaX - 1));
                     return true;
                 }
                 else
