@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c4ab920e03340404bbd05893ace01acd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1116297340793326824, guid: c4ab920e03340404bbd05893ace01acd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -61.060104
