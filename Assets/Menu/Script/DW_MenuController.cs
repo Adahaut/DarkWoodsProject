@@ -11,13 +11,19 @@ public class DW_MenuController : MonoBehaviour
     public GameObject _GameOver;
     public GameObject _Settings;
     public GameObject _Pause;
-    public List<AudioSource> _AudioSources;
+    public AudioSource[] _AudioSources;
     public Slider VolumeSlider;  
     public Slider LuminositySlider;
     public Toggle FullScreenToggle;
     public Image _Luminosity;
 
     public bool pauseIsActive = false;
+
+    private void Start()
+    {
+        _AudioSources = GameObject.FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None );
+    }
+
     private void Update()
     {
         if (_Luminosity != null)
@@ -77,7 +83,7 @@ public class DW_MenuController : MonoBehaviour
 
     public void Volume()
     {
-        for(int i = 0; i < _AudioSources.Count; i++)
+        for(int i = 0; i < _AudioSources.Length; i++)
         {
             _AudioSources[i].volume = VolumeSlider.value;
         }

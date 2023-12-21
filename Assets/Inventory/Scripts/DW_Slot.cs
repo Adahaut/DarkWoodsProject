@@ -40,12 +40,13 @@ public class DW_Slot : MonoBehaviour
     {
         if (data.useAction != null)
         {
-            data.useAction();
-            if ((data.item == Item.Key || data.item == Item.Consummable))
+            if ((data.item == Item.Key || data.item == Item.Consummable) && data.useAction())
             {
                 data.numberOfItem--;
                 Verification();
             }
+            else
+                data.useAction();
         }
         else
         {

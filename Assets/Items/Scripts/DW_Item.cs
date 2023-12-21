@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum Item
 {
-    NULL,Key,Weapon, Consummable
+    NULL,Key,Axe, Consummable, Knife, WoodStick
 };
 
 public abstract class DW_Item : MonoBehaviour
