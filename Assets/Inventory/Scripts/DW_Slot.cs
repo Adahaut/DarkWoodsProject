@@ -45,6 +45,8 @@ public class DW_Slot : MonoBehaviour
                 data.numberOfItem--;
                 Verification();
             }
+            else
+                data.useAction();
         }
         else
         {
