@@ -19,7 +19,7 @@ public class DW_DropController : MonoBehaviour
 
 
     // Drop the item in the world
-    public bool Drop(Item item, Vector3 position)
+    public bool Drop(Sprite item, Vector3 position)
     {
         position = player_pos.transform.position;
         for (int i = 0;  i < m_Object.Count; i++)

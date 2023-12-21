@@ -92,7 +92,7 @@ public class DW_Slot : MonoBehaviour
 
     private void Drop()
     {
-        if(DW_DropController.Instance.Drop(data.item, Vector3.zero))
+        if(DW_DropController.Instance.Drop(data.image, Vector3.zero))
         {
             Debug.Log("b");
             data.numberOfItem--;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum Item
 {
-    NULL,Key,Axe, Consummable, Knife, WoodStick
+    NULL,Key,Weapon, Consummable
 };
 
 public abstract class DW_Item : MonoBehaviour
@@ -24,8 +24,8 @@ public abstract class DW_Item : MonoBehaviour
     public bool isWeapon = false;
     public abstract bool Use();
 
-    public Item GetItem()
+    public Sprite GetItem()
     {
-        return m_Item;
+        return m_Texture;
     }
 }

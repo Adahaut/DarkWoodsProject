@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
                     DW_Item item = camp_fire.SearchCamp();
 
                     if (item != null)
-                        GameObject.FindObjectOfType<DW_DropController>().Drop(item.m_Item, player.transform.position);
+                        GameObject.FindObjectOfType<DW_DropController>().Drop(item.m_Texture, player.transform.position);
 
                     timer_press = 0;
                 }
