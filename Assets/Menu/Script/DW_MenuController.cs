@@ -42,9 +42,9 @@ public class DW_MenuController : MonoBehaviour
 
     }
 
-    public void Respawn()
+    public void Restart()
     {
-        Debug.Log("Respawn");
+        SceneManager.LoadScene("ChangeMap");
     }
 
     public void GameOver()
