@@ -101,9 +101,8 @@ public class DW_Slot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(2)) 
+        if(Input.GetMouseButtonDown(1)) 
         {
-            Debug.Log("drop");
             Drop();
         }
     }

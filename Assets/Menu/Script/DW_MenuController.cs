@@ -20,7 +20,7 @@ public class DW_MenuController : MonoBehaviour
     public bool pauseIsActive = false;
     private void Update()
     {
-        if(_Luminosity != null)
+        if (_Luminosity != null)
         {
             return;
         }
@@ -33,15 +33,13 @@ public class DW_MenuController : MonoBehaviour
 
     public void GoToCharactereSelection()
     {
-        SceneManager.LoadScene("MeCScene");
-        this.transform.GetChild(0).gameObject.SetActive(false);
+        SceneManager.LoadScene("ChangeMap");
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
 
-        this.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void Respawn()

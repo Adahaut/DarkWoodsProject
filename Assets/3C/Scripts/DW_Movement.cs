@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.P))
+        if(Input.GetKey(KeyCode.E))
         {
             player.canMove = false;
             RaycastHit hit;
@@ -74,7 +74,7 @@ public class Movement : MonoBehaviour
 
         
 
-        if(Input.GetKeyUp(KeyCode.P))
+        if(Input.GetKeyUp(KeyCode.E))
         {
             if(timer_press < 3)
             {
@@ -116,8 +116,5 @@ public class Movement : MonoBehaviour
             }
         }
     }
-
-
-
 }
 
