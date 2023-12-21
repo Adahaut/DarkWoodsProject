@@ -17,17 +17,9 @@ public class DW_Slot : MonoBehaviour
         image = gameObject.transform.parent.GetComponentInChildren<Image>();
         StockReset();
     }
-
     public void RefreshSlot()
     {
-        //if(data != null && image != null)
-        //{
-        //    this.GetComponent<Image>().sprite = data.image;
-        //}
-        //else
-        //{
-        //    this.GetComponent<Image>().sprite = originalSprite;
-        //}
+        image.sprite = data.image;
     }
 
     public void Stock(DW_Item item)
@@ -49,11 +41,15 @@ public class DW_Slot : MonoBehaviour
         if (data.useAction != null)
         {
             data.useAction();
-            if (data.item == Item.Consummable)
+            if ((data.item == Item.Key || data.item == Item.Consummable))
             {
                 data.numberOfItem--;
                 Verification();
             }
+        }
+        else
+        {
+            GameObject.Find("Player").GetComponent<DW_Interactions>().Attack();
         }
     }
 
@@ -105,9 +101,8 @@ public class DW_Slot : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(2)) 
+        if(Input.GetMouseButtonDown(1)) 
         {
-            Debug.Log("drop");
             Drop();
         }
     }

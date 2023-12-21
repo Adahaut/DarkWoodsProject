@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class DW_GridMap : MonoBehaviour
 {
@@ -6,68 +10,40 @@ public class DW_GridMap : MonoBehaviour
 
     public Vector2Int origine = new(0, 0);
 
-    public GameObject path;
-    public GameObject wall;
-    public GameObject origin;
-
+    public GameObject c;
+    public GameObject e;
 
     public int[,] Grid = {
-                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },  // 1 = world border
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 0 = innaccessibility
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 5 = character
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },  // 6 = spawn
-                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1 },  // 2 = path
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1 },
-                    {1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1 },
-                    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }};
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1 },  // 1 = world border
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1 },  // 0 = innaccessibility
+                {1,1,1,1,1,1,1,1,2,2,2,1,1,1,2,2,2,1,1,1,1,1,1 },  // 2 = character
+                {1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1 },  // 6 = spawn
+                {1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,2,1,1,1,2,2,2,1 },  // 2 = path
+                {1,1,1,1,1,2,2,2,1,1,1,1,1,2,2,2,1,2,2,2,1,1,1 },  // 2 = exit
+                {1,1,2,2,2,2,1,1,1,1,1,1,1,2,1,1,1,1,1,2,2,2,1 },  // 3 = statue de paladin
+                {1,1,2,1,2,1,1,1,1,1,1,1,1,2,1,1,1,2,2,2,1,1,1 },
+                {1,1,2,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,2,2,2,1 },
+                {1,1,2,1,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,2,1,1,1 },
+                {1,1,2,1,1,1,1,1,1,1,1,1,2,1,2,2,2,1,1,2,2,2,1 },
+                {1,1,2,1,2,1,1,1,1,1,1,2,2,2,2,6,2,2,2,2,1,1,1 },
+                {1,1,2,1,2,1,1,1,1,1,1,2,1,1,2,2,2,1,1,2,2,2,1 },
+                {1,1,2,2,2,2,1,2,1,1,1,2,1,1,1,2,1,2,2,2,1,1,1 },
+                {1,1,2,1,1,2,1,2,1,1,1,2,1,1,1,2,1,1,1,2,2,2,1 },
+                {1,1,2,1,1,2,2,2,2,2,2,2,1,1,2,2,2,2,1,2,1,1,1 },
+                {1,1,2,2,2,1,1,2,1,2,1,2,1,1,2,2,2,2,1,2,1,1,1 },
+                {1,1,2,1,1,1,1,2,1,2,1,2,1,1,2,1,1,2,1,2,1,1,1 },
+                {1,1,2,2,2,1,1,1,1,1,1,2,1,1,2,1,1,2,1,2,1,1,1 },
+                {1,1,2,1,1,1,1,1,1,1,2,2,2,1,2,1,1,2,2,2,1,1,1 },
+                {1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1 },
+                {1,1,1,1,1,2,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1 },
+                {1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1 }};
 
 
-
-    private void test()
-    {
-        GameObject go;
-        for (int i = 0; i < 20; i++)
-        {
-            for (int j = 0; j <20; j++)
-            {
-                if(i == 0 && j == 0)
-                {
-                    go = Instantiate<GameObject>(origin);
-                }
-                else if (Grid[i,j]!=1)
-                {
-                     go = Instantiate<GameObject>(path);
-
-                }
-                else
-                {
-                    go = Instantiate<GameObject>(wall);
-
-                }
-
-                go.transform.position = new Vector3(-j * 10, 1, -i * 10);
-
-
-            }
-        }
-    }
 
     private void Awake()
     {
         if(Instance == null ) { Instance = this; }
-        test();
+      //  test();
     }
 
     public Vector2Int SetMyPosInGrid(int ID, Vector2Int previous_pos, Vector2Int spawnPosInWorld)
@@ -77,6 +53,36 @@ public class DW_GridMap : MonoBehaviour
         return new Vector2Int(Mathf.Abs(spawnPosInWorld.x / 10), Mathf.Abs(spawnPosInWorld.y / 10));
     }
 
+
+   /* private void test()
+    {
+        GameObject go;
+        for (int i = 0; i < 23; i++)
+        {
+            for (int j = 0; j < 23; j++)
+            {
+                if (Grid[i, j] == 0)
+                {
+                    go = Instantiate<GameObject>(c, this.transform.parent);
+                }
+                else if (Grid[i, j] == 1)
+                {
+                    go = Instantiate<GameObject>(c, this.transform.parent);
+
+                }
+                else
+                {
+                    go = Instantiate<GameObject>(e, this.transform.parent);
+
+                }
+
+                go.transform.position = new Vector3(-i * 10, 10, -j * 10);
+
+
+            }
+        }
+    }
+   */
     public void Spawn(int ID, Vector2Int spawnPosInWorld)
     {
         //if (Grid[Mathf.Abs(spawnPosInWorld.x/10), Mathf.Abs(spawnPosInWorld.y/10)] == 2) 
@@ -95,7 +101,7 @@ public class DW_GridMap : MonoBehaviour
         {
             for (int j = 0; j < Grid.Length; j++)
             {
-                if (Grid[i, j] == 5)
+                if (Grid[i, j] == 2)
                 {
                     return new Vector2Int(j, i);
 

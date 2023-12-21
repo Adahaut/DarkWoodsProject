@@ -81,12 +81,14 @@ public class DW_GM_Classes : MonoBehaviour
                 return;
             }
         }
+        gameObject.GetComponent<DW_SwitchScene>().OnFadeComplete();
     }
 
     public void ApplySkill(DW_Class classRef)
     {
         if(skill_to_use != null && initiator_skill != null)
         {
+            Debug.Log("apply skill to -> " + classRef.className);
             DW_Class foundClass = classRef;
             foreach(DW_Class c in DW_ClassController.Instance.classes)
             {
@@ -101,7 +103,7 @@ public class DW_GM_Classes : MonoBehaviour
                     initiator_skill.classRef.specialSourceAmount -= skill_to_use.percentCost;
                     initiator_skill.UpdateSpecialBar();
                     class_holder_ref.UpdateHealthBar();
-                    classRef.classSkill.isOnCooldown = true;
+                    DW_ClassController.Instance.currentClass.classSkill.isOnCooldown = true;
                     break;
                 }
             }

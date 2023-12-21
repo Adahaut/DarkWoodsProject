@@ -489,8 +489,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f32a98a32b8c8b44bb45266741550f52, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -555,14 +555,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e120a54d398fc4aa468f98cc16fcae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classRef: {fileID: 0}
-  classSkill: {fileID: 0}
-  classPassif: {fileID: 0}
   classIcon: {fileID: 4164499504272209849}
   skillIcon: {fileID: 5617222248244546506}
   className: {fileID: 3139331212369251647}
   healthBar: {fileID: 6538782030942730306}
   specialBar: {fileID: 3026247413110188806}
+  slotLeft: {fileID: 0}
+  slotRight: {fileID: 0}
+  classRef: {fileID: 0}
+  class_controller: {fileID: 0}
+  all_skills: []
 --- !u!1 &5851297568348331476
 GameObject:
   m_ObjectHideFlags: 0

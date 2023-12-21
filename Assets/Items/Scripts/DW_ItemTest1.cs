@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class DW_ItemTest1 : DW_Item
 {
-    public override void Use()
+    public override bool Use()
     {
         Debug.Log("Test1");
+        return true;
     }
 
 }

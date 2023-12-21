@@ -1,5 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using static Node_script;
+using static DW_A_Star;
+using UnityEngine.TextCore.Text;
 
 public class DW_AiMovement : MonoBehaviour
 {
@@ -7,33 +12,22 @@ public class DW_AiMovement : MonoBehaviour
     public DW_Character player;
 
 
-    [SerializeField] private List<Vector2> Path = new List<Vector2>();
+    public List<Vector2> Path = new List<Vector2>();
 
 
     private void Update()
     {
         Vector2 pos = character.GetPos();
-        Debug.Log("My Position On the Grid ====  " + pos);
         if (Path.Count > 0)
         {
             Move();
         }
-
-        Debug.Log(/*character.GetPos() +*/ " /// " + player.GetPos());
-        //if(character.GetPos() != player.GetPos())
-        //{
-        //    return pathFinder.A(character.GetPos(), player.GetPos(), out Path);
-        //}
-            
-        //return NodeState.FAILURE;
     }
 
     private void Move()
     {
         Vector2 pos = character.GetPos();
         string dir = GetDirection(pos);
-
-        Debug.Log("My Position On the Grid ====  " + pos);
 
         if (dir == character.Rotation)
         {
@@ -45,8 +39,6 @@ public class DW_AiMovement : MonoBehaviour
 
     private void Turn(string direction)
     {
-        // index 0 = Up / 1 = Down/ 2 = Left / 3 = Right
-        // int 0 = 0° of rotation for be in the good direction / 1 = 90° / 2 = -90° / 3 = 180° 
         int[,] difference_between_direction =
         {
             {0, 3, 1, 2},

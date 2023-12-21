@@ -7,7 +7,7 @@ public class DW_ParticleSystemCollision : MonoBehaviour
     public DW_Class ownerClass;
     private void OnParticleCollision(GameObject other)
     {
-        if (other.layer == 31)
+        if (other.layer == 3)
         {
             // modifier le layer avec le futur layer officiel
             // retirer ici la vie de l'ennemi.
@@ -16,6 +16,10 @@ public class DW_ParticleSystemCollision : MonoBehaviour
             baseDmg /= 50;
 
             print(baseDmg);
+        }
+        else
+        {
+            Debug.Log(other.layer);
         }
     }
 }

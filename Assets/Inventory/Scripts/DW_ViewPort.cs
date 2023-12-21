@@ -19,6 +19,7 @@ public class DW_ViewPort : MonoBehaviour
         if(other.gameObject.CompareTag("UiItem") && !objectInViewPort.Contains(other.gameObject)) 
         {
             objectInViewPort.Add(other.gameObject);
+            Debug.Log(other.gameObject);
         }
     }
 

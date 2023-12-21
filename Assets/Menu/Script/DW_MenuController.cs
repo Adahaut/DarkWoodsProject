@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Device;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +16,16 @@ public class DW_MenuController : MonoBehaviour
     public Slider LuminositySlider;
     public Toggle FullScreenToggle;
     public Image _Luminosity;
+
+    public bool pauseIsActive = false;
+    private void Update()
+    {
+        if (_Luminosity != null)
+        {
+            return;
+        }
+        _Luminosity = GameObject.Find("luminosity").GetComponent<Image>();
+    }
     public void Settings()
     {
         _Settings.SetActive(true);
@@ -22,12 +33,13 @@ public class DW_MenuController : MonoBehaviour
 
     public void GoToCharactereSelection()
     {
-        SceneManager.LoadScene("MeCScene");
+        SceneManager.LoadScene("ChangeMap");
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+
     }
 
     public void Respawn()
@@ -53,11 +65,14 @@ public class DW_MenuController : MonoBehaviour
     public void Pause()
     {
         _Pause.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void ExitPause()
     {
         _Pause.SetActive(false);
+        Time.timeScale = 1.0f;
+        pauseIsActive = false;
     }
 
     public void Volume()

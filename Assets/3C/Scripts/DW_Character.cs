@@ -14,8 +14,8 @@ public class DW_Character : MonoBehaviour
     public int targetRotation;
     public Transform playerCamera;
 
-    private int height = 20;
-    private int width = 20;
+    private int height = 23;
+    private int width = 23;
 
     //private int[,] _grid; 
 
@@ -56,47 +56,18 @@ public class DW_Character : MonoBehaviour
     private void Start()
     {
         _transform = gameObject.transform;
-        //_grid = DW_GridMap.Instance.Grid;
         SetFirst();
         GiveDirectionByRotation();
         initial_pos = GetPos();
 
     }
-    //private void ConvertList(int[,] _grid)
-    //{
-    //    for (int i = 0; i < 20; i++)
-    //    {
-    //        _grid.Add(new List<int>());
-    //        for (int j = 0; j < 20; j++)
-    //        {
-    //            _grid[i].Add(_grid[i, j]);
-    //        }
-    //    }
-    //}
 
 
     private void SetFirst()
     {
-        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
         CharaX = Mathf.Abs((int)gameObject.transform.position.x / 10);
         CharaY = Mathf.Abs((int)gameObject.transform.position.z/10);
     }
-
-    //private Vector2Int GetCharacterOnGrid()
-    //{
-    //    for (int i = 0; i < _grid.Length; i++)
-    //    {
-    //        for (int j = 0; j < _grid.Length; j++)
-    //        {
-    //            if (_grid[i,j] == 5)
-    //            {
-    //                return new Vector2Int(j, i);
-
-    //            }
-    //        }
-    //    }
-    //    return  Vector2Int.zero;
-    //}
 
     private Vector2Int GetCharacterPos()
     {
@@ -110,9 +81,10 @@ public class DW_Character : MonoBehaviour
         float time = 0f;
         start_pos = _transform.position;
         end_pos = _transform.position + sizeCells;
+        DW_GridMap.Instance.Spawn(ID, new Vector2Int((int)end_pos.z, (int)end_pos.x));
 
         // If gameObject is the player, play cam anim
-        if(playerCamera != null) 
+        if (playerCamera != null) 
             playerCamera.GetComponent<Animation>().Play();
 
 
@@ -123,8 +95,19 @@ public class DW_Character : MonoBehaviour
 
             yield return null;
         }
+        _transform.position = new Vector3((int)end_pos.x, end_pos.y, (int)end_pos.z);
+
+        if(gameObject.CompareTag("Player"))
+            DW_ObjectDetection.Instance.SetPlayerPos(new(GetPos().y, GetPos().x));
         yield return new WaitForSeconds(waitCooldown);
         canMove = true;    
+    }
+
+    public void PlayerTP(Vector3 pos)
+    {
+        StopAllCoroutines();
+        canMove = true;
+        _transform.position = pos;
     }
 
     public void StartCharacterMove(float total_time)
@@ -150,7 +133,6 @@ public class DW_Character : MonoBehaviour
         }
         else
             targetRotation = Mathf.RoundToInt(direction ? initialRotation + 90f : initialRotation - 90f);
-        Debug.Log(targetRotation);
 
         GiveDirectionByRotation();
 
@@ -174,7 +156,6 @@ public class DW_Character : MonoBehaviour
     {
         if (targetRotation == 360 || targetRotation == 0)
         {
-            Debug.Log("UP");
             sizeCells = new Vector3(0, 0, 10);
             Rotation = "Up";
 
@@ -202,28 +183,6 @@ public class DW_Character : MonoBehaviour
 
     private void GridMove()
     {
-        //switch (Rotation)
-        //{
-
-        //    case "Left":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX - 1, CharaY));
-        //            CharaX -= 1;
-        //        break;
-        //    case "Right":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX + 1, CharaY));
-        //        CharaX += 1;
-        //        break;
-        //    case "Up":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX, CharaY-1));
-        //        CharaY -= 1;
-        //        break;
-        //    case "Down":
-        //        DW_GridMap.Instance.SetMyPosInGrid(ID, GetCharacterPos(), new Vector2Int(CharaX, CharaY+1));
-        //        CharaY += 1;
-        //        break;
-        //    default:
-        //        break;
-        //}
        Vector2Int newPos =  DW_GridMap.Instance.SetMyPosInGrid(ID, new Vector2Int(CharaY, CharaX), new Vector2Int((int)gameObject.transform.position.z, (int)gameObject.transform.position.x));
         CharaX = newPos.y;
         CharaY = newPos.x;
@@ -244,7 +203,6 @@ public class DW_Character : MonoBehaviour
             case "Right":
                 if (DW_GridMap.Instance.Grid[CharaY,CharaX - 1] == 2)
                 {
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX - 1]);
                     return true;
                 }
                 else
@@ -254,8 +212,6 @@ public class DW_Character : MonoBehaviour
             case "Left":
                 if (DW_GridMap.Instance.Grid[CharaY,CharaX + 1] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY,CharaX + 1]);
                     return true;
                 }
                 else
@@ -265,8 +221,6 @@ public class DW_Character : MonoBehaviour
             case "Up":
                 if (DW_GridMap.Instance.Grid[CharaY - 1,CharaX] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY - 1,CharaX]);
                     return true;
                 }
                 else
@@ -276,9 +230,6 @@ public class DW_Character : MonoBehaviour
             case "Down":
                 if (DW_GridMap.Instance.Grid[CharaY + 1,CharaX] == 2)
                 {
-
-                    Debug.Log(DW_GridMap.Instance.Grid[CharaY + 1,CharaX]);
-                    Debug.Log("Down");
                     return true;
                 }
                 else
@@ -296,9 +247,6 @@ public class DW_Character : MonoBehaviour
     public List<Vector2> GetPathAround(Vector2 position)
     {
         neighbors.Clear();
-
-        Debug.Log("Initial Position ::::: " +  position + " ID :::: " + DW_GridMap.Instance.Grid[(int)position.y, (int)position.x]);
-        //List<Vector2> neighbors = new List<Vector2>();
 
         int X = (int)position.x;
         int Y = (int)position.y;
