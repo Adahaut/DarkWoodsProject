@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6326304689207536935
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_title: Weapon
   m_description: Axe that inflicts heavy damage
   isWeapon: 1
-  pourcentDamage: 45
+  pourcentDamage: 15
 --- !u!1001 &2014325187281835666
 PrefabInstance:
   m_ObjectHideFlags: 0
